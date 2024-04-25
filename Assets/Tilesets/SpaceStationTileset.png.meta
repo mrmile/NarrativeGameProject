@@ -1113,27 +1113,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceStationTileset_48
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 992
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9af182f28da13c44885951605fdb007f
-      internalID: 1122594456
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SpaceStationTileset_49
       rect:
         serializedVersion: 2
@@ -2751,111 +2730,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceStationTileset_143
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 768
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5deb53ec54281d848af77317330e228f
-      internalID: -336508785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_144
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 768
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f9f42b57fb776e49acece6b7ea08d39
-      internalID: -2033354944
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_145
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 768
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71959409972f7ac49a4b681dcc5b0a6c
-      internalID: 1563016811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_146
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 768
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3ca3048e692f5f4d8b5d984bd1ba104
-      internalID: 316593488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_147
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 768
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95c911ef3ad9a2a40acc790826c48134
-      internalID: -1267628268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SpaceStationTileset_148
       rect:
         serializedVersion: 2
@@ -3092,8 +2966,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 736
-        width: 32
-        height: 32
+        width: 160
+        height: 64
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3103,90 +2977,6 @@ TextureImporter:
       bones: []
       spriteID: b09f707b65a5f45478fb3617c7c8fef8
       internalID: 238232294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_163
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 736
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc73a6ebf16a48c49a6e8ab67ade71f6
-      internalID: 671650764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_164
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 736
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b591a8182aa50743a019f43ade82834
-      internalID: -1107205271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_165
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 736
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9864d0926229de04eab35362f368715e
-      internalID: -1003342854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpaceStationTileset_166
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 736
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33ab3b8746abedb448839e62035a316e
-      internalID: 1515772167
       vertices: []
       indices: 
       edges: []
@@ -7035,27 +6825,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceStationTileset_54
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 1024
-        width: 32
-        height: 32
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b38e8c80cb873f5458a8536a4562fe19
-      internalID: -359672686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: SpaceStationTileset_55
       rect:
         serializedVersion: 2
@@ -7104,7 +6873,7 @@ TextureImporter:
         x: 160
         y: 960
         width: 32
-        height: 32
+        height: 96
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -7534,9 +7303,9 @@ TextureImporter:
       SpaceStationTileset_45: 1044964465
       SpaceStationTileset_392: 949903195
       SpaceStationTileset_348: -1476970912
-      SpaceStationTileset_436: -1714100835
-      SpaceStationTileset_443: -142783227
       SpaceStationTileset_242: 2014624190
+      SpaceStationTileset_443: -142783227
+      SpaceStationTileset_436: -1714100835
       SpaceStationTileset_287: -622879694
       SpaceStationTileset_178: -1712261134
       SpaceStationTileset_46: -1556516730
