@@ -7,39 +7,35 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] float speed;
 
-
+    Rigidbody2D rb;
     Player_Animations player_animations;
     WalkDirection walkDirection;
     void Start()
     {
         player_animations = GetComponent<Player_Animations>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    
-    void Update()
+    private void Update()
     {
-         walkDirection = WalkDirection.DEFAULT;
-        if(Input.GetKey(KeyCode.W))
+        walkDirection = WalkDirection.DEFAULT;
+        if (Input.GetKey(KeyCode.W))
         {
-            Move(Vector2.up);
             walkDirection = WalkDirection.UP;
             player_animations.WalkAnimation(walkDirection);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            Move(-Vector2.right);
             walkDirection = WalkDirection.LEFT;
             player_animations.WalkAnimation(walkDirection);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            Move(-Vector2.up);
             walkDirection = WalkDirection.DOWN;
             player_animations.WalkAnimation(walkDirection);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            Move(Vector2.right);
             walkDirection = WalkDirection.RIGHT;
             player_animations.WalkAnimation(walkDirection);
         }
@@ -48,10 +44,34 @@ public class Player_Movement : MonoBehaviour
             player_animations.IdleAnimation();
         }
     }
+    void FixedUpdate()
+    {
+        if(Input.GetKey(KeyCode.W))
+        {
+            Move(Vector2.up);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            Move(-Vector2.right);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            Move(-Vector2.up);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            Move(Vector2.right);
+        }
+        else
+        {
+            Move(Vector2.zero);
+        }
+    }
 
     void Move(Vector2 direction)
     {
         
-        transform.position += new Vector3(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime);
+        //transform.position += new Vector3(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime);
+        rb.velocity = direction.normalized * speed;
     }
 }
