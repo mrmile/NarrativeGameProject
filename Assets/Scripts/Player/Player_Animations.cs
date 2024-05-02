@@ -12,27 +12,14 @@ public enum WalkDirection
     DEFAULT
 }
 public class Player_Animations : MonoBehaviour
-{
-    [SerializeField] Animation playerAnimation;
+{   
     [SerializeField] Animator playerAnimator;
 
-
-    [Header("Idle Animation")]
-    [SerializeField] AnimationClip idleAnimation;
-
-    [Header("Walking Animations")]
-    [SerializeField] AnimationClip walkUpAnimation;
-    [SerializeField] AnimationClip walkLeftAnimation;
-    [SerializeField] AnimationClip walkDownAnimation;
-    [SerializeField] AnimationClip walkRightAnimation;
-
-    WalkDirection lastWalkDirection;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -40,67 +27,71 @@ public class Player_Animations : MonoBehaviour
 
     public void WalkAnimation(WalkDirection direction)
     {
+        
         switch(direction)
-        {
-            case WalkDirection.UP: playerAnimation.clip = walkUpAnimation;
-                break;
-            case WalkDirection.LEFT:
-                playerAnimation.clip = walkLeftAnimation;
-                break;
-            case WalkDirection.DOWN:
-                playerAnimator.SetTrigger("Walk_Down");
-                playerAnimator.SetBool("Idle", false);
-                lastWalkDirection = WalkDirection.DOWN;
-                //playerAnimation.clip = walkDownAnimation;
-                break;
-            case WalkDirection.RIGHT:
+        {            
+            case WalkDirection.UP:
                 {
-                    
-                    lastWalkDirection = WalkDirection.RIGHT;
+                    if (!playerAnimator.GetBool("Walk_Up"))
+                    {
+                        ClearAnimatorVariables();
+                        playerAnimator.SetBool("Walk_Up", true);
+                    }
+
+                    break;
+                }                
+            case WalkDirection.LEFT:
+                {
+                    if (!playerAnimator.GetBool("Walk_Left"))
+                    {
+                        ClearAnimatorVariables();
+                        playerAnimator.SetBool("Walk_Left", true);
+                    }
+
                     break;
                 }
+               
+            case WalkDirection.DOWN:
+                {
+                    if (!playerAnimator.GetBool("Walk_Down"))
+                    {
+                        ClearAnimatorVariables();
+                        playerAnimator.SetBool("Walk_Down", true);
+                    }
 
+                  break;
+                }
+                
+            case WalkDirection.RIGHT:
+                {
+                    if (!playerAnimator.GetBool("Walk_Right"))
+                    {
+                        ClearAnimatorVariables();
+                        playerAnimator.SetBool("Walk_Right", true);
+                    }
+                                      
+                    break;
+                }
 
             default:
                 {
-
                     break;
-                }
-                 
-                
-        }
-       
-        playerAnimation.Play();
+                }                           
+        }              
     }
     public void IdleAnimation()
     {
-        playerAnimator.SetTrigger("Idle_Trigger");
-        switch(lastWalkDirection)
-        {
-            case WalkDirection.UP:
-            {
-                break;
-            }
-            case WalkDirection.LEFT:
-                {
-                    break;
-                }
-            case WalkDirection.DOWN:
-                {
-                    
-                    
-                    playerAnimator.SetBool("Idle", true);
-                    
-                    break;
-                }
-            case WalkDirection.RIGHT:
-                {
-                    break;
-                }
-            default:
-                {
-                    break;
-                }
-        }
+        ClearAnimatorVariables();
+        playerAnimator.SetBool("Idle", true);      
+    }
+
+    void ClearAnimatorVariables()
+    {
+        playerAnimator.SetBool("Idle", false);
+
+        playerAnimator.SetBool("Walk_Up", false);
+        playerAnimator.SetBool("Walk_Left", false);
+        playerAnimator.SetBool("Walk_Down", false);
+        playerAnimator.SetBool("Walk_Right", false);
     }
 }
