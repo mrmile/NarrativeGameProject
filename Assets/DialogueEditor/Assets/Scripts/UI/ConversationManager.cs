@@ -149,11 +149,19 @@ namespace DialogueEditor
             m_currentSpeech.Text = m_currentSpeech.Text.Replace(text, newText);
         }
 
+        public void ReplaceIcon(Sprite icon)
+        {
+            m_currentSpeech.Icon = icon;
+        }
+
         public void OverrideText(string text)
         {
             m_currentSpeech.Text = text;
         }
-
+        public void OverrideName(string text)
+        {
+            m_currentSpeech.Name = text;
+        }
 
 
 
