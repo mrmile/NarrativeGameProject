@@ -6,21 +6,41 @@ using DialogueEditor;
 public class Item_Scene : MonoBehaviour
 {
     //to add items go to the script Inventory.cs -> enum ItemType
-    public Inventory.Item item;
-    [SerializeField] NPCConversation pickUpDialogue;
+    public Inventory.ItemType itemType;
+    Inventory.Item item;
+    NPCConversation pickUpDialogue;
+
+    Inventory inventory;
+
+    private void Awake()
+    {
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        pickUpDialogue = GameObject.Find("ItemPickUpDialogue").GetComponent<NPCConversation>();
+        
+    }
 
     public void Start()
     {
-        //set sprite here
-        
+        if (inventory.itemsDictionary.ContainsKey(itemType))
+            item = inventory.itemsDictionary[itemType];
 
-        //
+        //set sprite here
+        GetComponent<SpriteRenderer>().sprite = item.icon;
     }
     public Inventory.Item Get()
     {
         ConversationManager.Instance.StartConversation(pickUpDialogue);
-        //ConversationManager.Instance.OverrideText(item.pickUpText);
-        ConversationManager.Instance.ReplaceText("itemName", item.name);
+        
+
+        if (item.pickUpText != "")
+            ConversationManager.Instance.OverrideText(item.pickUpText);
+        else
+            ConversationManager.Instance.ReplaceText("itemName", item.name);
+        
+
+        ConversationManager.Instance.ReplaceIcon(item.icon);
+
+
         Destroy(gameObject);
         return item;
     }
