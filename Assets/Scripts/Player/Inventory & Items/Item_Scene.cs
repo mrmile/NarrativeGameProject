@@ -19,6 +19,8 @@ public class Item_Scene : MonoBehaviour
     public Inventory.Item Get()
     {
         ConversationManager.Instance.StartConversation(pickUpDialogue);
+        //ConversationManager.Instance.OverrideText(item.pickUpText);
+        ConversationManager.Instance.ReplaceText("itemName", item.name);
         Destroy(gameObject);
         return item;
     }

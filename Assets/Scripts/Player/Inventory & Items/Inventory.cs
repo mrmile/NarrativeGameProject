@@ -14,7 +14,8 @@ public static class Inventory
     public class Item
     {
         public ItemType type;
+        public string name;
         public string description;
-        public string dialogueText;
+        public string pickUpText;
     }
 }

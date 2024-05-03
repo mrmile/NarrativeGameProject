@@ -143,6 +143,20 @@ namespace DialogueEditor
         // Public functions
         //--------------------------------------
 
+        public void ReplaceText(string text, string newText)
+        {
+            //if (m_currentSpeech.Text.Contains(text)) Debug.Log("can substitute");
+            m_currentSpeech.Text = m_currentSpeech.Text.Replace(text, newText);
+        }
+
+        public void OverrideText(string text)
+        {
+            m_currentSpeech.Text = text;
+        }
+
+
+
+
         public void StartConversation(NPCConversation conversation)
         {
             m_conversation = conversation.Deserialize();
