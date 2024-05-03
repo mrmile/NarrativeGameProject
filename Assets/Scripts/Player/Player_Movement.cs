@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-
+    [SerializeField] bool canMove;
     [SerializeField] float speed;
 
     Rigidbody2D rb;
@@ -18,6 +18,7 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove) return;
         walkDirection = WalkDirection.DEFAULT;
         if (Input.GetKey(KeyCode.W))
         {
@@ -46,6 +47,7 @@ public class Player_Movement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (!canMove) return;
         if(Input.GetKey(KeyCode.W))
         {
             Move(Vector2.up);
@@ -73,5 +75,10 @@ public class Player_Movement : MonoBehaviour
         
         //transform.position += new Vector3(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime);
         rb.velocity = direction.normalized * speed;
+    }
+
+    public void CanMove(bool can)
+    {
+        canMove = can;
     }
 }
