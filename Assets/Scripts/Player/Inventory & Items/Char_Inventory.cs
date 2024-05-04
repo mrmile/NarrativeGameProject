@@ -22,20 +22,24 @@ public class Char_Inventory : MonoBehaviour
     }
 
     private void Update()
+{
+    if (Input.GetKeyDown(KeyCode.E))
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        foreach (var go in collidingItems)
         {
-            foreach(var go in collidingItems)
-            {
-                Item_Scene item = go.GetComponent<Item_Scene>();
+            Item_Scene itemScene = go.GetComponent<Item_Scene>();
 
-                if (item != null)
-                {
-                    items.Add(item.Get());
-                    break;
-                }
+            if (itemScene != null)
+            {
+                Inventory.Item item = itemScene.Get();
+                items.Add(item);
+                InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+                inventoryUI.AddItemToUI(item.icon);
+                break;
             }
         }
     }
+}
+
 
 }
