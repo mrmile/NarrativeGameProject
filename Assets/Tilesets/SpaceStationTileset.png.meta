@@ -10226,6 +10226,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SpaceStationTileset_482
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 832
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f444a3f62ed9d2c4f9d2499b6c906f7e
+      internalID: -2046214516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -10302,6 +10323,7 @@ TextureImporter:
       SpaceStationTileset_62: 1766597666
       SpaceStationTileset_88: 225300164
       SpaceStationTileset_391: 427586172
+      SpaceStationTileset_482: 2086563744
       SpaceStationTileset_156: -1849840922
       SpaceStationTileset_313: -845041177
       SpaceStationTileset_73: -242121894
