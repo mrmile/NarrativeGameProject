@@ -14,6 +14,7 @@ public class InventoryUI : MonoBehaviour
             {
                 slot.sprite = itemIcon;
                 slot.enabled = true;
+                slot.preserveAspect = true;
                 break;
             }
         }
