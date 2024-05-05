@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tribunal.unity
     guid: d36b5681d9b508742ab0acb9991d279e
+  - enabled: 1
+    path: Assets/Scenes/Finales/Final1.unity
+    guid: 92a4a6417c1473c458f4b5b4bfc0ed15
+  - enabled: 1
+    path: Assets/Scenes/Finales/Final2.unity
+    guid: 53fb39f7bc844224099e05439c5efa5b
+  - enabled: 1
+    path: Assets/Scenes/Finales/Final3.unity
+    guid: ed23f43c68800ba47880095d658df73d
   m_configObjects: {}
