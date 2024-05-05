@@ -11,14 +11,16 @@ public class Time_Manager : MonoBehaviour
     // 1 day in-game = 288TU 
 
     const float secondsPerTimeUnit = 1.0f;
+    const int timeUnitsPerGameMinute = 5;
 
     float secondsSinceLastStep;
-    
+    int timeUnitsSinceLastStep;
     
     int currentTimeUnits;
     int gameMinute;
     int gameHour;
 
+    bool isTimePaused;
     void Start()
     {
         
@@ -27,7 +29,7 @@ public class Time_Manager : MonoBehaviour
     
     void FixedUpdate()
     {
-        UpdateTimeValues();
+        if(!isTimePaused) UpdateTimeValues();
         
     }
 
@@ -37,10 +39,12 @@ public class Time_Manager : MonoBehaviour
         if(secondsSinceLastStep >= secondsPerTimeUnit)
         {
             currentTimeUnits++;
-            secondsSinceLastStep = 0;
-        }
+            gameMinute += timeUnitsPerGameMinute;
 
-        gameMinute = currentTimeUnits * 5;
+            secondsSinceLastStep = 0;            
+        }
+        
+       
 
         if(gameMinute >= 60)
         {
@@ -55,9 +59,9 @@ public class Time_Manager : MonoBehaviour
        
     }
 
-    void EndDay()
+    public void EndDay()
     {
-
+        ResetGameTime();
     }
 
    public int GetCurrentTimeUnits()
@@ -89,5 +93,10 @@ public class Time_Manager : MonoBehaviour
         currentTimeUnits = 0;
         gameMinute = 0;
         gameHour = 0;
+    }
+
+    public void PauseGameTime(bool isTimePaused)
+    {
+        this.isTimePaused = isTimePaused;
     }
 }
