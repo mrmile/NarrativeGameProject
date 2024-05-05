@@ -27,7 +27,7 @@ public class LightOnOffBehaviour : MonoBehaviour
                 lights[i].SetActive(true);
             }
         }
-        else if (lightsOff == true && intensity > 0)
+        if (lightsOff == true && intensity > 0)
         {
             intensity = 0;
 

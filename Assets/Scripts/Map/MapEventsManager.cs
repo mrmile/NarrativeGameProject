@@ -14,6 +14,10 @@ public class MapEventsManager : MonoBehaviour
 {
     bool lightsOffEventActive = false;
 
+    public bool lightSwitchActive_1 = true;
+    public bool lightSwitchActive_2 = true;
+    public bool lightSwitchActive_3 = true;
+
     LightOnOffBehaviour lightOnOffBehaviour_;
     LightSwitchBehavior lightSwitchBehavior_;
 
@@ -36,12 +40,13 @@ public class MapEventsManager : MonoBehaviour
 
 
 
-        if (lightSwitchBehavior_.lightSwitchActive_1 == true &&
-        lightSwitchBehavior_.lightSwitchActive_2 == true &&
-        lightSwitchBehavior_.lightSwitchActive_3 == true &&
+        if (lightSwitchActive_1 == true &&
+        lightSwitchActive_2 == true &&
+        lightSwitchActive_3 == true &&
         lightsOffEventActive == true)
         {
             LightsBackOn();
+            Debug.Log("LIGHTS BACK ON");
         }
     }
 
@@ -49,9 +54,9 @@ public class MapEventsManager : MonoBehaviour
     {
         //todo: play sound of lights turning off
 
-        lightSwitchBehavior_.lightSwitchActive_1 = false;
-        lightSwitchBehavior_.lightSwitchActive_2 = false;
-        lightSwitchBehavior_.lightSwitchActive_3 = false;
+        lightSwitchActive_1 = false;
+        lightSwitchActive_2 = false;
+        lightSwitchActive_3 = false;
         lightOnOffBehaviour_.lightsOff = true;
 
         lightsOffEventActive = true;

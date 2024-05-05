@@ -6,14 +6,13 @@ public class LightSwitchBehavior : MonoBehaviour
 {
     public int lightSwitchID = 0; //0 = none, 1 = first, 2 = second, 3 = third, 4+ = not assigned
 
-    public bool lightSwitchActive_1 = true;
-    public bool lightSwitchActive_2 = true;
-    public bool lightSwitchActive_3 = true;
+    MapEventsManager mapEventsManager_;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mapEventsManager_ = FindObjectOfType<MapEventsManager>();
+
     }
 
     // Update is called once per frame
@@ -22,33 +21,34 @@ public class LightSwitchBehavior : MonoBehaviour
         
     }
 
-    void OnTriggerStay(Collider trigger)
+    void OnTriggerStay2D(Collider2D trigger)
     {
         if (trigger.gameObject.CompareTag("Player"))
         {
-            Debug.Log("SWITCH colliding");
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
-                if(lightSwitchID == 1 && lightSwitchActive_1 == false)
+                //Debug.Log("SWITCH colliding press");
+
+                if (lightSwitchID == 1 && mapEventsManager_.lightSwitchActive_1 == false)
                 {
                     //todo: play switch on sound
 
-                    lightSwitchActive_1 = true;
+                    mapEventsManager_.lightSwitchActive_1 = true;
                     Debug.Log("SWITCH 1 ON");
                 }
-                else if (lightSwitchID == 2 && lightSwitchActive_2 == false)
+                if (lightSwitchID == 2 && mapEventsManager_.lightSwitchActive_2 == false)
                 {
                     //todo: play switch on sound
 
-                    lightSwitchActive_2 = true;
-                    Debug.Log("SWITCH 1 ON");
+                    mapEventsManager_.lightSwitchActive_2 = true;
+                    Debug.Log("SWITCH 2 ON");
                 }
-                else if (lightSwitchID == 3 && lightSwitchActive_3 == false)
+                if (lightSwitchID == 3 && mapEventsManager_.lightSwitchActive_3 == false)
                 {
                     //todo: play switch on sound
 
-                    lightSwitchActive_3 = true;
-                    Debug.Log("SWITCH 1 ON");
+                    mapEventsManager_.lightSwitchActive_3 = true;
+                    Debug.Log("SWITCH 3 ON");
                 }
             }
 
