@@ -6,7 +6,7 @@ public class MenuController: MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             menu.SetActive(!menu.activeSelf);
         }
