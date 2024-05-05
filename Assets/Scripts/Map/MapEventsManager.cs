@@ -13,10 +13,13 @@ public enum EventID
 public class MapEventsManager : MonoBehaviour
 {
     bool lightsOffEventActive = false;
-
     public bool lightSwitchActive_1 = true;
     public bool lightSwitchActive_2 = true;
     public bool lightSwitchActive_3 = true;
+
+    public int doorsShutEventPhase = 0;
+    public bool shutDoorGroup = false;
+    public float doorsShutEventDuration = 5;
 
     LightOnOffBehaviour lightOnOffBehaviour_;
     LightSwitchBehavior lightSwitchBehavior_;
@@ -32,10 +35,15 @@ public class MapEventsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
+        //{
+        //    LightsOffEvent();
+        //    Debug.Log("LIGHTS OFF EVENT");
+        //}
+
         if (Input.GetKeyDown(KeyCode.T)) //for testing events only
         {
-            LightsOffEvent();
-            Debug.Log("LIGHTS OFF EVENT");
+            DoorsShutEvent();
         }
 
 
@@ -69,5 +77,14 @@ public class MapEventsManager : MonoBehaviour
         lightOnOffBehaviour_.lightsOff = false;
 
         lightsOffEventActive = false;
+    }
+
+    void DoorsShutEvent()
+    {
+        shutDoorGroup = true;
+        doorsShutEventPhase = 1;
+        Debug.Log("DOORS SHUT EVENT");
+
+        //todo: play sound of doors shutting down
     }
 }
