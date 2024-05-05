@@ -21,15 +21,19 @@ public class MapEventsManager : MonoBehaviour
     public bool shutDoorGroup = false;
     public float doorsShutEventDuration = 5;
 
+    bool airFailEventActive = false;
+    public bool airSwitchActive_1 = true;
+
     LightOnOffBehaviour lightOnOffBehaviour_;
-    LightSwitchBehavior lightSwitchBehavior_;
+
+    AirFailBehaviour airFailBehaviour_;
 
     // Start is called before the first frame update
     void Start()
     {
         lightOnOffBehaviour_ = FindObjectOfType<LightOnOffBehaviour>();
-        lightSwitchBehavior_ = FindObjectOfType<LightSwitchBehavior>();
-        
+        airFailBehaviour_ = FindObjectOfType<AirFailBehaviour>();
+
     }
 
     // Update is called once per frame
@@ -41,9 +45,15 @@ public class MapEventsManager : MonoBehaviour
         //    Debug.Log("LIGHTS OFF EVENT");
         //}
 
+        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
+        //{
+        //    DoorsShutEvent();
+        //}
+
         if (Input.GetKeyDown(KeyCode.T)) //for testing events only
         {
-            DoorsShutEvent();
+            AirFailEvent();
+            Debug.Log("AIR FAIL EVENT");
         }
 
 
@@ -54,7 +64,14 @@ public class MapEventsManager : MonoBehaviour
         lightsOffEventActive == true)
         {
             LightsBackOn();
-            Debug.Log("LIGHTS BACK ON");
+            Debug.Log("AIR BACK ON");
+        }
+
+        if (airSwitchActive_1 == true &&
+        airFailEventActive == true)
+        {
+            AirBackOn();
+            Debug.Log("AIR BACK ON");
         }
     }
 
@@ -86,5 +103,22 @@ public class MapEventsManager : MonoBehaviour
         Debug.Log("DOORS SHUT EVENT");
 
         //todo: play sound of doors shutting down
+    }
+
+    void AirFailEvent()
+    {
+        airSwitchActive_1 = false;
+        airFailBehaviour_.airOff = true;
+
+        airFailEventActive = true;
+    }
+
+    void AirBackOn()
+    {
+        //todo: play sound of lights turning on
+
+        airFailBehaviour_.airOff = false;
+
+        airFailEventActive = false;
     }
 }
