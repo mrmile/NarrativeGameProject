@@ -5,16 +5,20 @@ using UnityEngine;
 public class NPC_Movement : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float minDistanceToNode;
     [SerializeField] bool isMoving;
 
+    [SerializeField] GridManager manager;
 
-    Pathfinding2D pathfinding;
     [SerializeField] Transform sourceDestination;
-    [SerializeField]  Transform targetDestination;
+    [SerializeField] Transform targetDestination;
+
+    List<Vector3> path = new List<Vector3>();
+    bool destinationReached;
     Vector3 nextStep;
     void Start()
     {
-        pathfinding = GetComponent<Pathfinding2D>();
+       
         
     }
 
@@ -23,10 +27,36 @@ public class NPC_Movement : MonoBehaviour
     {
         if(isMoving)
         {
-            GetComponent<Pathfinding2D>().FindPath(sourceDestination.position, targetDestination.position);
-            //Debug.Log(GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition);
-            //nextStep = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition;
-            //transform.position += nextStep * speed * Time.deltaTime;
+            path = manager.CreatePath(transform.position, targetDestination.position);
+            Vector3 direction;
+            int index = path.Count - 1;
+            while (CheckDistanceToNextNode(index))
+            {
+                index--;
+            }
+            if (!destinationReached)
+            {
+                direction = (path[index] - transform.position).normalized;
+                Walk(direction);
+            }
+
         }
+    }
+
+    void Walk(Vector3 dir)
+    {
+        transform.position += dir * speed * Time.deltaTime;
+        Debug.Log(dir);
+    }
+    bool CheckDistanceToNextNode(int k)
+    {
+        if (k <= 0)
+        {
+            destinationReached = true;
+            return false;
+        }
+        if (Vector2.Distance(path[k], transform.position) < minDistanceToNode) return true;
+        else return false;
+        
     }
 }
