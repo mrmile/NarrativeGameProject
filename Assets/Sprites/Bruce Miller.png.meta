@@ -115,7 +115,574 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bruce Miller_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 199
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e730acf80efeff438c1b87036ae999b
+      internalID: -1462901782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 199
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf73d57f22cfa7479ad0c12c6717edd
+      internalID: -891816444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_2
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 199
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf3f68e21eb2bcb43b0f080746cb2c3a
+      internalID: 2084327061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_3
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 199
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7fca11d235a5647a5d3c1001183d9c
+      internalID: 1216784969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_4
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 199
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bcd759d59282e4aaff09a04076ff90
+      internalID: -627643659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_5
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 160
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a920c4ab16a0a84587798254314201e
+      internalID: 335078736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_6
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 160
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01dbb59ea65a6e4b991d11cd9273a04
+      internalID: 1322699043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_7
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 161
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f1caa4c2dd31274296a41320e776854
+      internalID: 689471645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 160
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabb3963c59bf5844a1ec3fc94475bef
+      internalID: -1285642819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_9
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 161
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002543a1bafaa46489c80511b0e91c06
+      internalID: -1403406400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_10
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 122
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d9fa45be1a3ab4197da795e4f844d4
+      internalID: -1677657673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_11
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 123
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aed644e9af07ff46bc57f5bea060535
+      internalID: -906111986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_12
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 123
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbaa7a738fb87c946904de546044e570
+      internalID: 1222021817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_13
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 123
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a98c28585eedb44940f5254507c546
+      internalID: -532366371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_14
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 124
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96597353a2b7503479e53d242b6d856b
+      internalID: 1364540454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_15
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 83
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b1f07e45a04d44b840145cde28111d
+      internalID: 1504340751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_16
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 83
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd144281eab35674092479d9a0b76bdd
+      internalID: -1972170616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_17
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 83
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b592c2b7c09814eb4c458d836e4450
+      internalID: -128145355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 83
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c67976c40ae38543b118ffe766056c8
+      internalID: -487556966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_19
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 82
+        width: 15
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030cf3a95ac2c674ba7e46650444d1b7
+      internalID: 1879642866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_20
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 45
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47bb774ad699fbe42a77a9f79981c0e5
+      internalID: 927640050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_21
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 46
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c12afd20ce89544a5a6cf56cb3e931
+      internalID: -1518018739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_22
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 47
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c188c8e94849a45af8e29a2a6e85cf
+      internalID: -280161884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_23
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 3
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1c2cce1737db44b9041dba0bf89b2e
+      internalID: 1411646762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_24
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 3
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f309d6de455ed54e9a2223541ff5b56
+      internalID: 664307852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_25
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407b95854b499a24cb57d5c2175cfbb1
+      internalID: -728587651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bruce Miller_26
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 4
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe50cd09e8ac72e4c9188f5a30f6f343
+      internalID: 1339006418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +693,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bruce Miller_7: 689471645
+      Bruce Miller_13: -532366371
+      Bruce Miller_23: 1411646762
+      Bruce Miller_14: 1364540454
+      Bruce Miller_4: -627643659
+      Bruce Miller_16: -1972170616
+      Bruce Miller_10: -1677657673
+      Bruce Miller_22: -280161884
+      Bruce Miller_19: 1879642866
+      Bruce Miller_15: 1504340751
+      Bruce Miller_0: -1462901782
+      Bruce Miller_1: -891816444
+      Bruce Miller_8: -1285642819
+      Bruce Miller_20: 927640050
+      Bruce Miller_26: 1339006418
+      Bruce Miller_12: 1222021817
+      Bruce Miller_2: 2084327061
+      Bruce Miller_17: -128145355
+      Bruce Miller_18: -487556966
+      Bruce Miller_5: 335078736
+      Bruce Miller_6: 1322699043
+      Bruce Miller_9: -1403406400
+      Bruce Miller_24: 664307852
+      Bruce Miller_21: -1518018739
+      Bruce Miller_25: -728587651
+      Bruce Miller_11: -906111986
+      Bruce Miller_3: 1216784969
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
