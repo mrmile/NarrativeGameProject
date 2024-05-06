@@ -8,18 +8,18 @@ public class NPC_Movement : MonoBehaviour
     [SerializeField] float minDistanceToNode;
     [SerializeField] bool isMoving;
 
-    [SerializeField] GridManager manager;
-
-    [SerializeField] Transform sourceDestination;
-    [SerializeField] Transform targetDestination;
+    [SerializeField] PathFinder_Manager manager;
+   
+    [SerializeField] Vector3 targetDestination;
 
     List<Vector3> path = new List<Vector3>();
     bool destinationReached;
-    Vector3 nextStep;
+    
+    int index;
     void Start()
     {
-       
-        
+
+        SetDestination(targetDestination);
     }
 
     // Update is called once per frame
@@ -27,13 +27,10 @@ public class NPC_Movement : MonoBehaviour
     {
         if(isMoving)
         {
-            path = manager.CreatePath(transform.position, targetDestination.position);
+            CheckNextStep();
+
             Vector3 direction;
-            int index = path.Count - 1;
-            while (CheckDistanceToNextNode(index))
-            {
-                index--;
-            }
+
             if (!destinationReached)
             {
                 direction = (path[index] - transform.position).normalized;
@@ -46,17 +43,29 @@ public class NPC_Movement : MonoBehaviour
     void Walk(Vector3 dir)
     {
         transform.position += dir * speed * Time.deltaTime;
-        Debug.Log(dir);
     }
-    bool CheckDistanceToNextNode(int k)
+    void CheckNextStep()
     {
-        if (k <= 0)
+        
+        if (index >= 0 && Vector2.Distance(path[index], transform.position) < minDistanceToNode)
+        {
+            destinationReached = false;
+            index--;
+        }
+        if (index <= 0)
         {
             destinationReached = true;
-            return false;
+            isMoving = false;
         }
-        if (Vector2.Distance(path[k], transform.position) < minDistanceToNode) return true;
-        else return false;
+    }
+
+    public void SetDestination(Vector3 destination)
+    {        
+        targetDestination = destination;
         
+        path = manager.CreatePath(transform.position, targetDestination);
+        index = path.Count - 1;
+
+        isMoving = true;
     }
 }

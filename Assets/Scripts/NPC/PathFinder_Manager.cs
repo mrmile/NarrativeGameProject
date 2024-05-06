@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GridManager : MonoBehaviour
+public class PathFinder_Manager : MonoBehaviour
 {
     public Tilemap tilemap;    
     public Vector3Int[,] spots;
