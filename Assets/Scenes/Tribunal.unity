@@ -322,6 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasItem1: 0
+  hasItem2: 0
+  hasItem3: 0
 --- !u!4 &1051926274
 Transform:
   m_ObjectHideFlags: 0

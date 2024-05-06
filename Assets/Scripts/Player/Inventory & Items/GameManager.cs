@@ -1,29 +1,43 @@
-using UnityEngine;  // This imports the Unity Engine namespace which includes MonoBehaviour
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    // Define other properties related to game state here
     public bool hasItem1 = false;
+    public bool hasItem2 = false;
+    public bool hasItem3 = false;
 
     void Awake()
     {
-        // Singleton pattern to ensure only one instance exists
         if (Instance != null)
         {
-            Destroy(gameObject);  // Destroy duplicate
+            Destroy(gameObject);
         }
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Make this object persistent across scenes
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-    // Example method to set item states
-    public void SetItem1(bool value)
+    public void SetItem(Inventory.ItemType itemType, bool value)
     {
-        hasItem1 = value;
+        switch (itemType)
+        {
+            case Inventory.ItemType.Item1:
+                hasItem1 = value;
+                Debug.Log("Item 1 set to: " + value);
+                break;
+            case Inventory.ItemType.Item2:
+                hasItem2 = value;
+                Debug.Log("Item 2 set to: " + value);
+                break;
+            case Inventory.ItemType.Item3:
+                hasItem3 = value;
+                Debug.Log("Item 3 set to: " + value);
+                break;
+        }
+        Debug.Log("Item " + itemType + " set to: " + value);
     }
 }

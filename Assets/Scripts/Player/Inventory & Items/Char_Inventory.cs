@@ -35,8 +35,6 @@ public class Char_Inventory : MonoBehaviour
                 items.Add(item);
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                 inventoryUI.AddItemToUI(item.icon);
-                GameManager.Instance.hasItem1 = true;
-                Debug.Log("Item 1 picked up: " + GameManager.Instance.hasItem1);
                 break;
             }
         }

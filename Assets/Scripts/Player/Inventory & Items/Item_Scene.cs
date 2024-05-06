@@ -31,10 +31,7 @@ public class Item_Scene : MonoBehaviour
     {
         ConversationManager.Instance.StartConversation(pickUpDialogue);
 
-        if (itemType == Inventory.ItemType.Item1)
-        {
-            GameManager.Instance.SetItem1(true);
-        }
+        GameManager.Instance.SetItem(itemType, true);
 
         if (item.pickUpText != "")
             ConversationManager.Instance.OverrideText(item.pickUpText);
