@@ -224,6 +224,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &270911841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270911843}
+  - component: {fileID: 270911842}
+  m_Layer: 0
+  m_Name: No Final
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &270911842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270911841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1128701e21979104f8639e708f933546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: CharacterInteractions
+--- !u!4 &270911843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270911841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.016594, y: 4.0346546, z: -7.8990803}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797897703
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,19 +556,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 9
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":111,"yPos":239},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Pista
-    1","parentUIDs":[5],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":360,"yPos":240},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Pista
-    2","parentUIDs":[5],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":599,"yPos":241},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Pista
-    3","parentUIDs":[5],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"hasItem1","BoolValue":false},{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"hasItem2","BoolValue":false},{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"hasItem3","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":true,"xPos":335,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Esto
+  CurrentIDCounter: 11
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":-429.2,"yPos":191},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Pista
+    1","parentUIDs":[5],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":-180.200043,"yPos":192},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Pista
+    2","parentUIDs":[5],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":58.7999725,"yPos":194},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Pista
+    3","parentUIDs":[5],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":315.200073,"yPos":191.799988},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Seguir
+    buscando pistas","parentUIDs":[5],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"hasItem1","BoolValue":false},{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"hasItem2","BoolValue":false},{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"hasItem3","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":true,"xPos":-205.200027,"yPos":-26},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Esto
     es el tribunal","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"General
-    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":359,"yPos":324},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Pues
+    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":-185.200027,"yPos":276},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Pues
     a tu casa","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"General
-    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem1","CheckType":0,"RequiredValue":true}],"NodeUID":2},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem2","CheckType":0,"RequiredValue":true}],"NodeUID":3},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem3","CheckType":0,"RequiredValue":true}],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":341,"yPos":117},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Cuales
+    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem1","CheckType":0,"RequiredValue":true}],"NodeUID":2},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem2","CheckType":0,"RequiredValue":true}],"NodeUID":3},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem3","CheckType":0,"RequiredValue":true}],"NodeUID":7},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem1","CheckType":0,"RequiredValue":false},{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem3","CheckType":0,"RequiredValue":false},{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"hasItem2","CheckType":0,"RequiredValue":false}],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":-199.200027,"yPos":69},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Cuales
     son las pistas?","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"General
-    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":110,"yPos":323},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Yo
+    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":-430.2,"yPos":275},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Yo
     soy inocente!!","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"General
-    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":597,"yPos":321},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"...","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"General
+    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":66.79997,"yPos":275},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"...","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"General
+    Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":319.200073,"yPos":265.8},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Waste
+    of time","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"General
     Miller","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
@@ -538,11 +586,25 @@ MonoBehaviour:
   - {fileID: 1783711071}
   - {fileID: 1783711070}
   - {fileID: 1783711069}
+  - {fileID: 1783711073}
+  - {fileID: 1783711072}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 270911842}
+        m_TargetAssemblyTypeName: DialogueSceneTransition, Assembly-CSharp
+        m_MethodName: OnDialogueComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1526228595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +684,8 @@ GameObject:
   - component: {fileID: 1783711071}
   - component: {fileID: 1783711070}
   - component: {fileID: 1783711069}
+  - component: {fileID: 1783711073}
+  - component: {fileID: 1783711072}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -917,6 +981,56 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 6
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1783711072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783711057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 270911842}
+        m_TargetAssemblyTypeName: DialogueSceneTransition, Assembly-CSharp
+        m_MethodName: OnDialogueComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  NodeID: 10
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1783711073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783711057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 9
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
