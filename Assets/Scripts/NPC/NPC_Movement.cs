@@ -6,23 +6,26 @@ public class NPC_Movement : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float minDistanceToNode;
-    [SerializeField] bool isMoving;
-
+     
     [SerializeField] PathFinder_Manager manager;
-   
-    [SerializeField] Vector3 targetDestination;
+    [SerializeField] Transform workLocation;
+    [SerializeField] Transform lunchLocation;
+    [SerializeField] Transform sleepLocation;
 
-    List<Vector3> path = new List<Vector3>();
-    bool destinationReached;
-    
+    bool isMoving;
     int index;
+
+    Transform targetDestination;
+
+    List<Vector3> path;
+   
     void Start()
     {
 
-        SetDestination(targetDestination);
+        
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if(isMoving)
@@ -30,13 +33,10 @@ public class NPC_Movement : MonoBehaviour
             CheckNextStep();
 
             Vector3 direction;
-
-            if (!destinationReached)
-            {
-                direction = (path[index] - transform.position).normalized;
-                Walk(direction);
-            }
-
+            
+            direction = (path[index] - transform.position).normalized;
+            Walk(direction);
+            
         }
     }
 
@@ -46,26 +46,38 @@ public class NPC_Movement : MonoBehaviour
     }
     void CheckNextStep()
     {
-        
-        if (index >= 0 && Vector2.Distance(path[index], transform.position) < minDistanceToNode)
-        {
-            destinationReached = false;
-            index--;
-        }
         if (index <= 0)
-        {
-            destinationReached = true;
+        {           
             isMoving = false;
         }
+        else if (index >= 0 && Vector2.Distance(path[index], transform.position) < minDistanceToNode)
+        {            
+            index--;
+        }
+       
     }
 
-    public void SetDestination(Vector3 destination)
-    {        
+    public void SetDestination(Transform destination)
+    {
+        path = new List<Vector3>();
+        
         targetDestination = destination;
         
-        path = manager.CreatePath(transform.position, targetDestination);
+        path = manager.CreatePath(transform.position, targetDestination.position);
         index = path.Count - 1;
 
         isMoving = true;
+    }
+
+    public Transform GetEventLocation(NpcDayEventType eventType)
+    {
+        switch(eventType)
+        {
+            case NpcDayEventType.LUNCH: return lunchLocation;
+            case NpcDayEventType.BACK_TO_WORK: return workLocation;
+            case NpcDayEventType.SLEEP: return sleepLocation;
+            default: return workLocation;
+                
+        }
     }
 }

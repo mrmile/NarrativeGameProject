@@ -9,20 +9,22 @@ public class PathFinder_Manager : MonoBehaviour
     public Vector3Int[,] spots;
     
     Astar astar;
-    List<Spot> path = new List<Spot>();
-    new Camera camera;
+    List<Spot> path;
     BoundsInt bounds;
-    
-    void Start()
+
+    private void Awake()
     {
         tilemap.CompressBounds();
-        
-        bounds = tilemap.cellBounds;
-        camera = Camera.main;
 
+        bounds = tilemap.cellBounds;
 
         CreateGrid();
         astar = new Astar(spots, bounds.size.x, bounds.size.y);
+    }
+    void Start()
+    {
+        
+        
     }
     public void CreateGrid()
     {
@@ -51,6 +53,7 @@ public class PathFinder_Manager : MonoBehaviour
 
     public List<Vector3> CreatePath(Vector3 startPos, Vector3 endPos)
     {
+        path = new List<Spot>();
         List<Vector3> finalPath = new List<Vector3>();
 
         Vector2Int startGridPos = (Vector2Int) tilemap.WorldToCell(startPos);

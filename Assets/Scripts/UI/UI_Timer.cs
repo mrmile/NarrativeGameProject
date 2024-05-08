@@ -14,8 +14,8 @@ public class UI_Timer : MonoBehaviour
       
     void Update()
     {
-        minutes = timeManager.GetGameMinutes();
-        hours = timeManager.GetGameHours();
+        minutes = timeManager.GetTimeGameMinutes();
+        hours = timeManager.GetTimeGameHours();
 
         textComponent.text = hours.ToString("D2") + " : " + minutes.ToString("D2");
     }

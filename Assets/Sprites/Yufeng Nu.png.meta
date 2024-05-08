@@ -115,7 +115,385 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Yufeng Nu_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 146
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f412827c437cfb24a900741a8a631c65
+      internalID: -1761965515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 146
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037f722432cadba4bab62596a1a63c0c
+      internalID: -813577354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_2
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 146
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ae246e7cd35b34d9e7c443d7bddbfc
+      internalID: -865439936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_3
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 146
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9c5b3be1a93ce478d7fb9010a247a2
+      internalID: -577082741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 110
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6136e23abb059a4bb71e60285b1a4da
+      internalID: 1026451203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_5
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 110
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3547564e78a34648a35adb68d0ced80
+      internalID: 1573761058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_6
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 110
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c144df0662b851744810519bb124633f
+      internalID: -1619151467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_7
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 110
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67754e468a841844da425e9de331258f
+      internalID: -662483479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 73
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1067a2d544d9074b8d6d2f45d9f8c3d
+      internalID: 2100761205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 73
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94703990a21a44e41a372a92caa23f62
+      internalID: 931036326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_10
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 73
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7697e5bcb169a4d98f5014f6096a2a
+      internalID: 275790337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_11
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 73
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29328a912eeddd47859c37f2342ac2f
+      internalID: -1257944658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 37
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bea46c42f2f054789c66687789a3ad
+      internalID: 1113161484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_13
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 37
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14adb1df0b05e51448533f261f7e2a2d
+      internalID: 1117423048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_14
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 37
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86ac2a49950c654d9a2b8af45dfe314
+      internalID: -953173225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_15
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 37
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebb561a33a14df4db6d571439b0e863
+      internalID: -297170346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_16
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 915217a3bad32754bafc2448f5862a3a
+      internalID: -1806631482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yufeng Nu_17
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 18
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46369acb3d1a4e3419086cc491510614
+      internalID: -546522213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +504,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Yufeng Nu_14: -953173225
+      Yufeng Nu_15: -297170346
+      Yufeng Nu_4: 1026451203
+      Yufeng Nu_2: -865439936
+      Yufeng Nu_17: -546522213
+      Yufeng Nu_16: -1806631482
+      Yufeng Nu_9: 931036326
+      Yufeng Nu_5: 1573761058
+      Yufeng Nu_11: -1257944658
+      Yufeng Nu_13: 1117423048
+      Yufeng Nu_0: -1761965515
+      Yufeng Nu_10: 275790337
+      Yufeng Nu_3: -577082741
+      Yufeng Nu_8: 2100761205
+      Yufeng Nu_6: -1619151467
+      Yufeng Nu_7: -662483479
+      Yufeng Nu_12: 1113161484
+      Yufeng Nu_1: -813577354
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

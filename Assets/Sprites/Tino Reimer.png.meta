@@ -115,7 +115,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tino Reimer_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 166
+        width: 20
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508b8ac1a7a49de4396f952f4bb362b9
+      internalID: -987225912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 166
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88712d82d35adf1448e3b43965a32e92
+      internalID: 505392135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 166
+        width: 20
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44df417bad93d145a8e75bc68660d48
+      internalID: -2129845142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 167
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa4a55ef01fb8446b7a63a4d95ec6c1
+      internalID: -1302858861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 123
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f21e7d6b16efe34fb477361e0ffe667
+      internalID: 61535307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_5
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 123
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcbfee4b77c0e3440b99c6d5fc8a8b29
+      internalID: -1765783413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 123
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc74cd82e886aa4f885f2e76b21c30b
+      internalID: -1871651235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 123
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ca5e5155408154cba827d7bc4c1cda
+      internalID: 535651380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 82
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc36d088804d554db99cb7934c75806
+      internalID: 1287011946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_9
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 82
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cf6981cffbd0444acb602acfbf82cd
+      internalID: 965871851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_10
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 82
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5b1d16d65a53e4e9654ecfd3ab2d2a
+      internalID: -1005164096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_11
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 82
+        width: 17
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bd12a92ad1a2943ae52a4008091f73
+      internalID: 1979566668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 44
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2658529c123c8e84c9c1f6c7a5e6e9e9
+      internalID: 599930109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_13
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 44
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdca12cadeccc5942a213c37bcc49002
+      internalID: -92918141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_14
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 44
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a193a587921084386e63169f2c0647
+      internalID: 1317422525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_15
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 44
+        width: 17
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe10ba5140633f4cb38d7e1bb922598
+      internalID: -386471574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tino Reimer_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3
+        width: 19
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687c0209a6cbbff47ad88d4eb544b397
+      internalID: 2005553548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +483,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tino Reimer_13: -92918141
+      Tino Reimer_12: 599930109
+      Tino Reimer_8: 1287011946
+      Tino Reimer_11: 1979566668
+      Tino Reimer_5: -1765783413
+      Tino Reimer_0: -987225912
+      Tino Reimer_10: -1005164096
+      Tino Reimer_6: -1871651235
+      Tino Reimer_14: 1317422525
+      Tino Reimer_1: 505392135
+      Tino Reimer_9: 965871851
+      Tino Reimer_2: -2129845142
+      Tino Reimer_4: 61535307
+      Tino Reimer_3: -1302858861
+      Tino Reimer_16: 2005553548
+      Tino Reimer_15: -386471574
+      Tino Reimer_7: 535651380
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

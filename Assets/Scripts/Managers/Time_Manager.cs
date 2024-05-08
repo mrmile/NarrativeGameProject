@@ -68,11 +68,11 @@ public class Time_Manager : MonoBehaviour
    {
         return currentTimeUnits;
    }
-    public int GetGameMinutes()
+    public int GetTimeGameMinutes()
     {
         return gameMinute;
     }
-    public int GetGameHours()
+    public int GetTimeGameHours()
     {
         return gameHour;
     }

@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,490 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Viktor Yakovenko_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 166
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66daab9e1ad4034dbb6fbf5ea1d828f
+      internalID: -434717520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 166
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee4c53361c76ad468fe52a04ee4f64e
+      internalID: 1202490710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 166
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957abf1035eb6074aa2b30990d7dadff
+      internalID: 327708596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 166
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303a4afd82978564f92e8769332c99d1
+      internalID: -56259169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_4
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 126
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc729ed78b571b04e87727886d4224de
+      internalID: 1694264855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_5
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 126
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09e15f9969e4154d8e85c81ae1bc6e4
+      internalID: -1702880631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 126
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3eb5820a1ccd0c4ab290fb60d41a5d2
+      internalID: -9611282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_7
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 124
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51587174dd91f5245814b680cbb82abb
+      internalID: 536964537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_8
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 124
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8b79ed4571fbd4a9b684d5bdcc1834
+      internalID: -249536988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_9
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 86
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba6b0caccca0db468c36f70d7c0d063
+      internalID: -1840696310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 86
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e14baf79466b44da6f99e989c69454
+      internalID: 455703468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 86
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41aa00ed680f28a4b95473c7f668301b
+      internalID: 20885218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_12
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 85
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0e9c4b1c441a44c8a3dfd39dc5c3ef
+      internalID: 1542672362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_13
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 85
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9833fc0124bdd47498f1bfef80338513
+      internalID: -2087121454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_14
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 46
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24006a1345b629c418cee25ffaede7f9
+      internalID: 2126848484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_15
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 46
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b9cc8e02306ce4d984883e7612dba5
+      internalID: -732742555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_16
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 46
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68d69853a439304497f409bbc770f2d
+      internalID: -1849147549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_17
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 45
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e721daf678779b94fa8d1b5eaefd81ec
+      internalID: 1669888944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_18
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 45
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efeb6300b915f142b81302a1ace5f9b
+      internalID: -1178130130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_19
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 6
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1085de8dcdc1fd9458bbdd6c18b404f6
+      internalID: 3558841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_20
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 6
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8cd60fd988ac3c4eb9fcb091ccc7f27
+      internalID: -1320429497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 6
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f449f107ac27a847abf907139a6fcc2
+      internalID: 562238505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor Yakovenko_22
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 5
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d91e06a9bff1d944bb1d4022c63882ad
+      internalID: 1793015617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +609,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Viktor Yakovenko_21: 562238505
+      Viktor Yakovenko_1: 1202490710
+      Viktor Yakovenko_16: -1849147549
+      Viktor Yakovenko_6: -9611282
+      Viktor Yakovenko_7: 536964537
+      Viktor Yakovenko_18: -1178130130
+      Viktor Yakovenko_9: -1840696310
+      Viktor Yakovenko_10: 455703468
+      Viktor Yakovenko_13: -2087121454
+      Viktor Yakovenko_2: 327708596
+      Viktor Yakovenko_4: 1694264855
+      Viktor Yakovenko_15: -732742555
+      Viktor Yakovenko_3: -56259169
+      Viktor Yakovenko_12: 1542672362
+      Viktor Yakovenko_8: -249536988
+      Viktor Yakovenko_11: 20885218
+      Viktor Yakovenko_14: 2126848484
+      Viktor Yakovenko_22: 1793015617
+      Viktor Yakovenko_0: -434717520
+      Viktor Yakovenko_17: 1669888944
+      Viktor Yakovenko_5: -1702880631
+      Viktor Yakovenko_19: 3558841
+      Viktor Yakovenko_20: -1320429497
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
