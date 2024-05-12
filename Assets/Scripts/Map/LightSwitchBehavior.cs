@@ -6,7 +6,12 @@ public class LightSwitchBehavior : MonoBehaviour
 {
     public int lightSwitchID = 0; //0 = none, 1 = first, 2 = second, 3 = third, 4+ = not assigned
 
+    public GameObject greenLight;
+    public GameObject redLight;
+
     MapEventsManager mapEventsManager_;
+
+    private bool needsReset = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +23,34 @@ public class LightSwitchBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(lightSwitchID == 1)
+        {
+            if (mapEventsManager_.lightSwitchActive_1 == false && needsReset == false)
+            {
+                needsReset = true;
+                greenLight.SetActive(false);
+                redLight.SetActive(true);
+            }
+        }
+        if (lightSwitchID == 2)
+        {
+            if (mapEventsManager_.lightSwitchActive_2 == false && needsReset == false)
+            {
+                needsReset = true;
+                greenLight.SetActive(false);
+                redLight.SetActive(true);
+            }
+        }
+        if (lightSwitchID == 3)
+        {
+            if (mapEventsManager_.lightSwitchActive_3 == false && needsReset == false)
+            {
+                needsReset = true;
+                greenLight.SetActive(false);
+                redLight.SetActive(true);
+            }
+        }
+
     }
 
     void OnTriggerStay2D(Collider2D trigger)
@@ -33,6 +65,10 @@ public class LightSwitchBehavior : MonoBehaviour
                 {
                     //todo: play switch on sound
 
+                    needsReset = false;
+                    greenLight.SetActive(true);
+                    redLight.SetActive(false);
+
                     mapEventsManager_.lightSwitchActive_1 = true;
                     Debug.Log("SWITCH 1 ON");
                 }
@@ -40,12 +76,20 @@ public class LightSwitchBehavior : MonoBehaviour
                 {
                     //todo: play switch on sound
 
+                    needsReset = false;
+                    greenLight.SetActive(true);
+                    redLight.SetActive(false);
+
                     mapEventsManager_.lightSwitchActive_2 = true;
                     Debug.Log("SWITCH 2 ON");
                 }
                 if (lightSwitchID == 3 && mapEventsManager_.lightSwitchActive_3 == false)
                 {
                     //todo: play switch on sound
+
+                    needsReset = false;
+                    greenLight.SetActive(true);
+                    redLight.SetActive(false);
 
                     mapEventsManager_.lightSwitchActive_3 = true;
                     Debug.Log("SWITCH 3 ON");
