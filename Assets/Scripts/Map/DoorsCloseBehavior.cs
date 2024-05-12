@@ -9,6 +9,8 @@ public class DoorsCloseBehavior : MonoBehaviour
 
     MapEventsManager mapEventsManager_;
 
+    Time_Manager time_Manager_;
+
     private float elapsedTime = 0;
     private float startTime = 0;
 
@@ -16,7 +18,7 @@ public class DoorsCloseBehavior : MonoBehaviour
     void Start()
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
-
+        time_Manager_ = FindObjectOfType<Time_Manager>();
     }
 
     // Update is called once per frame
@@ -57,6 +59,8 @@ public class DoorsCloseBehavior : MonoBehaviour
             //todo: play sound of doors opening
 
             Debug.Log("DOORS OPENING BACK");
+
+            time_Manager_.PauseGameTime(false);
         }
     }
 }

@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EventID
-{
-    NONE = 0,
-    LIGHTS_OFF,
-    DOORS_CLOSE,
-    AIR_FAIL
-}
+
 
 public class MapEventsManager : MonoBehaviour
 {
+    public enum EventID
+    {
+        NONE = 0,
+        LIGHTS_OFF,
+        DOORS_CLOSE,
+        AIR_FAIL
+    }
+    public EventID eventID;
+
     bool lightsOffEventActive = false;
     public bool lightSwitchActive_1 = true;
     public bool lightSwitchActive_2 = true;
@@ -28,11 +31,14 @@ public class MapEventsManager : MonoBehaviour
 
     AirFailBehaviour airFailBehaviour_;
 
+    Time_Manager time_Manager_;
+
     // Start is called before the first frame update
     void Start()
     {
         lightOnOffBehaviour_ = FindObjectOfType<LightOnOffBehaviour>();
         airFailBehaviour_ = FindObjectOfType<AirFailBehaviour>();
+        time_Manager_ = FindObjectOfType<Time_Manager>();
 
     }
 
@@ -50,11 +56,11 @@ public class MapEventsManager : MonoBehaviour
         //    DoorsShutEvent();
         //}
 
-        if (Input.GetKeyDown(KeyCode.T)) //for testing events only
-        {
-            AirFailEvent();
-            Debug.Log("AIR FAIL EVENT");
-        }
+        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
+        //{
+        //    AirFailEvent();
+        //    Debug.Log("AIR FAIL EVENT");
+        //}
 
 
 
@@ -64,7 +70,7 @@ public class MapEventsManager : MonoBehaviour
         lightsOffEventActive == true)
         {
             LightsBackOn();
-            Debug.Log("AIR BACK ON");
+            Debug.Log("LIGHTS BACK ON");
         }
 
         if (airSwitchActive_1 == true &&
@@ -75,7 +81,7 @@ public class MapEventsManager : MonoBehaviour
         }
     }
 
-    void LightsOffEvent()
+    public void LightsOffEvent()
     {
         //todo: play sound of lights turning off
 
@@ -85,40 +91,50 @@ public class MapEventsManager : MonoBehaviour
         lightOnOffBehaviour_.lightsOff = true;
 
         lightsOffEventActive = true;
+
+        time_Manager_.PauseGameTime(true);
     }
 
-    void LightsBackOn()
+    public void LightsBackOn()
     {
         //todo: play sound of lights turning on
 
         lightOnOffBehaviour_.lightsOff = false;
 
         lightsOffEventActive = false;
+
+        time_Manager_.PauseGameTime(false);
     }
 
-    void DoorsShutEvent()
+    public void DoorsShutEvent()
     {
         shutDoorGroup = true;
         doorsShutEventPhase = 1;
         Debug.Log("DOORS SHUT EVENT");
 
+        time_Manager_.PauseGameTime(true);
+
         //todo: play sound of doors shutting down
     }
 
-    void AirFailEvent()
+    public void AirFailEvent()
     {
         airSwitchActive_1 = false;
         airFailBehaviour_.airOff = true;
 
         airFailEventActive = true;
+
+        time_Manager_.PauseGameTime(true);
     }
 
-    void AirBackOn()
+    public void AirBackOn()
     {
         //todo: play sound of lights turning on
 
         airFailBehaviour_.airOff = false;
 
         airFailEventActive = false;
+
+        time_Manager_.PauseGameTime(false);
     }
 }
