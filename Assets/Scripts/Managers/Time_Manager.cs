@@ -127,6 +127,10 @@ public class Time_Manager : MonoBehaviour
         }
 
         mapEventsManager_.eventID = (EventID)randomEvent;
+
+        Debug.Log("StartDay - Event SELECTION: " + mapEventsManager_.eventID);
+        Debug.Log("StartDay - Event TIME: " + randomGameHour);
+
     }
     //----------------------------------------
 
