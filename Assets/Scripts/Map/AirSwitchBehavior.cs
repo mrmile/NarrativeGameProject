@@ -8,6 +8,7 @@ public class AirSwitchBehavior : MonoBehaviour
 
     public GameObject greenLight;
     public GameObject redLight;
+    public GameObject actionIndicationCanvas;
 
     MapEventsManager mapEventsManager_;
 
@@ -47,6 +48,8 @@ public class AirSwitchBehavior : MonoBehaviour
                 {
                     //todo: play switch on sound
 
+                    actionIndicationCanvas.SetActive(false);
+
                     needsReset = false;
                     greenLight.SetActive(true);
                     redLight.SetActive(false);
@@ -58,5 +61,26 @@ public class AirSwitchBehavior : MonoBehaviour
 
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D trigger)
+    {
+        //actionIndicationCanvas.SetActive(true);
+
+        if (airSwitchID == 1 && mapEventsManager_.airSwitchActive_1 == false)
+        {
+            actionIndicationCanvas.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.CompareTag("Player"))
+        {
+            //Debug.Log("SWITCH colliding press");
+
+            actionIndicationCanvas.SetActive(false);
+
+        }
     }
 }

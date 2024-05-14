@@ -8,6 +8,7 @@ public class LightSwitchBehavior : MonoBehaviour
 
     public GameObject greenLight;
     public GameObject redLight;
+    public GameObject actionIndicationCanvas;
 
     MapEventsManager mapEventsManager_;
 
@@ -65,6 +66,8 @@ public class LightSwitchBehavior : MonoBehaviour
                 {
                     //todo: play switch on sound
 
+                    actionIndicationCanvas.SetActive(false);
+
                     needsReset = false;
                     greenLight.SetActive(true);
                     redLight.SetActive(false);
@@ -75,6 +78,8 @@ public class LightSwitchBehavior : MonoBehaviour
                 if (lightSwitchID == 2 && mapEventsManager_.lightSwitchActive_2 == false)
                 {
                     //todo: play switch on sound
+
+                    actionIndicationCanvas.SetActive(false);
 
                     needsReset = false;
                     greenLight.SetActive(true);
@@ -87,6 +92,8 @@ public class LightSwitchBehavior : MonoBehaviour
                 {
                     //todo: play switch on sound
 
+                    actionIndicationCanvas.SetActive(false);
+
                     needsReset = false;
                     greenLight.SetActive(true);
                     redLight.SetActive(false);
@@ -98,5 +105,34 @@ public class LightSwitchBehavior : MonoBehaviour
 
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D trigger)
+    {
+        //actionIndicationCanvas.SetActive(true);
+
+        if (lightSwitchID == 1 && mapEventsManager_.lightSwitchActive_1 == false)
+        {
+            actionIndicationCanvas.SetActive(true);
+        }
+        if (lightSwitchID == 2 && mapEventsManager_.lightSwitchActive_2 == false)
+        {
+            actionIndicationCanvas.SetActive(true);
+        }
+        if (lightSwitchID == 3 && mapEventsManager_.lightSwitchActive_3 == false)
+        {
+            actionIndicationCanvas.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.CompareTag("Player"))
+        {
+            //Debug.Log("SWITCH colliding press");
+
+            actionIndicationCanvas.SetActive(false);
+
+        }
     }
 }
