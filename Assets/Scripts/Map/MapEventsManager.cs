@@ -105,7 +105,7 @@ public class MapEventsManager : MonoBehaviour
 
         lightsOffEventActive = true;
 
-        ambienceAudioPlayer_.StopAudioAmbience();
+        ambienceAudioPlayer_.SwitchToLightsOffAmbience();
         time_Manager_.PauseGameTime(true);
     }
 
@@ -117,7 +117,7 @@ public class MapEventsManager : MonoBehaviour
 
         lightsOffEventActive = false;
 
-        ambienceAudioPlayer_.ResumeAudioAmbience();
+        ambienceAudioPlayer_.SwitchBackToDefaultAmbience();
         time_Manager_.PauseGameTime(false);
     }
 

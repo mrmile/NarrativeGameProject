@@ -7,6 +7,7 @@ public class AmbienceAudioPlayer : MonoBehaviour
     public AudioClip Level_Pmin2_ambience;
     public AudioClip Level_Pmin1_ambience;
     public AudioClip Level_P0_ambience;
+    public AudioClip lightsOffAmbience;
     AudioSource audioSource;
 
     MapEventsManager mapEventsManager_;
@@ -68,5 +69,39 @@ public class AmbienceAudioPlayer : MonoBehaviour
         audioSource.Play();
         ambiencePlaying = true;
         ambiencePaused = false;
+    }
+
+    public void SwitchToLightsOffAmbience()
+    {
+        audioSource.Stop();
+        audioSource.clip = lightsOffAmbience;
+        audioSource.Play();
+    }
+
+    public void SwitchBackToDefaultAmbience()
+    {
+        audioSource.Stop();
+        if (mapEventsManager_.currentMapLevel == 0)
+        {
+            audioSource.clip = Level_P0_ambience;
+            audioSource.Play();
+        }
+        else if (mapEventsManager_.currentMapLevel == -1)
+        {
+            audioSource.clip = Level_Pmin1_ambience;
+            audioSource.Play();
+        }
+        else if (mapEventsManager_.currentMapLevel == -2)
+        {
+            audioSource.clip = Level_Pmin2_ambience;
+            audioSource.Play();
+        }
+        else if (mapEventsManager_.currentMapLevel == 1)
+        {
+            //nothing for now
+            //audioSource.clip = Level_P1_ambience;
+            //audioSource.Play();
+        }
+        audioSource.Play();
     }
 }
