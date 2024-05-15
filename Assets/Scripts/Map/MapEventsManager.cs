@@ -15,6 +15,8 @@ public class MapEventsManager : MonoBehaviour
     }
     public EventID eventID;
 
+    public int currentMapLevel = 0;
+
     bool lightsOffEventActive = false;
     public bool lightSwitchActive_1 = true;
     public bool lightSwitchActive_2 = true;
@@ -39,23 +41,27 @@ public class MapEventsManager : MonoBehaviour
 
     Time_Manager time_Manager_;
 
+    AmbienceAudioPlayer ambienceAudioPlayer_;
+
     // Start is called before the first frame update
     void Start()
     {
         lightOnOffBehaviour_ = FindObjectOfType<LightOnOffBehaviour>();
         airFailBehaviour_ = FindObjectOfType<AirFailBehaviour>();
         time_Manager_ = FindObjectOfType<Time_Manager>();
+        ambienceAudioPlayer_ = FindObjectOfType<AmbienceAudioPlayer>();
+
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)) //for testing events only
-        {
-            LightsOffEvent();
-            Debug.Log("LIGHTS OFF EVENT");
-        }
+        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
+        //{
+        //    LightsOffEvent();
+        //    Debug.Log("LIGHTS OFF EVENT");
+        //}
 
         //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
         //{
@@ -86,11 +92,6 @@ public class MapEventsManager : MonoBehaviour
             Debug.Log("AIR BACK ON");
             audioSource.Stop();
         }
-        if (airFailEventActive == true)
-        {
-            
-            
-        }
     }
 
     public void LightsOffEvent()
@@ -104,6 +105,7 @@ public class MapEventsManager : MonoBehaviour
 
         lightsOffEventActive = true;
 
+        ambienceAudioPlayer_.StopAudioAmbience();
         time_Manager_.PauseGameTime(true);
     }
 
@@ -115,6 +117,7 @@ public class MapEventsManager : MonoBehaviour
 
         lightsOffEventActive = false;
 
+        ambienceAudioPlayer_.ResumeAudioAmbience();
         time_Manager_.PauseGameTime(false);
     }
 
@@ -143,6 +146,7 @@ public class MapEventsManager : MonoBehaviour
 
         airFailEventActive = true;
 
+        //ambienceAudioPlayer_.StopAudioAmbience();
         time_Manager_.PauseGameTime(true);
     }
 
@@ -156,6 +160,7 @@ public class MapEventsManager : MonoBehaviour
 
         airFailEventActive = false;
 
+        //ambienceAudioPlayer_.ResumeAudioAmbience();
         time_Manager_.PauseGameTime(false);
     }
 }
