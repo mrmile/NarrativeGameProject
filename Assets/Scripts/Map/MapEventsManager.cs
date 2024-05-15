@@ -27,6 +27,12 @@ public class MapEventsManager : MonoBehaviour
     bool airFailEventActive = false;
     public bool airSwitchActive_1 = true;
 
+    public AudioClip powerOffSound;
+    public AudioClip powerOnSound;
+    public AudioClip doorsCloseSound;
+    public AudioClip alarmSound;
+    AudioSource audioSource;
+
     LightOnOffBehaviour lightOnOffBehaviour_;
 
     AirFailBehaviour airFailBehaviour_;
@@ -39,17 +45,17 @@ public class MapEventsManager : MonoBehaviour
         lightOnOffBehaviour_ = FindObjectOfType<LightOnOffBehaviour>();
         airFailBehaviour_ = FindObjectOfType<AirFailBehaviour>();
         time_Manager_ = FindObjectOfType<Time_Manager>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
-        //{
-        //    LightsOffEvent();
-        //    Debug.Log("LIGHTS OFF EVENT");
-        //}
+        if (Input.GetKeyDown(KeyCode.T)) //for testing events only
+        {
+            LightsOffEvent();
+            Debug.Log("LIGHTS OFF EVENT");
+        }
 
         //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
         //{
@@ -78,12 +84,18 @@ public class MapEventsManager : MonoBehaviour
         {
             AirBackOn();
             Debug.Log("AIR BACK ON");
+            audioSource.Stop();
+        }
+        if (airFailEventActive == true)
+        {
+            
+            
         }
     }
 
     public void LightsOffEvent()
     {
-        //todo: play sound of lights turning off
+        audioSource.PlayOneShot(powerOffSound);
 
         lightSwitchActive_1 = false;
         lightSwitchActive_2 = false;
@@ -97,7 +109,7 @@ public class MapEventsManager : MonoBehaviour
 
     public void LightsBackOn()
     {
-        //todo: play sound of lights turning on
+        audioSource.PlayOneShot(powerOnSound);
 
         lightOnOffBehaviour_.lightsOff = false;
 
@@ -108,17 +120,24 @@ public class MapEventsManager : MonoBehaviour
 
     public void DoorsShutEvent()
     {
+        audioSource.PlayOneShot(doorsCloseSound);
+
         shutDoorGroup = true;
         doorsShutEventPhase = 1;
         Debug.Log("DOORS SHUT EVENT");
 
         time_Manager_.PauseGameTime(true);
-
-        //todo: play sound of doors shutting down
     }
 
     public void AirFailEvent()
     {
+        audioSource.PlayOneShot(powerOffSound);
+
+        audioSource.clip = alarmSound;
+        audioSource.loop = true;
+        audioSource.Play();
+        
+
         airSwitchActive_1 = false;
         airFailBehaviour_.airOff = true;
 
@@ -129,7 +148,9 @@ public class MapEventsManager : MonoBehaviour
 
     public void AirBackOn()
     {
-        //todo: play sound of lights turning on
+        audioSource.Stop();
+        audioSource.loop = false;
+        audioSource.PlayOneShot(powerOnSound);
 
         airFailBehaviour_.airOff = false;
 

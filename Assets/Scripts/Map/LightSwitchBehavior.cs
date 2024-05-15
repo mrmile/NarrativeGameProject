@@ -10,6 +10,9 @@ public class LightSwitchBehavior : MonoBehaviour
     public GameObject redLight;
     public GameObject actionIndicationCanvas;
 
+    public AudioClip switchPressSound;
+    AudioSource audioSource;
+
     MapEventsManager mapEventsManager_;
 
     private bool needsReset = false;
@@ -18,7 +21,7 @@ public class LightSwitchBehavior : MonoBehaviour
     void Start()
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -64,7 +67,7 @@ public class LightSwitchBehavior : MonoBehaviour
 
                 if (lightSwitchID == 1 && mapEventsManager_.lightSwitchActive_1 == false)
                 {
-                    //todo: play switch on sound
+                    audioSource.PlayOneShot(switchPressSound);
 
                     actionIndicationCanvas.SetActive(false);
 
@@ -77,7 +80,8 @@ public class LightSwitchBehavior : MonoBehaviour
                 }
                 if (lightSwitchID == 2 && mapEventsManager_.lightSwitchActive_2 == false)
                 {
-                    //todo: play switch on sound
+                    audioSource.PlayOneShot(switchPressSound);
+
 
                     actionIndicationCanvas.SetActive(false);
 
@@ -90,7 +94,7 @@ public class LightSwitchBehavior : MonoBehaviour
                 }
                 if (lightSwitchID == 3 && mapEventsManager_.lightSwitchActive_3 == false)
                 {
-                    //todo: play switch on sound
+                    audioSource.PlayOneShot(switchPressSound);
 
                     actionIndicationCanvas.SetActive(false);
 
@@ -109,8 +113,6 @@ public class LightSwitchBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
-        //actionIndicationCanvas.SetActive(true);
-
         if (lightSwitchID == 1 && mapEventsManager_.lightSwitchActive_1 == false)
         {
             actionIndicationCanvas.SetActive(true);

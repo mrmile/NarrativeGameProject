@@ -7,6 +7,9 @@ public class DoorsCloseBehavior : MonoBehaviour
     public GameObject[] doorGroups;
     int randomDoorGroup = 0;
 
+    public AudioClip doorsOpenSound;
+    AudioSource audioSource;
+
     MapEventsManager mapEventsManager_;
 
     Time_Manager time_Manager_;
@@ -19,6 +22,8 @@ public class DoorsCloseBehavior : MonoBehaviour
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
         time_Manager_ = FindObjectOfType<Time_Manager>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -53,10 +58,10 @@ public class DoorsCloseBehavior : MonoBehaviour
         {
             mapEventsManager_.doorsShutEventPhase = 0;
 
+            audioSource.PlayOneShot(doorsOpenSound);
+
             doorGroups[randomDoorGroup].SetActive(false);
             mapEventsManager_.shutDoorGroup = false;
-
-            //todo: play sound of doors opening
 
             Debug.Log("DOORS OPENING BACK");
 

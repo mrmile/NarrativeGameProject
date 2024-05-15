@@ -10,6 +10,9 @@ public class AirSwitchBehavior : MonoBehaviour
     public GameObject redLight;
     public GameObject actionIndicationCanvas;
 
+    public AudioClip switchPressSound;
+    AudioSource audioSource;
+
     MapEventsManager mapEventsManager_;
 
     private bool needsReset = false;
@@ -18,7 +21,7 @@ public class AirSwitchBehavior : MonoBehaviour
     void Start()
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,7 +49,7 @@ public class AirSwitchBehavior : MonoBehaviour
 
                 if (airSwitchID == 1 && mapEventsManager_.airSwitchActive_1 == false)
                 {
-                    //todo: play switch on sound
+                    audioSource.PlayOneShot(switchPressSound);
 
                     actionIndicationCanvas.SetActive(false);
 
@@ -65,8 +68,6 @@ public class AirSwitchBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
-        //actionIndicationCanvas.SetActive(true);
-
         if (airSwitchID == 1 && mapEventsManager_.airSwitchActive_1 == false)
         {
             actionIndicationCanvas.SetActive(true);
