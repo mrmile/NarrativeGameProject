@@ -57,22 +57,22 @@ public class MapEventsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
-        //{
-        //    LightsOffEvent();
-        //    Debug.Log("LIGHTS OFF EVENT");
-        //}
+        if (Input.GetKeyDown(KeyCode.F5)) //for testing events only
+        {
+            LightsOffEvent();
+            Debug.Log("LIGHTS OFF EVENT");
+        }
 
-        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
-        //{
-        //    DoorsShutEvent();
-        //}
+        if (Input.GetKeyDown(KeyCode.F6)) //for testing events only
+        {
+            DoorsShutEvent();
+        }
 
-        //if (Input.GetKeyDown(KeyCode.T)) //for testing events only
-        //{
-        //    AirFailEvent();
-        //    Debug.Log("AIR FAIL EVENT");
-        //}
+        if (Input.GetKeyDown(KeyCode.F7)) //for testing events only
+        {
+            AirFailEvent();
+            Debug.Log("AIR FAIL EVENT");
+        }
 
 
 
