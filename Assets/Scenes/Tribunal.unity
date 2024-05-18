@@ -215,7 +215,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 624076580}
+  - {fileID: 1814041610}
   - {fileID: 1073126661}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -398,82 +398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &624076579
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 624076580}
-  - component: {fileID: 624076582}
-  - component: {fileID: 624076581}
-  m_Layer: 5
-  m_Name: Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &624076580
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624076579}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.0949616, y: 3.0949616, z: 3.0949616}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 189964125}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1011.8, y: 510.28}
-  m_SizeDelta: {x: 743.5004, y: 372.752}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &624076581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624076579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a63a7480bb40a94ba3bf5145bb6ec99, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &624076582
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624076579}
-  m_CullTransparentMesh: 1
 --- !u!1 &797897703
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,11 +623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 107.04186
+      value: -67.61
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -146.60208
+      value: -303
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755196472087, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -830,21 +754,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 11
-  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-281.2,\"yPos\":215},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Pista
-    1\",\"parentUIDs\":[5],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":4}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-11.2000885,\"yPos\":212},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Pista
-    2\",\"parentUIDs\":[5],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":217.799988,\"yPos\":215},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Pista
-    3\",\"parentUIDs\":[5],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":10}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":472.200073,\"yPos\":219.799988},\"ID\":9,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Seguir
-    buscando pistas\",\"parentUIDs\":[5],\"SpeechUID\":-1}],\"Parameters\":[{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"hasItem1\",\"BoolValue\":false},{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"hasItem2\",\"BoolValue\":false},{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"hasItem3\",\"BoolValue\":false}],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":5}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":90.79997,\"yPos\":16},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Nos
+  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-215.499985,\"yPos\":341},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Papeles\",\"parentUIDs\":[5],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":4}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":54.49994,\"yPos\":338},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Cinturon\",\"parentUIDs\":[5],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":283.5,\"yPos\":341},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Cura\",\"parentUIDs\":[5],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":10}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":537.9001,\"yPos\":345.8},\"ID\":9,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Seguir
+    buscando pistas\",\"parentUIDs\":[5],\"SpeechUID\":-1}],\"Parameters\":[{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"hasItem1\",\"BoolValue\":false},{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"hasItem2\",\"BoolValue\":false},{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"hasItem3\",\"BoolValue\":false}],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":5}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":156.5,\"yPos\":142},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Nos
     has llamado para hacer un tribunal...\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"General
-    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-27.2000275,\"yPos\":298},\"ID\":4,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Como
+    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":38.5,\"yPos\":424},\"ID\":4,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Como
     te atreves a defender a los Rebeldes?!\",\"parentUIDs\":[3],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"General
-    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem1\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":2},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem2\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":3},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem3\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":7},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem1\",\"CheckType\":0,\"RequiredValue\":false},{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem3\",\"CheckType\":0,\"RequiredValue\":false},{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem2\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":9}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":96.79997,\"yPos\":110.000015},\"ID\":5,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Cuales
+    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem1\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":2},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem2\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":3},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem3\",\"CheckType\":0,\"RequiredValue\":true}],\"NodeUID\":7},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem1\",\"CheckType\":0,\"RequiredValue\":false},{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem3\",\"CheckType\":0,\"RequiredValue\":false},{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"hasItem2\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":9}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":162.5,\"yPos\":236.000015},\"ID\":5,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Cuales
     son las pistas?\",\"parentUIDs\":[0],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"General
-    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-282.200073,\"yPos\":309},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Asi
+    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":-216.500046,\"yPos\":435},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Asi
     que decides estar de parte de la Federaci\xF3n!. Asi es!\",\"parentUIDs\":[2],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"General
-    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":223.799988,\"yPos\":292},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"No
+    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":289.5,\"yPos\":418},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"No
     te quieres ensuciar las manos? Pues vete.\",\"parentUIDs\":[7],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"General
-    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":466.200073,\"yPos\":289.8},\"ID\":10,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Si
+    Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":531.9001,\"yPos\":415.8},\"ID\":10,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Si
     aun no tienes pistas, vete a seguir buscando\",\"parentUIDs\":[9],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"General
     Miller\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
   saveVersion: 110
@@ -866,19 +787,7 @@ MonoBehaviour:
   EndConversationFont: {fileID: 0}
   Event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 270911842}
-        m_TargetAssemblyTypeName: DialogueSceneTransition, Assembly-CSharp
-        m_MethodName: OnDialogueComplete
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1526228595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,6 +1205,82 @@ MonoBehaviour:
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
+--- !u!1 &1814041609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814041610}
+  - component: {fileID: 1814041612}
+  - component: {fileID: 1814041611}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1814041610
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814041609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 189964125}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 624.44}
+  m_SizeDelta: {x: 4529.772, y: 1283.435}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1814041611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814041609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5a63a7480bb40a94ba3bf5145bb6ec99, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1814041612
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814041609}
+  m_CullTransparentMesh: 1
 --- !u!1 &1814533941
 GameObject:
   m_ObjectHideFlags: 0
