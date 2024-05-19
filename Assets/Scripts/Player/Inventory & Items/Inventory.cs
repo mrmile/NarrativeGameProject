@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
    public enum ItemType
     {
-        NoItem, Item1, Item2, Item3
+        NoItem, Item1, Item2, Item3, Key
     }
 
     [Serializable]
