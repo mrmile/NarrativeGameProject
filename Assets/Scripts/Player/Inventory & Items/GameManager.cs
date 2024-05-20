@@ -25,15 +25,15 @@ public class GameManager : MonoBehaviour
     {
         switch (itemType)
         {
-            case Inventory.ItemType.Item1:
+            case Inventory.ItemType.Papers:
                 hasItem1 = value;
                 Debug.Log("Item 1 set to: " + value);
                 break;
-            case Inventory.ItemType.Item2:
+            case Inventory.ItemType.Cinturon:
                 hasItem2 = value;
                 Debug.Log("Item 2 set to: " + value);
                 break;
-            case Inventory.ItemType.Item3:
+            case Inventory.ItemType.Cura:
                 hasItem3 = value;
                 Debug.Log("Item 3 set to: " + value);
                 break;
