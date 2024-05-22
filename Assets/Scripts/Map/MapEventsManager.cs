@@ -6,12 +6,19 @@ using UnityEngine;
 
 public class MapEventsManager : MonoBehaviour
 {
+    public enum SpecialEventID
+    {
+        NONE,
+        AIR_FAIL,
+        REACTOR_FAIL
+    }
+
     public enum EventID
     {
         NONE = 0,
         LIGHTS_OFF,
         DOORS_CLOSE,
-        AIR_FAIL
+        SPECIAL_EVENT
     }
     public EventID eventID;
 
