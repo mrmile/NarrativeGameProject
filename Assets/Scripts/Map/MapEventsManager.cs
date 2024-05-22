@@ -170,4 +170,14 @@ public class MapEventsManager : MonoBehaviour
         //ambienceAudioPlayer_.ResumeAudioAmbience();
         time_Manager_.PauseGameTime(false);
     }
+
+    public void ReactorFailEvent()
+    {
+
+    }
+
+    public void ReactorFixed()
+    {
+
+    }
 }

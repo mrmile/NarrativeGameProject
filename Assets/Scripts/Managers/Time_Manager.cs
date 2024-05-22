@@ -102,7 +102,7 @@ public class Time_Manager : MonoBehaviour
                 {
                     Debug.Log("REACTOR FAIL EVENT");
 
-                    //mapEventsManager_.AirFailEvent(); //Reactor fail event
+                    //mapEventsManager_.ReactorFailEvent(); //Reactor fail event
                 }
 
             }
