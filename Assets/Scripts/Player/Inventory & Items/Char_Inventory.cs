@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,7 +41,7 @@ public class Char_Inventory : MonoBehaviour
                     Inventory.Item item = itemScene.Get();
                     items.Add(item);
                     InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
-                    inventoryUI.AddItemToUI(item.icon);
+                    inventoryUI.AddItemToUI(item.icon, item);
                     HidePickupCanvas(go);  // Hide the Canvas after picking up the item
                     collidingItems.Remove(go);  // Remove the picked-up item from the list
                     break;
