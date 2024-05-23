@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI; // Make sure to include this namespace
-using TMPro; // Include this namespace for TextMeshPro
+using UnityEngine.UI;
+using TMPro;
 using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
@@ -16,7 +16,11 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (UnityEngine.UI.Image slot in itemSlots)
         {
-            slot.GetComponent<Button>().onClick.AddListener(() => OnItemSlotClick(slot));
+            Button button = slot.GetComponent<Button>();
+            if (button != null)
+            {
+                button.onClick.AddListener(() => OnItemSlotClick(slot));
+            }
         }
     }
 
@@ -30,6 +34,10 @@ public class InventoryUI : MonoBehaviour
                 slot.enabled = true;
                 slot.preserveAspect = true;
                 itemSlotDictionary[slot] = item;
+
+                Button button = slot.GetComponent<Button>();
+                button.onClick.RemoveAllListeners(); // Remove previous listeners
+                button.onClick.AddListener(() => ShowItemDescription(item)); // Add listener to show item description
                 break;
             }
         }
@@ -44,6 +52,9 @@ public class InventoryUI : MonoBehaviour
                 slot.sprite = null;
                 slot.enabled = false;
                 itemSlotDictionary.Remove(slot);
+
+                Button button = slot.GetComponent<Button>();
+                button.onClick.RemoveAllListeners(); // Remove listeners to avoid calling on a null item
                 break;
             }
         }
@@ -57,7 +68,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private void ShowItemDescription(Inventory.Item item)
+    public void ShowItemDescription(Inventory.Item item)
     {
         itemDescriptionPanel.SetActive(true);
         itemNameText.text = item.name;
