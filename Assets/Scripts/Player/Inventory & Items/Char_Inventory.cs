@@ -5,8 +5,9 @@ public class Char_Inventory : MonoBehaviour
 {
     [SerializeField] List<Inventory.Item> items;
     [SerializeField] List<GameObject> collidingItems;
-    [SerializeField] GameObject pickupCanvasPrefab;  // Reference to the Canvas prefab
-    private Dictionary<GameObject, GameObject> itemToCanvasMap = new Dictionary<GameObject, GameObject>();  // Map items to their Canvas instances
+    [SerializeField] GameObject pickupCanvasPrefab;
+    [SerializeField] GameObject flashlightObject;  // Reference to the GameObject that emits light
+    private Dictionary<GameObject, GameObject> itemToCanvasMap = new Dictionary<GameObject, GameObject>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +15,7 @@ public class Char_Inventory : MonoBehaviour
         if (item != null)
         {
             collidingItems.Add(collision.gameObject);
-            ShowPickupCanvas(collision.gameObject);  // Show the pickup Canvas near the item
+            ShowPickupCanvas(collision.gameObject);
         }
     }
 
@@ -24,7 +25,7 @@ public class Char_Inventory : MonoBehaviour
         if (item != null)
         {
             collidingItems.Remove(collision.gameObject);
-            HidePickupCanvas(collision.gameObject);  // Hide the Canvas when leaving the item's vicinity
+            HidePickupCanvas(collision.gameObject);
         }
     }
 
@@ -42,11 +43,26 @@ public class Char_Inventory : MonoBehaviour
                     items.Add(item);
                     InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                     inventoryUI.AddItemToUI(item.icon, item);
-                    HidePickupCanvas(go);  // Hide the Canvas after picking up the item
-                    collidingItems.Remove(go);  // Remove the picked-up item from the list
+                    HidePickupCanvas(go);
+                    collidingItems.Remove(go);
                     break;
                 }
             }
+        }
+    }
+
+    public void EquipItem(Inventory.Item item)
+    {
+        if (item.type == Inventory.ItemType.Linterna)
+        {
+            Debug.Log("EquipItem method called. Toggling flashlight.");
+            item.isEquipped = !item.isEquipped;
+            flashlightObject.SetActive(item.isEquipped);  // Activate or deactivate the flashlight GameObject
+            Debug.Log("Flashlight enabled state: " + flashlightObject.activeSelf);
+        }
+        else
+        {
+            Debug.Log("EquipItem called for non-Linterna item.");
         }
     }
 
@@ -55,8 +71,8 @@ public class Char_Inventory : MonoBehaviour
         if (pickupCanvasPrefab != null)
         {
             GameObject canvasInstance = Instantiate(pickupCanvasPrefab, item.transform.position + Vector3.up * 0.5f, Quaternion.identity);
-            canvasInstance.transform.SetParent(item.transform);  // Make the Canvas a child of the item
-            itemToCanvasMap[item] = canvasInstance;  // Add to the map
+            canvasInstance.transform.SetParent(item.transform);
+            itemToCanvasMap[item] = canvasInstance;
         }
     }
 
@@ -64,8 +80,8 @@ public class Char_Inventory : MonoBehaviour
     {
         if (itemToCanvasMap.ContainsKey(item))
         {
-            Destroy(itemToCanvasMap[item]);  // Destroy the Canvas instance
-            itemToCanvasMap.Remove(item);  // Remove from the map
+            Destroy(itemToCanvasMap[item]);
+            itemToCanvasMap.Remove(item);
         }
     }
 }

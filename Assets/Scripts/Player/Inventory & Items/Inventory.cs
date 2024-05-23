@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
         public string name;
         public string description;
         public string pickUpText;
+        public bool isEquipped;
     }
 
     [SerializeField]
