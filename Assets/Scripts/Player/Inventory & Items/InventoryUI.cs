@@ -60,7 +60,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private void OnItemSlotClick(UnityEngine.UI.Image slot)
+    public void OnItemSlotClick(UnityEngine.UI.Image slot)
     {
         if (itemSlotDictionary.TryGetValue(slot, out Inventory.Item item))
         {
