@@ -12,10 +12,8 @@ public class ComputerInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger Enter");  // Log for debugging
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player is nearby");  // Log for debugging
             isPlayerNearby = true;
             ShowPickupCanvas();
         }
@@ -23,10 +21,8 @@ public class ComputerInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Trigger Exit");  // Log for debugging
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player left");  // Log for debugging
             isPlayerNearby = false;
             HidePickupCanvas();
         }
@@ -36,7 +32,6 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("E key pressed");  // Log for debugging
             OpenInteractionWindow();
         }
     }
@@ -45,7 +40,6 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (pickupCanvasPrefab != null && canvasInstance == null)
         {
-            Debug.Log("Showing pickup canvas");  // Log for debugging
             canvasInstance = Instantiate(pickupCanvasPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
             canvasInstance.transform.SetParent(transform);  // Make the Canvas a child of the computer
         }
@@ -55,7 +49,6 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (canvasInstance != null)
         {
-            Debug.Log("Hiding pickup canvas");  // Log for debugging
             Destroy(canvasInstance);  // Destroy the Canvas instance
             canvasInstance = null;
         }
@@ -65,8 +58,15 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (interactionWindow != null)
         {
-            Debug.Log("Opening interaction window");  // Log for debugging
             interactionWindow.SetActive(true);  // Show the interaction window
+        }
+    }
+
+    public void CloseInteractionWindow()
+    {
+        if (interactionWindow != null)
+        {
+            interactionWindow.SetActive(false);  // Hide the interaction window
         }
     }
 }
