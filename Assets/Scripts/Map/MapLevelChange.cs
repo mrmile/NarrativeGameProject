@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MapLevelChange : MonoBehaviour
 {
+    public GameObject playerToSpawn;
+
     public int mapLevelToEnter = 0;
     public int mapLevelEntranceID = 0;
 
