@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
    public enum ItemType
     {
-        NoItem, Papers, Cinturon, Cura, Key, Pendiente, TarjetaAcceso, ClaveAcceso, TrajeOperaciones, Maletin, OrdenadorAM, OrdenadorPM
+        NoItem, Papers, Cinturon, Cura, Key, Pendiente, TarjetaAcceso, ClaveAcceso, TrajeOperaciones, Maletin, Linterna
     }
 
     [Serializable]
