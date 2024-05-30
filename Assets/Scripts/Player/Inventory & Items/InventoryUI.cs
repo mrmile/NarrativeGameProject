@@ -9,10 +9,10 @@ public class InventoryUI : MonoBehaviour
     public GameObject itemDescriptionPanel;
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
-    public Button equipButton; // Add this line
+    public Button equipButton;
 
     private Dictionary<UnityEngine.UI.Image, Inventory.Item> itemSlotDictionary = new Dictionary<UnityEngine.UI.Image, Inventory.Item>();
-    private Inventory.Item selectedItem; // Add this line to store the currently selected item
+    private Inventory.Item selectedItem;
 
     private void Start()
     {
@@ -25,8 +25,8 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        equipButton.gameObject.SetActive(false); // Ensure the equip button is initially hidden
-        equipButton.onClick.AddListener(OnEquipButtonClick); // Add this line to set up the button event
+        equipButton.gameObject.SetActive(false);
+        equipButton.onClick.AddListener(OnEquipButtonClick);
     }
 
     public void AddItemToUI(Sprite itemIcon, Inventory.Item item)
@@ -48,12 +48,13 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void RemoveItemFromUI(Sprite itemIcon)
+    public void RemoveItemFromUI(Inventory.ItemType itemType)
     {
-        foreach (UnityEngine.UI.Image slot in itemSlots)
+        foreach (var kvp in itemSlotDictionary)
         {
-            if (slot.sprite == itemIcon)
+            if (kvp.Value.type == itemType)
             {
+                UnityEngine.UI.Image slot = kvp.Key;
                 slot.sprite = null;
                 slot.enabled = false;
                 itemSlotDictionary.Remove(slot);
@@ -78,7 +79,7 @@ public class InventoryUI : MonoBehaviour
         itemDescriptionPanel.SetActive(true);
         itemNameText.text = item.name;
         itemDescriptionText.text = item.description;
-        selectedItem = item; // Store the selected item
+        selectedItem = item;
 
         if (item.type == Inventory.ItemType.Linterna)
         {
@@ -93,10 +94,10 @@ public class InventoryUI : MonoBehaviour
     public void CloseItemDescriptionPanel()
     {
         itemDescriptionPanel.SetActive(false);
-        equipButton.gameObject.SetActive(false); // Hide equip button when closing panel
+        equipButton.gameObject.SetActive(false);
     }
 
-    public void OnEquipButtonClick() // Add this method to handle button clicks
+    public void OnEquipButtonClick()
     {
         Char_Inventory charInventory = FindObjectOfType<Char_Inventory>();
         if (charInventory != null && selectedItem != null)

@@ -17,6 +17,10 @@ public class DoorsCloseBehavior : MonoBehaviour
     private float elapsedTime = 0;
     private float startTime = 0;
 
+    // TarjetaAcceso and inventory related
+    public Inventory inventory;
+    private bool TarjetaAccesoUsed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,7 @@ public class DoorsCloseBehavior : MonoBehaviour
         time_Manager_ = FindObjectOfType<Time_Manager>();
         audioSource = GetComponent<AudioSource>();
 
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -31,7 +36,7 @@ public class DoorsCloseBehavior : MonoBehaviour
     {
         elapsedTime = Time.time - startTime;
 
-        if(mapEventsManager_.shutDoorGroup == false && mapEventsManager_.doorsShutEventPhase == 0)
+        if (mapEventsManager_.shutDoorGroup == false && mapEventsManager_.doorsShutEventPhase == 0)
         {
             startTime = Time.time;
         }
@@ -48,7 +53,7 @@ public class DoorsCloseBehavior : MonoBehaviour
             Debug.Log("SHUT DOOR GROUP:" + randomDoorGroup);
         }
 
-        if(mapEventsManager_.doorsShutEventPhase == 2 && elapsedTime >= mapEventsManager_.doorsShutEventDuration)
+        if (mapEventsManager_.doorsShutEventPhase == 2 && elapsedTime >= mapEventsManager_.doorsShutEventDuration)
         {
             mapEventsManager_.shutDoorGroup = false;
             mapEventsManager_.doorsShutEventPhase = 3;
@@ -66,6 +71,33 @@ public class DoorsCloseBehavior : MonoBehaviour
             Debug.Log("DOORS OPENING BACK");
 
             time_Manager_.PauseGameTime(false);
+        }
+
+        // Check for TarjetaAcceso usage
+        if (mapEventsManager_.doorsShutEventPhase == 2 && !TarjetaAccesoUsed && Input.GetKeyDown(KeyCode.C)) // Assuming "C" is the key to use the TarjetaAcceso
+        {
+            UseTarjetaAcceso();
+        }
+    }
+
+    private void UseTarjetaAcceso()
+    {
+        if (inventory.HasTarjetaAcceso())
+        {
+            TarjetaAccesoUsed = true;
+            inventory.UseTarjetaAcceso();
+            mapEventsManager_.doorsShutEventPhase = 0;
+            audioSource.PlayOneShot(doorsOpenSound);
+            doorGroups[randomDoorGroup].SetActive(false);
+            mapEventsManager_.shutDoorGroup = false;
+
+            Debug.Log("TarjetaAcceso USED TO OPEN DOOR");
+
+            time_Manager_.PauseGameTime(false);
+        }
+        else
+        {
+            Debug.Log("NO TarjetaAcceso AVAILABLE");
         }
     }
 }

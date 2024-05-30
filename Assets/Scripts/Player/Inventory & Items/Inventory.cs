@@ -5,7 +5,7 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
-   public enum ItemType
+    public enum ItemType
     {
         NoItem, Papers, Cinturon, Cura, Key, Pendiente, TarjetaAcceso, ClaveAcceso, TrajeOperaciones, Maletin, Linterna
     }
@@ -30,7 +30,6 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     public Dictionary<ItemType, Item> itemsDictionary = new Dictionary<ItemType, Item>();
 
-
     private void Awake()
     {
         Inventory inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
@@ -48,4 +47,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public bool HasTarjetaAcceso()
+    {
+        return itemsDictionary.ContainsKey(ItemType.TarjetaAcceso);
+    }
+
+    public void UseTarjetaAcceso()
+    {
+        if (HasTarjetaAcceso())
+        {
+            itemsDictionary.Remove(ItemType.TarjetaAcceso);
+        }
+    }
 }
