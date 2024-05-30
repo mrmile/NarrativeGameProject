@@ -12,7 +12,7 @@ public class Char_Inventory : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Item_Scene item = collision.GetComponent<Item_Scene>();
-        if (item != null)
+        if (item != null && !collidingItems.Contains(collision.gameObject))
         {
             collidingItems.Add(collision.gameObject);
             ShowPickupCanvas(collision.gameObject);
@@ -22,7 +22,7 @@ public class Char_Inventory : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Item_Scene item = collision.GetComponent<Item_Scene>();
-        if (item != null)
+        if (item != null && collidingItems.Contains(collision.gameObject))
         {
             collidingItems.Remove(collision.gameObject);
             HidePickupCanvas(collision.gameObject);
@@ -33,8 +33,9 @@ public class Char_Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            foreach (var go in collidingItems)
+            for (int i = collidingItems.Count - 1; i >= 0; i--)
             {
+                var go = collidingItems[i];
                 Item_Scene itemScene = go.GetComponent<Item_Scene>();
 
                 if (itemScene != null)
@@ -44,7 +45,7 @@ public class Char_Inventory : MonoBehaviour
                     InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                     inventoryUI.AddItemToUI(item.icon, item);
                     HidePickupCanvas(go);
-                    collidingItems.Remove(go);
+                    collidingItems.RemoveAt(i);
                     break;
                 }
             }
