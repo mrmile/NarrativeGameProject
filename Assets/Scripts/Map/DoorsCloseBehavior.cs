@@ -17,11 +17,11 @@ public class DoorsCloseBehavior : MonoBehaviour
     private float elapsedTime = 0;
     private float startTime = 0;
 
-    // TarjetaAcceso and inventory related
     public Inventory inventory;
     private bool TarjetaAccesoUsed = false;
 
-    // Start is called before the first frame update
+    private InventoryUI inventoryUI;
+
     void Start()
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
@@ -29,9 +29,9 @@ public class DoorsCloseBehavior : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        inventoryUI = FindObjectOfType<InventoryUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         elapsedTime = Time.time - startTime;
@@ -73,8 +73,7 @@ public class DoorsCloseBehavior : MonoBehaviour
             time_Manager_.PauseGameTime(false);
         }
 
-        // Check for TarjetaAcceso usage
-        if (mapEventsManager_.doorsShutEventPhase == 2 && !TarjetaAccesoUsed && Input.GetKeyDown(KeyCode.C)) // Assuming "C" is the key to use the TarjetaAcceso
+        if (mapEventsManager_.doorsShutEventPhase == 2 && !TarjetaAccesoUsed && Input.GetKeyDown(KeyCode.E))
         {
             UseTarjetaAcceso();
         }
@@ -90,6 +89,9 @@ public class DoorsCloseBehavior : MonoBehaviour
             audioSource.PlayOneShot(doorsOpenSound);
             doorGroups[randomDoorGroup].SetActive(false);
             mapEventsManager_.shutDoorGroup = false;
+
+            // Update the UI
+            inventoryUI.RemoveItemFromUI(Inventory.ItemType.TarjetaAcceso);
 
             Debug.Log("TarjetaAcceso USED TO OPEN DOOR");
 
