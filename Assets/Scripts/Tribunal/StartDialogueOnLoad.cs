@@ -13,9 +13,11 @@ public class StartDialogueOnLoad : MonoBehaviour
         }
 
         //Debug.Log("Has Item 1: " + GameManager.Instance.hasItem1);
-        ConversationManager.Instance.SetBool("hasItem1", GameManager.Instance.hasItem1);
-        ConversationManager.Instance.SetBool("hasItem2", GameManager.Instance.hasItem2);
-        ConversationManager.Instance.SetBool("hasItem3", GameManager.Instance.hasItem3);
+        ConversationManager.Instance.SetBool("hasPapeles", GameManager.Instance.hasPapeles);
+        ConversationManager.Instance.SetBool("hasCinturon", GameManager.Instance.hasCinturon);
+        ConversationManager.Instance.SetBool("hasCura", GameManager.Instance.hasCura);
+        ConversationManager.Instance.SetBool("hasPendiente", GameManager.Instance.hasPendiente);
+        ConversationManager.Instance.SetBool("hasMaletin", GameManager.Instance.hasMaletin);
     }
 
     public void StartDialogue()

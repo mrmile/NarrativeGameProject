@@ -4,9 +4,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public bool hasItem1 = false;
-    public bool hasItem2 = false;
-    public bool hasItem3 = false;
+    public bool hasPapeles = false;
+    public bool hasCinturon = false;
+    public bool hasCura = false;
+    public bool hasPendiente = false;
+    public bool hasMaletin = false;
 
     void Awake()
     {
@@ -26,16 +28,19 @@ public class GameManager : MonoBehaviour
         switch (itemType)
         {
             case Inventory.ItemType.Papers:
-                hasItem1 = value;
-                Debug.Log("Item 1 set to: " + value);
+                hasPapeles = value;
                 break;
             case Inventory.ItemType.Cinturon:
-                hasItem2 = value;
-                Debug.Log("Item 2 set to: " + value);
+                hasCinturon = value;
                 break;
             case Inventory.ItemType.Cura:
-                hasItem3 = value;
-                Debug.Log("Item 3 set to: " + value);
+                hasCura = value;
+                break;
+            case Inventory.ItemType.Pendiente:
+                hasPendiente = value;
+                break;
+                case Inventory.ItemType.Maletin:
+                hasMaletin = value;
                 break;
         }
         Debug.Log("Item " + itemType + " set to: " + value);
