@@ -8,6 +8,8 @@ public static class TimeManagerVariables
     public static int gameMinute;
     public static int gameHour;
 
+    public static bool isTimePaused;
+
     //---------------Map Events---------------
     public static int randomGameHour = 25;
     public static bool dayEventHapened = false;

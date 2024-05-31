@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightOnOffBehaviour : MonoBehaviour
 {
-    public bool lightsOff = false;
+    //public bool lightsOff = false;
 
     public GameObject[] lights;
     int intensity = 100;
@@ -18,7 +18,7 @@ public class LightOnOffBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lightsOff == false && intensity <= 0)
+        if(LightOnOffBehaviourVariables.lightsOff == false && intensity <= 0)
         {
             intensity = 100;
 
@@ -27,7 +27,7 @@ public class LightOnOffBehaviour : MonoBehaviour
                 lights[i].SetActive(true);
             }
         }
-        if (lightsOff == true && intensity > 0)
+        if (LightOnOffBehaviourVariables.lightsOff == true && intensity > 0)
         {
             intensity = 0;
 

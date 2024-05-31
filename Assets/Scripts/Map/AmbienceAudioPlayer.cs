@@ -12,8 +12,8 @@ public class AmbienceAudioPlayer : MonoBehaviour
 
     MapEventsManager mapEventsManager_;
 
-    bool ambiencePlaying = false;
-    bool ambiencePaused = false;
+    public bool ambiencePlaying = false;
+    public bool ambiencePaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,15 @@ public class AmbienceAudioPlayer : MonoBehaviour
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
 
         ambiencePlaying = false;
+
+        if (EventManagerVariables.lightSwitchActive_1 == false ||
+        EventManagerVariables.lightSwitchActive_2 == false ||
+        EventManagerVariables.lightSwitchActive_3 == false ||
+        EventManagerVariables.lightsOffEventActive == true)
+        {
+            ambiencePlaying = true;
+            SwitchToLightsOffAmbience();
+        }
     }
 
     // Update is called once per frame
@@ -73,14 +82,14 @@ public class AmbienceAudioPlayer : MonoBehaviour
 
     public void SwitchToLightsOffAmbience()
     {
-        audioSource.Stop();
+        //audioSource.Stop();
         audioSource.clip = lightsOffAmbience;
         audioSource.Play();
     }
 
     public void SwitchBackToDefaultAmbience()
     {
-        audioSource.Stop();
+        //audioSource.Stop();
         if (mapEventsManager_.currentMapLevel == 0)
         {
             audioSource.clip = Level_P0_ambience;
@@ -102,6 +111,6 @@ public class AmbienceAudioPlayer : MonoBehaviour
             //audioSource.clip = Level_P1_ambience;
             //audioSource.Play();
         }
-        audioSource.Play();
+        //audioSource.Play();
     }
 }

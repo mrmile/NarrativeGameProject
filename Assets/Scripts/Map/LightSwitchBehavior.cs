@@ -29,7 +29,7 @@ public class LightSwitchBehavior : MonoBehaviour
     {
         if(lightSwitchID == 1)
         {
-            if (mapEventsManager_.lightSwitchActive_1 == false && needsReset == false)
+            if (EventManagerVariables.lightSwitchActive_1 == false && needsReset == false)
             {
                 needsReset = true;
                 greenLight.SetActive(false);
@@ -38,7 +38,7 @@ public class LightSwitchBehavior : MonoBehaviour
         }
         if (lightSwitchID == 2)
         {
-            if (mapEventsManager_.lightSwitchActive_2 == false && needsReset == false)
+            if (EventManagerVariables.lightSwitchActive_2 == false && needsReset == false)
             {
                 needsReset = true;
                 greenLight.SetActive(false);
@@ -47,7 +47,7 @@ public class LightSwitchBehavior : MonoBehaviour
         }
         if (lightSwitchID == 3)
         {
-            if (mapEventsManager_.lightSwitchActive_3 == false && needsReset == false)
+            if (EventManagerVariables.lightSwitchActive_3 == false && needsReset == false)
             {
                 needsReset = true;
                 greenLight.SetActive(false);
@@ -65,7 +65,7 @@ public class LightSwitchBehavior : MonoBehaviour
             {
                 //Debug.Log("SWITCH colliding press");
 
-                if (lightSwitchID == 1 && mapEventsManager_.lightSwitchActive_1 == false)
+                if (lightSwitchID == 1 && EventManagerVariables.lightSwitchActive_1 == false)
                 {
                     audioSource.PlayOneShot(switchPressSound);
 
@@ -75,10 +75,10 @@ public class LightSwitchBehavior : MonoBehaviour
                     greenLight.SetActive(true);
                     redLight.SetActive(false);
 
-                    mapEventsManager_.lightSwitchActive_1 = true;
+                    EventManagerVariables.lightSwitchActive_1 = true;
                     Debug.Log("SWITCH 1 ON");
                 }
-                if (lightSwitchID == 2 && mapEventsManager_.lightSwitchActive_2 == false)
+                if (lightSwitchID == 2 && EventManagerVariables.lightSwitchActive_2 == false)
                 {
                     audioSource.PlayOneShot(switchPressSound);
 
@@ -89,10 +89,10 @@ public class LightSwitchBehavior : MonoBehaviour
                     greenLight.SetActive(true);
                     redLight.SetActive(false);
 
-                    mapEventsManager_.lightSwitchActive_2 = true;
+                    EventManagerVariables.lightSwitchActive_2 = true;
                     Debug.Log("SWITCH 2 ON");
                 }
-                if (lightSwitchID == 3 && mapEventsManager_.lightSwitchActive_3 == false)
+                if (lightSwitchID == 3 && EventManagerVariables.lightSwitchActive_3 == false)
                 {
                     audioSource.PlayOneShot(switchPressSound);
 
@@ -102,7 +102,7 @@ public class LightSwitchBehavior : MonoBehaviour
                     greenLight.SetActive(true);
                     redLight.SetActive(false);
 
-                    mapEventsManager_.lightSwitchActive_3 = true;
+                    EventManagerVariables.lightSwitchActive_3 = true;
                     Debug.Log("SWITCH 3 ON");
                 }
             }
@@ -113,15 +113,15 @@ public class LightSwitchBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (lightSwitchID == 1 && mapEventsManager_.lightSwitchActive_1 == false)
+        if (lightSwitchID == 1 && EventManagerVariables.lightSwitchActive_1 == false)
         {
             actionIndicationCanvas.SetActive(true);
         }
-        if (lightSwitchID == 2 && mapEventsManager_.lightSwitchActive_2 == false)
+        if (lightSwitchID == 2 && EventManagerVariables.lightSwitchActive_2 == false)
         {
             actionIndicationCanvas.SetActive(true);
         }
-        if (lightSwitchID == 3 && mapEventsManager_.lightSwitchActive_3 == false)
+        if (lightSwitchID == 3 && EventManagerVariables.lightSwitchActive_3 == false)
         {
             actionIndicationCanvas.SetActive(true);
         }

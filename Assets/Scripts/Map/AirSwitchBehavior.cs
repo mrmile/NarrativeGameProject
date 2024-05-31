@@ -29,7 +29,7 @@ public class AirSwitchBehavior : MonoBehaviour
     {
         if(airSwitchID == 1)
         {
-            if (mapEventsManager_.airSwitchActive_1 == false && needsReset == false)
+            if (EventManagerVariables.airSwitchActive_1 == false && needsReset == false)
             {
                 needsReset = true;
                 greenLight.SetActive(false);
@@ -47,7 +47,7 @@ public class AirSwitchBehavior : MonoBehaviour
             {
                 //Debug.Log("SWITCH colliding press");
 
-                if (airSwitchID == 1 && mapEventsManager_.airSwitchActive_1 == false)
+                if (airSwitchID == 1 && EventManagerVariables.airSwitchActive_1 == false)
                 {
                     audioSource.PlayOneShot(switchPressSound);
 
@@ -57,7 +57,7 @@ public class AirSwitchBehavior : MonoBehaviour
                     greenLight.SetActive(true);
                     redLight.SetActive(false);
 
-                    mapEventsManager_.airSwitchActive_1 = true;
+                    EventManagerVariables.airSwitchActive_1 = true;
                     Debug.Log("AIR SWITCH 1 ON");
                 }
             }
@@ -68,7 +68,7 @@ public class AirSwitchBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (airSwitchID == 1 && mapEventsManager_.airSwitchActive_1 == false)
+        if (airSwitchID == 1 && EventManagerVariables.airSwitchActive_1 == false)
         {
             actionIndicationCanvas.SetActive(true);
         }

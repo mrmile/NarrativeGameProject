@@ -31,7 +31,7 @@ public class Time_Manager : MonoBehaviour
     public bool noEventProbability = false;
     //----------------------------------------
 
-    bool isTimePaused;
+    
     void Start()
     {
         //---------------Map Events---------------
@@ -47,7 +47,7 @@ public class Time_Manager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!isTimePaused) UpdateTimeValues();
+        if(!TimeManagerVariables.isTimePaused) UpdateTimeValues();
         
     }
 
@@ -185,6 +185,6 @@ public class Time_Manager : MonoBehaviour
 
     public void PauseGameTime(bool isTimePaused)
     {
-        this.isTimePaused = isTimePaused;
+        TimeManagerVariables.isTimePaused = isTimePaused;
     }
 }

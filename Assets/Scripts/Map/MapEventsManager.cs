@@ -24,17 +24,17 @@ public class MapEventsManager : MonoBehaviour
 
     public int currentMapLevel = 0;
 
-    bool lightsOffEventActive = false;
-    public bool lightSwitchActive_1 = true;
-    public bool lightSwitchActive_2 = true;
-    public bool lightSwitchActive_3 = true;
+    //bool lightsOffEventActive = false;
+    //public bool lightSwitchActive_1 = true;
+    //public bool lightSwitchActive_2 = true;
+    //public bool lightSwitchActive_3 = true;
 
-    public int doorsShutEventPhase = 0;
-    public bool shutDoorGroup = false;
-    public float doorsShutEventDuration = 5;
+    //public int doorsShutEventPhase = 0;
+    //public bool shutDoorGroup = false;
+    //public float doorsShutEventDuration = 5;
 
-    bool airFailEventActive = false;
-    public bool airSwitchActive_1 = true;
+    //bool airFailEventActive = false;
+    //public bool airSwitchActive_1 = true;
 
     public AudioClip powerOffSound;
     public AudioClip powerOnSound;
@@ -59,6 +59,31 @@ public class MapEventsManager : MonoBehaviour
         ambienceAudioPlayer_ = FindObjectOfType<AmbienceAudioPlayer>();
 
         audioSource = GetComponent<AudioSource>();
+
+        if (EventManagerVariables.lightSwitchActive_1 == false ||
+        EventManagerVariables.lightSwitchActive_2 == false ||
+        EventManagerVariables.lightSwitchActive_3 == false ||
+        EventManagerVariables.lightsOffEventActive == true)
+        {
+            //LightsOffEvent();
+            LightOnOffBehaviourVariables.lightsOff = true;
+            EventManagerVariables.lightsOffEventActive = true;
+
+            Debug.Log("LIGHTS ARE STILL OFF");
+        }
+
+        if (EventManagerVariables.airSwitchActive_1 == false ||
+        EventManagerVariables.airFailEventActive == true)
+        {
+            //AirFailEvent();
+            AirFailBehaviourVariables.airOff = true;
+            EventManagerVariables.airFailEventActive = true;
+            audioSource.clip = alarmSound;
+            audioSource.loop = true;
+            audioSource.Play();
+
+            Debug.Log("AIR STILLS FAILED");
+        }
     }
 
     // Update is called once per frame
@@ -83,17 +108,17 @@ public class MapEventsManager : MonoBehaviour
 
 
 
-        if (lightSwitchActive_1 == true &&
-        lightSwitchActive_2 == true &&
-        lightSwitchActive_3 == true &&
-        lightsOffEventActive == true)
+        if (EventManagerVariables.lightSwitchActive_1 == true &&
+        EventManagerVariables.lightSwitchActive_2 == true &&
+        EventManagerVariables.lightSwitchActive_3 == true &&
+        EventManagerVariables.lightsOffEventActive == true)
         {
             LightsBackOn();
             Debug.Log("LIGHTS BACK ON");
         }
 
-        if (airSwitchActive_1 == true &&
-        airFailEventActive == true)
+        if (EventManagerVariables.airSwitchActive_1 == true &&
+        EventManagerVariables.airFailEventActive == true)
         {
             AirBackOn();
             Debug.Log("AIR BACK ON");
@@ -105,12 +130,12 @@ public class MapEventsManager : MonoBehaviour
     {
         audioSource.PlayOneShot(powerOffSound);
 
-        lightSwitchActive_1 = false;
-        lightSwitchActive_2 = false;
-        lightSwitchActive_3 = false;
-        lightOnOffBehaviour_.lightsOff = true;
+        EventManagerVariables.lightSwitchActive_1 = false;
+        EventManagerVariables.lightSwitchActive_2 = false;
+        EventManagerVariables.lightSwitchActive_3 = false;
+        LightOnOffBehaviourVariables.lightsOff = true;
 
-        lightsOffEventActive = true;
+        EventManagerVariables.lightsOffEventActive = true;
 
         ambienceAudioPlayer_.SwitchToLightsOffAmbience();
         time_Manager_.PauseGameTime(true);
@@ -120,9 +145,9 @@ public class MapEventsManager : MonoBehaviour
     {
         audioSource.PlayOneShot(powerOnSound);
 
-        lightOnOffBehaviour_.lightsOff = false;
+        LightOnOffBehaviourVariables.lightsOff = false;
 
-        lightsOffEventActive = false;
+        EventManagerVariables.lightsOffEventActive = false;
 
         ambienceAudioPlayer_.SwitchBackToDefaultAmbience();
         time_Manager_.PauseGameTime(false);
@@ -132,8 +157,8 @@ public class MapEventsManager : MonoBehaviour
     {
         audioSource.PlayOneShot(doorsCloseSound);
 
-        shutDoorGroup = true;
-        doorsShutEventPhase = 1;
+        EventManagerVariables.shutDoorGroup = true;
+        EventManagerVariables.doorsShutEventPhase = 1;
         Debug.Log("DOORS SHUT EVENT");
 
         time_Manager_.PauseGameTime(true);
@@ -146,12 +171,12 @@ public class MapEventsManager : MonoBehaviour
         audioSource.clip = alarmSound;
         audioSource.loop = true;
         audioSource.Play();
-        
 
-        airSwitchActive_1 = false;
-        airFailBehaviour_.airOff = true;
 
-        airFailEventActive = true;
+        EventManagerVariables.airSwitchActive_1 = false;
+        AirFailBehaviourVariables.airOff = true;
+
+        EventManagerVariables.airFailEventActive = true;
 
         //ambienceAudioPlayer_.StopAudioAmbience();
         time_Manager_.PauseGameTime(true);
@@ -163,9 +188,9 @@ public class MapEventsManager : MonoBehaviour
         audioSource.loop = false;
         audioSource.PlayOneShot(powerOnSound);
 
-        airFailBehaviour_.airOff = false;
+        AirFailBehaviourVariables.airOff = false;
 
-        airFailEventActive = false;
+        EventManagerVariables.airFailEventActive = false;
 
         //ambienceAudioPlayer_.ResumeAudioAmbience();
         time_Manager_.PauseGameTime(false);

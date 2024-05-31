@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AirFailBehaviour : MonoBehaviour
 {
-    public bool airOff = false;
+    //public bool airOff = false;
 
     public GameObject airEffect;
     int intensity = 100;
@@ -18,13 +18,13 @@ public class AirFailBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(airOff == false && intensity <= 0)
+        if(AirFailBehaviourVariables.airOff == false && intensity <= 0)
         {
             intensity = 100;
 
             airEffect.SetActive(false);
         }
-        if (airOff == true && intensity > 0)
+        if (AirFailBehaviourVariables.airOff == true && intensity > 0)
         {
             intensity = 0;
 

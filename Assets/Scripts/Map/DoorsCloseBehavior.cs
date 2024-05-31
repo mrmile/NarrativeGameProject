@@ -36,14 +36,14 @@ public class DoorsCloseBehavior : MonoBehaviour
     {
         elapsedTime = Time.time - startTime;
 
-        if (mapEventsManager_.shutDoorGroup == false && mapEventsManager_.doorsShutEventPhase == 0)
+        if (EventManagerVariables.shutDoorGroup == false && EventManagerVariables.doorsShutEventPhase == 0)
         {
             startTime = Time.time;
         }
 
-        if (mapEventsManager_.shutDoorGroup == true && mapEventsManager_.doorsShutEventPhase == 1)
+        if (EventManagerVariables.shutDoorGroup == true && EventManagerVariables.doorsShutEventPhase == 1)
         {
-            mapEventsManager_.doorsShutEventPhase = 2;
+            EventManagerVariables.doorsShutEventPhase = 2;
 
             randomDoorGroup = Random.Range(0, doorGroups.Length);
 
@@ -53,27 +53,27 @@ public class DoorsCloseBehavior : MonoBehaviour
             Debug.Log("SHUT DOOR GROUP:" + randomDoorGroup);
         }
 
-        if (mapEventsManager_.doorsShutEventPhase == 2 && elapsedTime >= mapEventsManager_.doorsShutEventDuration)
+        if (EventManagerVariables.doorsShutEventPhase == 2 && elapsedTime >= EventManagerVariables.doorsShutEventDuration)
         {
-            mapEventsManager_.shutDoorGroup = false;
-            mapEventsManager_.doorsShutEventPhase = 3;
+            EventManagerVariables.shutDoorGroup = false;
+            EventManagerVariables.doorsShutEventPhase = 3;
         }
 
-        if (mapEventsManager_.shutDoorGroup == false && mapEventsManager_.doorsShutEventPhase == 3)
+        if (EventManagerVariables.shutDoorGroup == false && EventManagerVariables.doorsShutEventPhase == 3)
         {
-            mapEventsManager_.doorsShutEventPhase = 0;
+            EventManagerVariables.doorsShutEventPhase = 0;
 
             audioSource.PlayOneShot(doorsOpenSound);
 
             doorGroups[randomDoorGroup].SetActive(false);
-            mapEventsManager_.shutDoorGroup = false;
+            EventManagerVariables.shutDoorGroup = false;
 
             Debug.Log("DOORS OPENING BACK");
 
             time_Manager_.PauseGameTime(false);
         }
 
-        if (mapEventsManager_.doorsShutEventPhase == 2 && !TarjetaAccesoUsed && Input.GetKeyDown(KeyCode.E))
+        if (EventManagerVariables.doorsShutEventPhase == 2 && !TarjetaAccesoUsed && Input.GetKeyDown(KeyCode.E))
         {
             UseTarjetaAcceso();
         }
@@ -85,10 +85,10 @@ public class DoorsCloseBehavior : MonoBehaviour
         {
             TarjetaAccesoUsed = true;
             inventory.UseTarjetaAcceso();
-            mapEventsManager_.doorsShutEventPhase = 0;
+            EventManagerVariables.doorsShutEventPhase = 0;
             audioSource.PlayOneShot(doorsOpenSound);
             doorGroups[randomDoorGroup].SetActive(false);
-            mapEventsManager_.shutDoorGroup = false;
+            EventManagerVariables.shutDoorGroup = false;
 
             // Update the UI
             inventoryUI.RemoveItemFromUI(Inventory.ItemType.TarjetaAcceso);
