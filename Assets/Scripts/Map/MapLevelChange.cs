@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapLevelChange : MonoBehaviour
 {
-    public GameObject playerToSpawn;
+    GameObject player;
 
-    public int mapLevelToEnter = 0;
-    public int mapLevelEntranceID = 0;
+    public string sceneName;
+    public float scenePosition_X;
+    public float scenePosition_Y;
 
     // Start is called before the first frame update
     void Start()
@@ -25,32 +27,9 @@ public class MapLevelChange : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("Player"))
         {
-            if(mapLevelToEnter == 0)
-            {
-                if (mapLevelEntranceID == 0) //Entrance #0 is the game's start position
-                {
+            PlayerPosition.newPosition = new Vector2(scenePosition_X, scenePosition_Y);
 
-                }
-                else if (mapLevelEntranceID == 1)
-                {
-
-                }
-                else if (mapLevelEntranceID == 2)
-                {
-
-                }
-            }
-            else if (mapLevelToEnter == -1)
-            {
-                if (mapLevelEntranceID == 1)
-                {
-
-                }
-                else if (mapLevelEntranceID == 2)
-                {
-
-                }
-            }
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

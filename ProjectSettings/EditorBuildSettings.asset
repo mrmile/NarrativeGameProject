@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapLevel_0.unity
     guid: 24ad3c3637000354c90e5d40e5173441
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MapLevel_-1.unity
+    guid: 2ecf85285dfc788458a72549d7fa35c3
   - enabled: 1
     path: Assets/Scenes/Tribunal.unity
     guid: d36b5681d9b508742ab0acb9991d279e
