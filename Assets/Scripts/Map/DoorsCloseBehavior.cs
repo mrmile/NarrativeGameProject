@@ -71,6 +71,8 @@ public class DoorsCloseBehavior : MonoBehaviour
             Debug.Log("DOORS OPENING BACK");
 
             time_Manager_.PauseGameTime(false);
+
+            mapEventsManager_.SetupEventInfoUI("nothing", "nothing", false);
         }
 
         if (EventManagerVariables.doorsShutEventPhase == 2 && !TarjetaAccesoUsed && Input.GetKeyDown(KeyCode.E))

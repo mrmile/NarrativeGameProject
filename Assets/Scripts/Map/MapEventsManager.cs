@@ -139,6 +139,8 @@ public class MapEventsManager : MonoBehaviour
 
         ambienceAudioPlayer_.SwitchToLightsOffAmbience();
         time_Manager_.PauseGameTime(true);
+
+        SetupEventInfoUI("Electric Blackout", "F0 or F-1", true);
     }
 
     public void LightsBackOn()
@@ -151,6 +153,8 @@ public class MapEventsManager : MonoBehaviour
 
         ambienceAudioPlayer_.SwitchBackToDefaultAmbience();
         time_Manager_.PauseGameTime(false);
+
+        SetupEventInfoUI("nothing", "nothing", false);
     }
 
     public void DoorsShutEvent()
@@ -162,6 +166,8 @@ public class MapEventsManager : MonoBehaviour
         Debug.Log("DOORS SHUT EVENT");
 
         time_Manager_.PauseGameTime(true);
+
+        SetupEventInfoUI("Doors Lockdown", "-", true);
     }
 
     public void AirFailEvent()
@@ -180,6 +186,8 @@ public class MapEventsManager : MonoBehaviour
 
         //ambienceAudioPlayer_.StopAudioAmbience();
         time_Manager_.PauseGameTime(true);
+
+        SetupEventInfoUI("Ventilation Failed", "F0", true);
     }
 
     public void AirBackOn()
@@ -194,6 +202,8 @@ public class MapEventsManager : MonoBehaviour
 
         //ambienceAudioPlayer_.ResumeAudioAmbience();
         time_Manager_.PauseGameTime(false);
+
+        SetupEventInfoUI("nothing", "nothing", false);
     }
 
     public void ReactorFailEvent()
@@ -204,5 +214,24 @@ public class MapEventsManager : MonoBehaviour
     public void ReactorFixed()
     {
 
+    }
+
+    public void ComunicationsFailEvent()
+    {
+
+    }
+
+    public void ComunicationsFixed()
+    {
+
+    }
+
+    public void SetupEventInfoUI(string nameOfEvent, string nameOfFloor, bool itsEventOn)
+    {
+        UI_eventsInfoVariables.eventName = nameOfEvent;
+        UI_eventsInfoVariables.floorName = nameOfFloor;
+        UI_eventsInfoVariables.anEventIsActive = itsEventOn;
+
+        UI_eventsInfoVariables.alreadyChangedState = false;
     }
 }
