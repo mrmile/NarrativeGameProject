@@ -18,14 +18,12 @@ public class Time_Manager : MonoBehaviour
     float secondsSinceLastStep;
     int timeUnitsSinceLastStep;
     
-    int currentTimeUnits;
-    int gameMinute;
-    int gameHour;
+    
 
     //---------------Map Events---------------
-    int randomGameHour = 25;
-    bool dayEventHapened = false;
-    int randomEvent = 0;
+    //int randomGameHour = 25;
+    //bool dayEventHapened = false;
+    //int randomEvent = 0;
 
     MapEventsManager mapEventsManager_;
 
@@ -39,7 +37,7 @@ public class Time_Manager : MonoBehaviour
         //---------------Map Events---------------
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
 
-        if (EventsOnFirstDay == true) //Se puede dejar o quitar en función de si se decide que el primer dia pasen eventos.
+        if (EventsOnFirstDay == true && TimeManagerVariables.classConstructed == false) //Se puede dejar o quitar en función de si se decide que el primer dia pasen eventos.
         {
             StartDay();
         }
@@ -58,39 +56,39 @@ public class Time_Manager : MonoBehaviour
         secondsSinceLastStep += Time.deltaTime;
         if(secondsSinceLastStep >= secondsPerTimeUnit)
         {
-            currentTimeUnits++;
-            gameMinute += timeUnitsPerGameMinute;
+            TimeManagerVariables.currentTimeUnits++;
+            TimeManagerVariables.gameMinute += timeUnitsPerGameMinute;
 
             secondsSinceLastStep = 0;            
         }
 
         //---------------Map Events---------------
-        if(gameHour == randomGameHour && dayEventHapened == false) //Se iba a hacer con un switch pero con el enumerador no para de joder. Asi que lo dejo con los if que son robustos.
+        if(TimeManagerVariables.gameHour == TimeManagerVariables.randomGameHour && TimeManagerVariables.dayEventHapened == false) //Se iba a hacer con un switch pero con el enumerador no para de joder. Asi que lo dejo con los if que son robustos.
         {
             if(mapEventsManager_.eventID == EventID.NONE)
             {
-                dayEventHapened = true;
+                TimeManagerVariables.dayEventHapened = true;
                 Debug.Log("NO EVENT SELECTED");
                 
 
             }
             else if(mapEventsManager_.eventID == EventID.LIGHTS_OFF)
             {
-                dayEventHapened = true;
+                TimeManagerVariables.dayEventHapened = true;
                 Debug.Log("LIGHTS OFF EVENT");
 
                 mapEventsManager_.LightsOffEvent();
             }
             else if (mapEventsManager_.eventID == EventID.DOORS_CLOSE)
             {
-                dayEventHapened = true;
+                TimeManagerVariables.dayEventHapened = true;
                 Debug.Log("DOORS CLOSE EVENT");
 
                 mapEventsManager_.DoorsShutEvent();
             }
             else if (mapEventsManager_.eventID == EventID.SPECIAL_EVENT)
             {
-                dayEventHapened = true;
+                TimeManagerVariables.dayEventHapened = true;
 
                 if(mapEventsManager_.currentMapLevel == 0)
                 {
@@ -109,13 +107,13 @@ public class Time_Manager : MonoBehaviour
         }
         //----------------------------------------
 
-        if (gameMinute >= 60)
+        if (TimeManagerVariables.gameMinute >= 60)
         {
-            gameMinute = 0;
-            gameHour++;
+            TimeManagerVariables.gameMinute = 0;
+            TimeManagerVariables.gameHour++;
         }
 
-        if(gameHour >= 24)
+        if(TimeManagerVariables.gameHour >= 24)
         {
             EndDay();
         }
@@ -125,22 +123,24 @@ public class Time_Manager : MonoBehaviour
     //---------------Map Events---------------
     public void StartDay()
     {
-        randomGameHour = Random.Range(5, 20);
-        dayEventHapened = false;
+        TimeManagerVariables.randomGameHour = Random.Range(5, 20);
+        TimeManagerVariables.dayEventHapened = false;
 
         if(noEventProbability == true)
         {
-            randomEvent = Random.Range(0, 3);
+            TimeManagerVariables.randomEvent = Random.Range(0, 3);
         }
         else if(noEventProbability == false)
         {
-            randomEvent = Random.Range(1, 3);
+            TimeManagerVariables.randomEvent = Random.Range(1, 3);
         }
 
-        mapEventsManager_.eventID = (EventID)randomEvent;
+        mapEventsManager_.eventID = (EventID)TimeManagerVariables.randomEvent;
+
+        TimeManagerVariables.classConstructed = true;
 
         Debug.Log("StartDay - Event SELECTION: " + mapEventsManager_.eventID);
-        Debug.Log("StartDay - Event TIME: " + randomGameHour);
+        Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
 
     }
     //----------------------------------------
@@ -152,33 +152,33 @@ public class Time_Manager : MonoBehaviour
 
    public int GetCurrentTimeUnits()
    {
-        return currentTimeUnits;
+        return TimeManagerVariables.currentTimeUnits;
    }
     public int GetTimeGameMinutes()
     {
-        return gameMinute;
+        return TimeManagerVariables.gameMinute;
     }
     public int GetTimeGameHours()
     {
-        return gameHour;
+        return TimeManagerVariables.gameHour;
     }
 
     public void SetCurrentTimeUnits(int timeUnits)
     {
-        currentTimeUnits = timeUnits;
+        TimeManagerVariables.currentTimeUnits = timeUnits;
     }
     public void SetGameTime(int gameHour, int gameMinute)
     {
-        this.gameHour = gameHour;
-        this.gameMinute = gameMinute;
+        TimeManagerVariables.gameHour = gameHour;
+        TimeManagerVariables.gameMinute = gameMinute;
     }
 
     public void ResetGameTime()
     {
         secondsSinceLastStep = 0;
-        currentTimeUnits = 0;
-        gameMinute = 0;
-        gameHour = 0;
+        TimeManagerVariables.currentTimeUnits = 0;
+        TimeManagerVariables.gameMinute = 0;
+        TimeManagerVariables.gameHour = 0;
 
         StartDay();
     }
