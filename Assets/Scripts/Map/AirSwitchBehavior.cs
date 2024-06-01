@@ -13,14 +13,14 @@ public class AirSwitchBehavior : MonoBehaviour
     public AudioClip switchPressSound;
     AudioSource audioSource;
 
-    MapEventsManager mapEventsManager_;
+    //MapEventsManager mapEventsManager_;
 
     private bool needsReset = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        mapEventsManager_ = FindObjectOfType<MapEventsManager>();
+        //mapEventsManager_ = FindObjectOfType<MapEventsManager>();
         audioSource = GetComponent<AudioSource>();
     }
 

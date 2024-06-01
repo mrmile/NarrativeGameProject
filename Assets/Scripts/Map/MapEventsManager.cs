@@ -6,19 +6,14 @@ using UnityEngine;
 
 public class MapEventsManager : MonoBehaviour
 {
-    public enum SpecialEventID
-    {
-        NONE,
-        AIR_FAIL,
-        REACTOR_FAIL
-    }
-
     public enum EventID
     {
         NONE = 0,
         LIGHTS_OFF,
         DOORS_CLOSE,
-        SPECIAL_EVENT
+        AIR_FAIL,
+        COMUNICATIONS_INTERFERENCES,
+        REACTOR_FAIL
     }
     public EventID eventID;
 
@@ -40,6 +35,7 @@ public class MapEventsManager : MonoBehaviour
     public AudioClip powerOnSound;
     public AudioClip doorsCloseSound;
     public AudioClip alarmSound;
+    public AudioClip comunicationsStatic;
     AudioSource audioSource;
 
     LightOnOffBehaviour lightOnOffBehaviour_;
@@ -84,6 +80,20 @@ public class MapEventsManager : MonoBehaviour
 
             Debug.Log("AIR STILLS FAILED");
         }
+
+        if (EventManagerVariables.comunicationsSwitchActive_1 == false ||
+        EventManagerVariables.comunicationsSwitchActive_1 == false ||
+        EventManagerVariables.comunicationsFailEventActive == true)
+        {
+            //LightsOffEvent();
+            ComunicationsFailBehaviorVariables.comunicationsOff = true;
+            EventManagerVariables.comunicationsFailEventActive = true;
+            audioSource.clip = comunicationsStatic;
+            audioSource.loop = true;
+            audioSource.Play();
+
+            Debug.Log("COMUNICATIONS STILLS JANKED");
+        }
     }
 
     // Update is called once per frame
@@ -106,6 +116,11 @@ public class MapEventsManager : MonoBehaviour
             Debug.Log("AIR FAIL EVENT");
         }
 
+        if (Input.GetKeyDown(KeyCode.F8)) //for testing events only
+        {
+            ComunicationsFailEvent();
+            Debug.Log("COMUNICATION FAIL EVENT");
+        }
 
 
         if (EventManagerVariables.lightSwitchActive_1 == true &&
@@ -123,6 +138,14 @@ public class MapEventsManager : MonoBehaviour
             AirBackOn();
             Debug.Log("AIR BACK ON");
             audioSource.Stop();
+        }
+
+        if (EventManagerVariables.comunicationsSwitchActive_1 == true &&
+        EventManagerVariables.comunicationsSwitchActive_2 == true &&
+        EventManagerVariables.comunicationsFailEventActive == true)
+        {
+            ComunicationsFixed();
+            Debug.Log("LIGHTS BACK ON");
         }
     }
 
@@ -218,12 +241,33 @@ public class MapEventsManager : MonoBehaviour
 
     public void ComunicationsFailEvent()
     {
+        audioSource.clip = comunicationsStatic;
+        audioSource.loop = true;
+        audioSource.Play();
 
+        EventManagerVariables.comunicationsSwitchActive_1 = false;
+        EventManagerVariables.comunicationsSwitchActive_2 = false;
+        ComunicationsFailBehaviorVariables.comunicationsOff = true;
+
+        EventManagerVariables.comunicationsFailEventActive = true;
+
+        time_Manager_.PauseGameTime(true);
+
+        SetupEventInfoUI("Online Interferences", "F0", true);
     }
 
     public void ComunicationsFixed()
     {
+        audioSource.Stop();
+        audioSource.loop = false;
+        audioSource.PlayOneShot(powerOnSound);
 
+        ComunicationsFailBehaviorVariables.comunicationsOff = false;
+        EventManagerVariables.comunicationsFailEventActive = false;
+
+        time_Manager_.PauseGameTime(false);
+
+        SetupEventInfoUI("nothing", "nothing", false);
     }
 
     public void SetupEventInfoUI(string nameOfEvent, string nameOfFloor, bool itsEventOn)

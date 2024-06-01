@@ -86,22 +86,12 @@ public class Time_Manager : MonoBehaviour
 
                 mapEventsManager_.DoorsShutEvent();
             }
-            else if (mapEventsManager_.eventID == EventID.SPECIAL_EVENT)
+            else if (mapEventsManager_.eventID == EventID.AIR_FAIL)
             {
                 TimeManagerVariables.dayEventHapened = true;
+                Debug.Log("AIR FAIL EVENT");
 
-                if(mapEventsManager_.currentMapLevel == 0)
-                {
-                    Debug.Log("AIR FAIL EVENT");
-
-                    mapEventsManager_.AirFailEvent();
-                }
-                else if (mapEventsManager_.currentMapLevel == -1)
-                {
-                    Debug.Log("REACTOR FAIL EVENT");
-
-                    //mapEventsManager_.ReactorFailEvent(); //Reactor fail event
-                }
+                mapEventsManager_.AirFailEvent();
 
             }
         }

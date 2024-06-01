@@ -15,4 +15,11 @@ public static class EventManagerVariables
 
     public static bool airFailEventActive = false;
     public static bool airSwitchActive_1 = true;
+
+    public static bool comunicationsFailEventActive = false;
+    public static bool comunicationsSwitchActive_1 = true;
+    public static bool comunicationsSwitchActive_2 = true;
+
+    public static bool reactorFailEventActive = false;
+    public static bool reactorRepaired = true;
 }
