@@ -232,11 +232,19 @@ public class MapEventsManager : MonoBehaviour
     public void ReactorFailEvent()
     {
 
+
+        time_Manager_.PauseGameTime(true);
+
+        SetupEventInfoUI("Reactor Malfunction", "F-1", true);
     }
 
     public void ReactorFixed()
     {
 
+
+        time_Manager_.PauseGameTime(false);
+
+        SetupEventInfoUI("nothing", "nothing", false);
     }
 
     public void ComunicationsFailEvent()
