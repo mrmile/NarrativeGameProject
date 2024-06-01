@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ComputerInteraction : MonoBehaviour
 {
-    [SerializeField] GameObject pickupCanvasPrefab;  // Reference to the Canvas prefab
-    [SerializeField] GameObject interactionWindow;  // Reference to the interaction window
+    [SerializeField] GameObject pickupCanvasPrefab;
+    [SerializeField] GameObject interactionWindow;
+    [SerializeField] GameObject newPanel;
+    [SerializeField] TMP_InputField codeInputField;
+    [SerializeField] TextMeshProUGUI feedbackText;
+    [SerializeField] Button submitButton;
+    [SerializeField] Button closeButton;
+    [SerializeField] string correctCode = "1234";
+
     private GameObject canvasInstance;
     private bool isPlayerNearby = false;
 
@@ -41,7 +49,7 @@ public class ComputerInteraction : MonoBehaviour
         if (pickupCanvasPrefab != null && canvasInstance == null)
         {
             canvasInstance = Instantiate(pickupCanvasPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-            canvasInstance.transform.SetParent(transform);  // Make the Canvas a child of the computer
+            canvasInstance.transform.SetParent(transform);
         }
     }
 
@@ -49,7 +57,7 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (canvasInstance != null)
         {
-            Destroy(canvasInstance);  // Destroy the Canvas instance
+            Destroy(canvasInstance);
             canvasInstance = null;
         }
     }
@@ -58,7 +66,9 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (interactionWindow != null)
         {
-            interactionWindow.SetActive(true);  // Show the interaction window
+            interactionWindow.SetActive(true);
+            feedbackText.text = "";
+            codeInputField.text = "";
         }
     }
 
@@ -66,7 +76,36 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (interactionWindow != null)
         {
-            interactionWindow.SetActive(false);  // Hide the interaction window
+            interactionWindow.SetActive(false);
+        }
+    }
+
+    public void OnSubmitButtonClicked()
+    {
+        if (codeInputField.text == correctCode)
+        {
+            feedbackText.text = "Access Granted";
+            interactionWindow.SetActive(false);
+            if (newPanel != null)
+            {
+                newPanel.SetActive(true);
+            }
+        }
+        else
+        {
+            feedbackText.text = "Incorrect Code";
+        }
+    }
+
+    private void Awake()
+    {
+        if (submitButton != null)
+        {
+            submitButton.onClick.AddListener(OnSubmitButtonClicked);
+        }
+        if (closeButton != null)
+        {
+            closeButton.onClick.AddListener(CloseInteractionWindow);
         }
     }
 }
