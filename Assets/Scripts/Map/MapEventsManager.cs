@@ -33,8 +33,10 @@ public class MapEventsManager : MonoBehaviour
 
     public AudioClip powerOffSound;
     public AudioClip powerOnSound;
+    public AudioClip bigPowerOnSound;
     public AudioClip doorsCloseSound;
     public AudioClip alarmSound;
+    public AudioClip reactorAlarmSound;
     public AudioClip comunicationsStatic;
     AudioSource audioSource;
 
@@ -81,6 +83,19 @@ public class MapEventsManager : MonoBehaviour
             Debug.Log("AIR STILLS FAILED");
         }
 
+        if (EventManagerVariables.reactorRepaired == false ||
+        EventManagerVariables.reactorFailEventActive == true)
+        {
+            //AirFailEvent();
+            ReactorFailBehaviorVariables.reactorOff = true;
+            EventManagerVariables.reactorFailEventActive = true;
+            audioSource.clip = alarmSound;
+            audioSource.loop = true;
+            audioSource.Play();
+
+            Debug.Log("REACTOR STILLS FAILED");
+        }
+
         if (EventManagerVariables.comunicationsSwitchActive_1 == false ||
         EventManagerVariables.comunicationsSwitchActive_1 == false ||
         EventManagerVariables.comunicationsFailEventActive == true)
@@ -122,6 +137,12 @@ public class MapEventsManager : MonoBehaviour
             Debug.Log("COMUNICATION FAIL EVENT");
         }
 
+        if (Input.GetKeyDown(KeyCode.F9)) //for testing events only
+        {
+            ReactorFailEvent();
+            Debug.Log("REACTOR FAIL EVENT");
+        }
+
 
         if (EventManagerVariables.lightSwitchActive_1 == true &&
         EventManagerVariables.lightSwitchActive_2 == true &&
@@ -136,6 +157,14 @@ public class MapEventsManager : MonoBehaviour
         EventManagerVariables.airFailEventActive == true)
         {
             AirBackOn();
+            Debug.Log("AIR BACK ON");
+            audioSource.Stop();
+        }
+
+        if (EventManagerVariables.reactorRepaired == true &&
+        EventManagerVariables.reactorFailEventActive == true)
+        {
+            ReactorFixed();
             Debug.Log("AIR BACK ON");
             audioSource.Stop();
         }
@@ -231,7 +260,17 @@ public class MapEventsManager : MonoBehaviour
 
     public void ReactorFailEvent()
     {
+        audioSource.PlayOneShot(reactorAlarmSound);
 
+        audioSource.clip = alarmSound;
+        audioSource.loop = true;
+        audioSource.Play();
+
+
+        EventManagerVariables.reactorRepaired = false;
+        ReactorFailBehaviorVariables.reactorOff = true;
+
+        EventManagerVariables.reactorFailEventActive = true;
 
         time_Manager_.PauseGameTime(true);
 
@@ -240,7 +279,13 @@ public class MapEventsManager : MonoBehaviour
 
     public void ReactorFixed()
     {
+        audioSource.Stop();
+        audioSource.loop = false;
+        audioSource.PlayOneShot(bigPowerOnSound);
 
+        ReactorFailBehaviorVariables.reactorOff = false;
+
+        EventManagerVariables.reactorFailEventActive = false;
 
         time_Manager_.PauseGameTime(false);
 
