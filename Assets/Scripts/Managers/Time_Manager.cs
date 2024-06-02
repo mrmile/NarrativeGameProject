@@ -94,6 +94,22 @@ public class Time_Manager : MonoBehaviour
                 mapEventsManager_.AirFailEvent();
 
             }
+            else if (mapEventsManager_.eventID == EventID.COMUNICATIONS_INTERFERENCES)
+            {
+                TimeManagerVariables.dayEventHapened = true;
+                Debug.Log("COMUNICATIONS FAIL EVENT");
+
+                mapEventsManager_.ComunicationsFailEvent();
+
+            }
+            else if (mapEventsManager_.eventID == EventID.REACTOR_FAIL)
+            {
+                TimeManagerVariables.dayEventHapened = true;
+                Debug.Log("REACTORFAIL EVENT");
+
+                mapEventsManager_.ReactorFailEvent();
+
+            }
         }
         //----------------------------------------
 
@@ -113,16 +129,16 @@ public class Time_Manager : MonoBehaviour
     //---------------Map Events---------------
     public void StartDay()
     {
-        TimeManagerVariables.randomGameHour = Random.Range(5, 20);
+        TimeManagerVariables.randomGameHour = Random.Range(5, 21);
         TimeManagerVariables.dayEventHapened = false;
 
         if(noEventProbability == true)
         {
-            TimeManagerVariables.randomEvent = Random.Range(0, 3);
+            TimeManagerVariables.randomEvent = Random.Range(0, 6);
         }
         else if(noEventProbability == false)
         {
-            TimeManagerVariables.randomEvent = Random.Range(1, 3);
+            TimeManagerVariables.randomEvent = Random.Range(1, 6);
         }
 
         mapEventsManager_.eventID = (EventID)TimeManagerVariables.randomEvent;
