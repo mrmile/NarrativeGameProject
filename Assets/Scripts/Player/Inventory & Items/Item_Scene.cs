@@ -5,30 +5,37 @@ using DialogueEditor;
 
 public class Item_Scene : MonoBehaviour
 {
-    // To add items go to the script Inventory.cs -> enum ItemType
     public Inventory.ItemType itemType;
     Inventory.Item item;
     NPCConversation pickUpDialogue;
-
     Inventory inventory;
 
     private void Awake()
     {
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        if (inventory == null)
+        {
+            Debug.LogError("Inventory not found with tag 'Inventory'.");
+        }
+
         pickUpDialogue = GameObject.Find("ItemPickUpDialogue").GetComponent<NPCConversation>();
+        if (pickUpDialogue == null)
+        {
+            Debug.LogError("ItemPickUpDialogue not found in the scene.");
+        }
     }
 
     private void Start()
     {
-        if (inventory.itemsDictionary.ContainsKey(itemType))
+        if (inventory != null && inventory.itemsDictionary.ContainsKey(itemType))
         {
             item = inventory.itemsDictionary[itemType];
-            // Set sprite here if item is found
             GetComponent<SpriteRenderer>().sprite = item.icon;
+            Debug.Log("Item of type " + itemType + " initialized successfully.");
         }
         else
         {
-            Debug.LogError("Item of type " + itemType + " not found in inventory.");
+            Debug.LogError("Item of type " + itemType + " not found in inventory or inventory is null.");
         }
     }
 

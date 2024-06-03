@@ -34,7 +34,11 @@ public class Inventory : MonoBehaviour
     {
         Inventory inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 
-        if (inventory != null) Destroy(this.gameObject);
+        if (inventory != null && inventory != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
 
         DontDestroyOnLoad(this.gameObject);
 
@@ -43,8 +47,13 @@ public class Inventory : MonoBehaviour
             if (item.icon == null) item.icon = defaultSprite;
 
             if (!itemsDictionary.ContainsKey(item.type))
+            {
                 itemsDictionary.Add(item.type, item);
+                Debug.Log("Added item of type " + item.type + " to itemsDictionary.");
+            }
         }
+
+        Debug.Log("Inventory initialized with " + itemsDictionary.Count + " items.");
     }
 
     public bool HasTarjetaAcceso()

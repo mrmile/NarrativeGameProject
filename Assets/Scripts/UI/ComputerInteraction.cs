@@ -14,6 +14,9 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] TextMeshProUGUI feedbackText;  // Reference to the feedback text
     [SerializeField] Button submitButton;  // Reference to the submit button
     [SerializeField] Button closeButton;  // Reference to the close button
+    [SerializeField] Button nightCreateButton;  // Reference to the create button on night panel
+    [SerializeField] GameObject itemPrefab;  // Reference to the item prefab to be dropped
+    [SerializeField] Transform dropLocation;  // Reference to the location where the item should be dropped
     [SerializeField] string correctCode = "1234";  // The correct code to access the PC
 
     private GameObject canvasInstance;
@@ -32,6 +35,10 @@ public class ComputerInteraction : MonoBehaviour
         if (closeButton != null)
         {
             closeButton.onClick.AddListener(CloseInteractionWindow);
+        }
+        if (nightCreateButton != null)
+        {
+            nightCreateButton.onClick.AddListener(CreateItem);
         }
     }
 
@@ -94,10 +101,10 @@ public class ComputerInteraction : MonoBehaviour
         Debug.Log("CloseInteractionWindow called.");  // Add this line for debugging
         if (interactionWindow != null)
         {
-            Debug.Log("Hiding interaction window."); 
-            interactionWindow.SetActive(false);
-            dayPanel.SetActive(false);
+            Debug.Log("Hiding interaction window.");  // Add this line for debugging
+            interactionWindow.SetActive(false);  // Hide the interaction window
             nightPanel.SetActive(false);
+            dayPanel.SetActive(false);
         }
         else
         {
@@ -112,6 +119,7 @@ public class ComputerInteraction : MonoBehaviour
             feedbackText.text = "Access Granted";
             // Hide the current interaction window
             interactionWindow.SetActive(false);
+         
 
             // Determine which panel to show based on the time
             ShowAppropriatePanel();
@@ -145,5 +153,30 @@ public class ComputerInteraction : MonoBehaviour
     {
         // Define day time range (e.g., 6:00 AM to 6:00 PM)
         return currentHour >= 6 && currentHour < 18;
+    }
+
+    private void CreateItem()
+    {
+        if (itemPrefab == null)
+        {
+            Debug.LogError("Item prefab is not assigned.");
+            return;
+        }
+
+        if (dropLocation == null)
+        {
+            Debug.LogError("Drop location is not assigned.");
+            return;
+        }
+
+        GameObject newItem = Instantiate(itemPrefab, dropLocation.position, Quaternion.identity);
+        if (newItem == null)
+        {
+            Debug.LogError("Failed to instantiate the item.");
+        }
+        else
+        {
+            Debug.Log("Item created successfully at " + dropLocation.position);
+        }
     }
 }
