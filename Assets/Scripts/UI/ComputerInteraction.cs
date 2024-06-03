@@ -94,8 +94,8 @@ public class ComputerInteraction : MonoBehaviour
         Debug.Log("CloseInteractionWindow called.");  // Add this line for debugging
         if (interactionWindow != null)
         {
-            Debug.Log("Hiding interaction window.");  // Add this line for debugging
-            interactionWindow.SetActive(false);  // Hide the interaction window
+            Debug.Log("Hiding interaction window."); 
+            interactionWindow.SetActive(false);
             dayPanel.SetActive(false);
             nightPanel.SetActive(false);
         }
