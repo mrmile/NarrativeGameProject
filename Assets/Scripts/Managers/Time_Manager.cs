@@ -92,9 +92,16 @@ public class Time_Manager : MonoBehaviour
             else if (mapEventsManager_.eventID == EventID.REACTOR_FAIL)
             {
                 TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("REACTORFAIL EVENT");
+                Debug.Log("REACTOR FAIL EVENT");
 
                 mapEventsManager_.ReactorFailEvent();
+            }
+            else if (mapEventsManager_.eventID == EventID.FOUNDATIONS_COMPROMISED)
+            {
+                TimeManagerVariables.dayEventHapened = true;
+                Debug.Log("FOUNDATIONS COMPROMISED EVENT");
+
+                mapEventsManager_.FoundationsCompromised();
             }
         }
 
@@ -117,11 +124,11 @@ public class Time_Manager : MonoBehaviour
 
         if(noEventProbability == true)
         {
-            TimeManagerVariables.randomEvent = Random.Range(0, 6);
+            TimeManagerVariables.randomEvent = Random.Range(0, 7);
         }
         else if(noEventProbability == false)
         {
-            TimeManagerVariables.randomEvent = Random.Range(1, 6);
+            TimeManagerVariables.randomEvent = Random.Range(1, 7);
         }
 
         mapEventsManager_.eventID = (EventID)TimeManagerVariables.randomEvent;
