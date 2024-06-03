@@ -1,54 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using UnityEngine;
 using static MapEventsManager;
 
 public class Time_Manager : MonoBehaviour
 {
-    // 1 TU = 1s
-
-    // 5 min in-game = 1 TU
-    // 1 hour in-game = 12 TU
-    // 1 day in-game = 288TU 
-
     const float secondsPerTimeUnit = 1.0f;
     const int timeUnitsPerGameMinute = 5;
 
     float secondsSinceLastStep;
     int timeUnitsSinceLastStep;
     
-    
-
-    //---------------Map Events---------------
-    //int randomGameHour = 25;
-    //bool dayEventHapened = false;
-    //int randomEvent = 0;
-
     MapEventsManager mapEventsManager_;
 
     public bool EventsOnFirstDay = true;
     public bool noEventProbability = false;
-    //----------------------------------------
-
     
     void Start()
     {
-        //---------------Map Events---------------
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
 
-        if (EventsOnFirstDay == true && TimeManagerVariables.classConstructed == false) //Se puede dejar o quitar en función de si se decide que el primer dia pasen eventos.
+        if (EventsOnFirstDay == true && TimeManagerVariables.classConstructed == false) 
         {
             StartDay();
         }
-        //----------------------------------------
     }
-
 
     void FixedUpdate()
     {
         if(!TimeManagerVariables.isTimePaused) UpdateTimeValues();
         
+        // For testing
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            SetGameTime(12, 0); // Set to day (e.g., 12 PM)
+            Debug.Log("Set to Day Time");
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            SetGameTime(0, 0); // Set to night (e.g., 12 AM)
+            Debug.Log("Set to Night Time");
+        }
     }
 
     void UpdateTimeValues()
@@ -62,15 +54,12 @@ public class Time_Manager : MonoBehaviour
             secondsSinceLastStep = 0;            
         }
 
-        //---------------Map Events---------------
-        if(TimeManagerVariables.gameHour == TimeManagerVariables.randomGameHour && TimeManagerVariables.dayEventHapened == false) //Se iba a hacer con un switch pero con el enumerador no para de joder. Asi que lo dejo con los if que son robustos.
+        if(TimeManagerVariables.gameHour == TimeManagerVariables.randomGameHour && TimeManagerVariables.dayEventHapened == false)
         {
             if(mapEventsManager_.eventID == EventID.NONE)
             {
                 TimeManagerVariables.dayEventHapened = true;
                 Debug.Log("NO EVENT SELECTED");
-                
-
             }
             else if(mapEventsManager_.eventID == EventID.LIGHTS_OFF)
             {
@@ -92,7 +81,6 @@ public class Time_Manager : MonoBehaviour
                 Debug.Log("AIR FAIL EVENT");
 
                 mapEventsManager_.AirFailEvent();
-
             }
             else if (mapEventsManager_.eventID == EventID.COMUNICATIONS_INTERFERENCES)
             {
@@ -100,7 +88,6 @@ public class Time_Manager : MonoBehaviour
                 Debug.Log("COMUNICATIONS FAIL EVENT");
 
                 mapEventsManager_.ComunicationsFailEvent();
-
             }
             else if (mapEventsManager_.eventID == EventID.REACTOR_FAIL)
             {
@@ -108,10 +95,8 @@ public class Time_Manager : MonoBehaviour
                 Debug.Log("REACTORFAIL EVENT");
 
                 mapEventsManager_.ReactorFailEvent();
-
             }
         }
-        //----------------------------------------
 
         if (TimeManagerVariables.gameMinute >= 60)
         {
@@ -123,10 +108,8 @@ public class Time_Manager : MonoBehaviour
         {
             EndDay();
         }
-       
     }
 
-    //---------------Map Events---------------
     public void StartDay()
     {
         TimeManagerVariables.randomGameHour = Random.Range(5, 21);
@@ -147,23 +130,23 @@ public class Time_Manager : MonoBehaviour
 
         Debug.Log("StartDay - Event SELECTION: " + mapEventsManager_.eventID);
         Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
-
     }
-    //----------------------------------------
 
     public void EndDay()
     {
         ResetGameTime();
     }
 
-   public int GetCurrentTimeUnits()
-   {
+    public int GetCurrentTimeUnits()
+    {
         return TimeManagerVariables.currentTimeUnits;
-   }
+    }
+
     public int GetTimeGameMinutes()
     {
         return TimeManagerVariables.gameMinute;
     }
+
     public int GetTimeGameHours()
     {
         return TimeManagerVariables.gameHour;
@@ -173,6 +156,7 @@ public class Time_Manager : MonoBehaviour
     {
         TimeManagerVariables.currentTimeUnits = timeUnits;
     }
+
     public void SetGameTime(int gameHour, int gameMinute)
     {
         TimeManagerVariables.gameHour = gameHour;

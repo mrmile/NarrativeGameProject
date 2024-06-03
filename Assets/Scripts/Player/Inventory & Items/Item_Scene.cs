@@ -5,7 +5,7 @@ using DialogueEditor;
 
 public class Item_Scene : MonoBehaviour
 {
-    //to add items go to the script Inventory.cs -> enum ItemType
+    // To add items go to the script Inventory.cs -> enum ItemType
     public Inventory.ItemType itemType;
     Inventory.Item item;
     NPCConversation pickUpDialogue;
@@ -16,31 +16,54 @@ public class Item_Scene : MonoBehaviour
     {
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         pickUpDialogue = GameObject.Find("ItemPickUpDialogue").GetComponent<NPCConversation>();
-        
     }
 
-    public void Start()
+    private void Start()
     {
         if (inventory.itemsDictionary.ContainsKey(itemType))
+        {
             item = inventory.itemsDictionary[itemType];
-
-        //set sprite here
-        GetComponent<SpriteRenderer>().sprite = item.icon;
+            // Set sprite here if item is found
+            GetComponent<SpriteRenderer>().sprite = item.icon;
+        }
+        else
+        {
+            Debug.LogError("Item of type " + itemType + " not found in inventory.");
+        }
     }
+
     public Inventory.Item Get()
     {
-        ConversationManager.Instance.StartConversation(pickUpDialogue);
+        if (item == null)
+        {
+            Debug.LogError("Item is null. Cannot pick up.");
+            return null;
+        }
 
-        GameManager.Instance.SetItem(itemType, true);
+        if (ConversationManager.Instance != null)
+        {
+            ConversationManager.Instance.StartConversation(pickUpDialogue);
 
-        if (item.pickUpText != "")
-            ConversationManager.Instance.OverrideText(item.pickUpText);
+            if (!string.IsNullOrEmpty(item.pickUpText))
+                ConversationManager.Instance.OverrideText(item.pickUpText);
+            else
+                ConversationManager.Instance.ReplaceText("itemName", item.name);
+
+            ConversationManager.Instance.ReplaceIcon(item.icon);
+        }
         else
-            ConversationManager.Instance.ReplaceText("itemName", item.name);
-        
+        {
+            Debug.LogError("ConversationManager instance is null.");
+        }
 
-        ConversationManager.Instance.ReplaceIcon(item.icon);
-
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SetItem(itemType, true);
+        }
+        else
+        {
+            Debug.LogError("GameManager instance is null.");
+        }
 
         Destroy(gameObject);
         return item;
