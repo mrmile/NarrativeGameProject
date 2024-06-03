@@ -6,17 +6,34 @@ using TMPro;
 
 public class ComputerInteraction : MonoBehaviour
 {
-    [SerializeField] GameObject pickupCanvasPrefab;
-    [SerializeField] GameObject interactionWindow;
-    [SerializeField] GameObject newPanel;
-    [SerializeField] TMP_InputField codeInputField;
-    [SerializeField] TextMeshProUGUI feedbackText;
-    [SerializeField] Button submitButton;
-    [SerializeField] Button closeButton;
-    [SerializeField] string correctCode = "1234";
+    [SerializeField] GameObject pickupCanvasPrefab;  // Reference to the Canvas prefab
+    [SerializeField] GameObject interactionWindow;  // Reference to the interaction window
+    [SerializeField] GameObject dayPanel;  // Reference to the day panel
+    [SerializeField] GameObject nightPanel;  // Reference to the night panel
+    [SerializeField] TMP_InputField codeInputField;  // Reference to the code input field
+    [SerializeField] TextMeshProUGUI feedbackText;  // Reference to the feedback text
+    [SerializeField] Button submitButton;  // Reference to the submit button
+    [SerializeField] Button closeButton;  // Reference to the close button
+    [SerializeField] string correctCode = "1234";  // The correct code to access the PC
 
     private GameObject canvasInstance;
     private bool isPlayerNearby = false;
+    private Time_Manager timeManager;  // Reference to the time manager
+
+    private void Awake()
+    {
+        timeManager = FindObjectOfType<Time_Manager>();  // Find the Time_Manager instance
+
+        // Ensure buttons have the correct listeners attached
+        if (submitButton != null)
+        {
+            submitButton.onClick.AddListener(OnSubmitButtonClicked);
+        }
+        if (closeButton != null)
+        {
+            closeButton.onClick.AddListener(CloseInteractionWindow);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,7 +66,7 @@ public class ComputerInteraction : MonoBehaviour
         if (pickupCanvasPrefab != null && canvasInstance == null)
         {
             canvasInstance = Instantiate(pickupCanvasPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-            canvasInstance.transform.SetParent(transform);
+            canvasInstance.transform.SetParent(transform);  // Make the Canvas a child of the computer
         }
     }
 
@@ -57,7 +74,7 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (canvasInstance != null)
         {
-            Destroy(canvasInstance);
+            Destroy(canvasInstance);  // Destroy the Canvas instance
             canvasInstance = null;
         }
     }
@@ -66,17 +83,25 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (interactionWindow != null)
         {
-            interactionWindow.SetActive(true);
-            feedbackText.text = "";
-            codeInputField.text = "";
+            interactionWindow.SetActive(true);  // Show the interaction window
+            feedbackText.text = "";  // Clear feedback text
+            codeInputField.text = "";  // Clear input field
         }
     }
 
     public void CloseInteractionWindow()
     {
+        Debug.Log("CloseInteractionWindow called.");  // Add this line for debugging
         if (interactionWindow != null)
         {
-            interactionWindow.SetActive(false);
+            Debug.Log("Hiding interaction window.");  // Add this line for debugging
+            interactionWindow.SetActive(false);  // Hide the interaction window
+            dayPanel.SetActive(false);
+            nightPanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("interactionWindow is not assigned.");  // Add this line for debugging
         }
     }
 
@@ -85,11 +110,11 @@ public class ComputerInteraction : MonoBehaviour
         if (codeInputField.text == correctCode)
         {
             feedbackText.text = "Access Granted";
+            // Hide the current interaction window
             interactionWindow.SetActive(false);
-            if (newPanel != null)
-            {
-                newPanel.SetActive(true);
-            }
+
+            // Determine which panel to show based on the time
+            ShowAppropriatePanel();
         }
         else
         {
@@ -97,15 +122,28 @@ public class ComputerInteraction : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void ShowAppropriatePanel()
     {
-        if (submitButton != null)
+        if (timeManager != null)
         {
-            submitButton.onClick.AddListener(OnSubmitButtonClicked);
+            int currentHour = timeManager.GetTimeGameHours();  // Get the current hour
+            
+            if (IsDayTime(currentHour))
+            {
+                dayPanel.SetActive(true);
+                nightPanel.SetActive(false);
+            }
+            else
+            {
+                dayPanel.SetActive(false);
+                nightPanel.SetActive(true);
+            }
         }
-        if (closeButton != null)
-        {
-            closeButton.onClick.AddListener(CloseInteractionWindow);
-        }
+    }
+
+    private bool IsDayTime(int currentHour)
+    {
+        // Define day time range (e.g., 6:00 AM to 6:00 PM)
+        return currentHour >= 6 && currentHour < 18;
     }
 }
