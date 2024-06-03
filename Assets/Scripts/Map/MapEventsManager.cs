@@ -13,7 +13,8 @@ public class MapEventsManager : MonoBehaviour
         DOORS_CLOSE,
         AIR_FAIL,
         COMUNICATIONS_INTERFERENCES,
-        REACTOR_FAIL
+        REACTOR_FAIL,
+        FOUNDATIONS_COMPROMISED
     }
     public EventID eventID;
 
@@ -38,6 +39,7 @@ public class MapEventsManager : MonoBehaviour
     public AudioClip alarmSound;
     public AudioClip reactorAlarmSound;
     public AudioClip comunicationsStatic;
+    public AudioClip okDone;
     AudioSource audioSource;
 
     LightOnOffBehaviour lightOnOffBehaviour_;
@@ -109,6 +111,19 @@ public class MapEventsManager : MonoBehaviour
 
             Debug.Log("COMUNICATIONS STILLS JANKED");
         }
+
+        if (EventManagerVariables.foundationsRepaired_1 == false ||
+        EventManagerVariables.foundationsRepaired_2 == false ||
+        EventManagerVariables.foundationsRepaired_3 == false ||
+        EventManagerVariables.foundationsRepaired_4 == false ||
+        EventManagerVariables.foundationsCompromisedEventActive == true)
+        {
+            //LightsOffEvent();
+            FoundationsCompBehaviorVariables.foundationsCompromised = true;
+            EventManagerVariables.foundationsCompromisedEventActive = true;
+
+            Debug.Log("FOUNDATIONS STILLS COMPROMMISED");
+        }
     }
 
     // Update is called once per frame
@@ -143,6 +158,12 @@ public class MapEventsManager : MonoBehaviour
             Debug.Log("REACTOR FAIL EVENT");
         }
 
+        if (Input.GetKeyDown(KeyCode.F10)) //for testing events only
+        {
+            FoundationsCompromised();
+            Debug.Log("FOUNDATIONS COMPROMISED EVENT");
+        }
+
 
         if (EventManagerVariables.lightSwitchActive_1 == true &&
         EventManagerVariables.lightSwitchActive_2 == true &&
@@ -175,6 +196,16 @@ public class MapEventsManager : MonoBehaviour
         {
             ComunicationsFixed();
             Debug.Log("LIGHTS BACK ON");
+        }
+
+        if (EventManagerVariables.foundationsRepaired_1 == true &&
+        EventManagerVariables.foundationsRepaired_2 == true &&
+        EventManagerVariables.foundationsRepaired_3 == true &&
+        EventManagerVariables.foundationsRepaired_4 == true &&
+        EventManagerVariables.foundationsCompromisedEventActive == true)
+        {
+            FoundationsFixed();
+            Debug.Log("FOUNDATIONS REPAIRED");
         }
     }
 
@@ -317,6 +348,35 @@ public class MapEventsManager : MonoBehaviour
 
         ComunicationsFailBehaviorVariables.comunicationsOff = false;
         EventManagerVariables.comunicationsFailEventActive = false;
+
+        time_Manager_.PauseGameTime(false);
+
+        SetupEventInfoUI("nothing", "nothing", false);
+    }
+
+    public void FoundationsCompromised()
+    {
+        audioSource.PlayOneShot(reactorAlarmSound);
+
+        EventManagerVariables.foundationsRepaired_1 = false;
+        EventManagerVariables.foundationsRepaired_2 = false;
+        EventManagerVariables.foundationsRepaired_3 = false;
+        EventManagerVariables.foundationsRepaired_4 = false;
+        FoundationsCompBehaviorVariables.foundationsCompromised = true;
+
+        EventManagerVariables.foundationsCompromisedEventActive = true;
+
+        time_Manager_.PauseGameTime(true);
+
+        SetupEventInfoUI("Foundations Compromised", "F-2", true);
+    }
+
+    public void FoundationsFixed()
+    {
+        audioSource.PlayOneShot(okDone);
+
+        FoundationsCompBehaviorVariables.foundationsCompromised = false;
+        EventManagerVariables.foundationsCompromisedEventActive = false;
 
         time_Manager_.PauseGameTime(false);
 

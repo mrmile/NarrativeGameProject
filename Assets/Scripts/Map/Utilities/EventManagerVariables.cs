@@ -22,4 +22,11 @@ public static class EventManagerVariables
 
     public static bool reactorFailEventActive = false;
     public static bool reactorRepaired = true;
+
+    public static bool foundationsCompromisedEventActive = false;
+    public static bool foundationsRepaired_1 = true;
+    public static bool foundationsRepaired_2 = true;
+    public static bool foundationsRepaired_3 = true;
+    public static bool foundationsRepaired_4 = true;
+
 }
