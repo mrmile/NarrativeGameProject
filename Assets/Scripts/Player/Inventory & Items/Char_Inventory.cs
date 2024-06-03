@@ -41,11 +41,14 @@ public class Char_Inventory : MonoBehaviour
                 if (itemScene != null)
                 {
                     Inventory.Item item = itemScene.Get();
-                    items.Add(item);
-                    InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
-                    inventoryUI.AddItemToUI(item.icon, item);
-                    HidePickupCanvas(go);
-                    collidingItems.RemoveAt(i);
+                    if (item != null)
+                    {
+                        items.Add(item);
+                        InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+                        inventoryUI.AddItemToUI(item.icon, item);
+                        HidePickupCanvas(go);
+                        collidingItems.RemoveAt(i);
+                    }
                     break;
                 }
             }
