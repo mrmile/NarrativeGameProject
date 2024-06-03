@@ -47,7 +47,7 @@ public class Char_Inventory : MonoBehaviour
                         InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                         inventoryUI.AddItemToUI(item.icon, item);
                         HidePickupCanvas(go);
-                        collidingItems.RemoveAt(i);
+                        collidingItems.RemoveAt(i); 
                     }
                     break;
                 }
