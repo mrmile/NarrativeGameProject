@@ -52,8 +52,20 @@ public class Char_Inventory : MonoBehaviour
                             Debug.Log("Couldn't find InventoryUI");
 
                         HidePickupCanvas(go);
-                       
                     }
+                    break;
+                }
+            }
+        }
+
+        // Check for equip action
+        if (Input.GetKeyDown(KeyCode.Q))  // Assuming 'Q' is the equip key
+        {
+            foreach (var item in items)
+            {
+                if (item.type == Inventory.ItemType.Linterna)
+                {
+                    EquipItem(item);
                     break;
                 }
             }
@@ -64,10 +76,10 @@ public class Char_Inventory : MonoBehaviour
     {
         if (item.type == Inventory.ItemType.Linterna)
         {
-            Debug.Log("EquipItem method called. Toggling flashlight.");
+            Debug.Log($"EquipItem method called. Current state of flashlight: {flashlightObject.activeSelf}");
             item.isEquipped = !item.isEquipped;
             flashlightObject.SetActive(item.isEquipped);  // Activate or deactivate the flashlight GameObject
-            Debug.Log("Flashlight enabled state: " + flashlightObject.activeSelf);
+            Debug.Log($"Flashlight state after toggling: {flashlightObject.activeSelf}");
         }
         else
         {

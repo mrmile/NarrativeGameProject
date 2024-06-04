@@ -1952,8 +1952,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 8
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &53198164
 Transform:
   m_ObjectHideFlags: 0
@@ -2069,8 +2067,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 9
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &75902335
 Transform:
   m_ObjectHideFlags: 0
@@ -3523,7 +3519,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 136345740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 383344673}
+        m_TargetAssemblyTypeName: ComputerInteraction, Assembly-CSharp
+        m_MethodName: CloseInteractionWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &136345740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4013,8 +4021,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 7
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &186206196
 Transform:
   m_ObjectHideFlags: 0
@@ -5042,8 +5048,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 4
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &258929600
 Transform:
   m_ObjectHideFlags: 0
@@ -5372,8 +5376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 10
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &276472708
 Transform:
   m_ObjectHideFlags: 0
@@ -23530,8 +23532,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 3
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &803654212
 Transform:
   m_ObjectHideFlags: 0
@@ -25017,8 +25017,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 9
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &930083335
 Transform:
   m_ObjectHideFlags: 0
@@ -27106,8 +27104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 6
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &1059414325
 Transform:
   m_ObjectHideFlags: 0
@@ -38010,8 +38006,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 5
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &1452940858
 Transform:
   m_ObjectHideFlags: 0
@@ -44846,8 +44840,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &1621681343
 Transform:
   m_ObjectHideFlags: 0
@@ -55704,8 +55696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  pickUpDialogue: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!4 &2107154489
 Transform:
   m_ObjectHideFlags: 0
@@ -56843,10 +56833,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5080417459945875717, guid: db40974b6604b994dbcff255bdb5d898, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080417459945875719, guid: db40974b6604b994dbcff255bdb5d898, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 2.46
+      objectReference: {fileID: 0}
     - target: {fileID: 5080417460773678599, guid: db40974b6604b994dbcff255bdb5d898, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5080417460773678621, guid: db40974b6604b994dbcff255bdb5d898, type: 3}
+      propertyPath: buttonText
+      value: 
+      objectReference: {fileID: 284976828}
+    - target: {fileID: 5080417460773678621, guid: db40974b6604b994dbcff255bdb5d898, type: 3}
+      propertyPath: equipButton
+      value: 
+      objectReference: {fileID: 426399921}
     - target: {fileID: 5080417460773678621, guid: db40974b6604b994dbcff255bdb5d898, type: 3}
       propertyPath: pickupCanvasPrefab
       value: 

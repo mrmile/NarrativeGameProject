@@ -6,28 +6,28 @@ using TMPro;
 
 public class ComputerInteraction : MonoBehaviour
 {
-    [SerializeField] GameObject pickupCanvasPrefab;  // Reference to the Canvas prefab
-    [SerializeField] GameObject interactionWindow;  // Reference to the interaction window
-    [SerializeField] GameObject dayPanel;  // Reference to the day panel
-    [SerializeField] GameObject nightPanel;  // Reference to the night panel
-    [SerializeField] TMP_InputField codeInputField;  // Reference to the code input field
-    [SerializeField] TextMeshProUGUI feedbackText;  // Reference to the feedback text
-    [SerializeField] Button submitButton;  // Reference to the submit button
-    [SerializeField] Button closeButton;  // Reference to the close button
-    [SerializeField] Button nightCreateButton;  // Reference to the create button on night panel
-    [SerializeField] GameObject itemPrefab;  // Reference to the item prefab to be dropped
-    [SerializeField] Transform dropLocation;  // Reference to the location where the item should be dropped
-    [SerializeField] string correctCode = "1234";  // The correct code to access the PC
+    [SerializeField] GameObject pickupCanvasPrefab;
+    [SerializeField] GameObject interactionWindow;
+    [SerializeField] GameObject dayPanel;
+    [SerializeField] GameObject nightPanel;
+    [SerializeField] TMP_InputField codeInputField; 
+    [SerializeField] TextMeshProUGUI feedbackText; 
+    [SerializeField] Button submitButton;
+    [SerializeField] Button closeButton;
+    [SerializeField] Button nightCreateButton;
+    [SerializeField] GameObject itemPrefab;
+    [SerializeField] Transform dropLocation;
+    [SerializeField] string correctCode = "1234";
 
     private GameObject canvasInstance;
     private bool isPlayerNearby = false;
-    private Time_Manager timeManager;  // Reference to the time manager
+    private bool itemCreated = false;
+    private Time_Manager timeManager;
 
     private void Awake()
     {
-        timeManager = FindObjectOfType<Time_Manager>();  // Find the Time_Manager instance
+        timeManager = FindObjectOfType<Time_Manager>(); 
 
-        // Ensure buttons have the correct listeners attached
         if (submitButton != null)
         {
             submitButton.onClick.AddListener(OnSubmitButtonClicked);
@@ -73,7 +73,7 @@ public class ComputerInteraction : MonoBehaviour
         if (pickupCanvasPrefab != null && canvasInstance == null)
         {
             canvasInstance = Instantiate(pickupCanvasPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-            canvasInstance.transform.SetParent(transform);  // Make the Canvas a child of the computer
+            canvasInstance.transform.SetParent(transform);
         }
     }
 
@@ -81,7 +81,7 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (canvasInstance != null)
         {
-            Destroy(canvasInstance);  // Destroy the Canvas instance
+            Destroy(canvasInstance);
             canvasInstance = null;
         }
     }
@@ -90,25 +90,25 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (interactionWindow != null)
         {
-            interactionWindow.SetActive(true);  // Show the interaction window
-            feedbackText.text = "";  // Clear feedback text
-            codeInputField.text = "";  // Clear input field
+            interactionWindow.SetActive(true);
+            feedbackText.text = "";
+            codeInputField.text = ""; 
         }
     }
 
     public void CloseInteractionWindow()
     {
-        Debug.Log("CloseInteractionWindow called.");  // Add this line for debugging
+        Debug.Log("CloseInteractionWindow called.");
         if (interactionWindow != null)
         {
-            Debug.Log("Hiding interaction window.");  // Add this line for debugging
-            interactionWindow.SetActive(false);  // Hide the interaction window
+            Debug.Log("Hiding interaction window.");
+            interactionWindow.SetActive(false);
             nightPanel.SetActive(false);
             dayPanel.SetActive(false);
         }
         else
         {
-            Debug.LogWarning("interactionWindow is not assigned.");  // Add this line for debugging
+            Debug.LogWarning("interactionWindow is not assigned.");
         }
     }
 
@@ -117,11 +117,8 @@ public class ComputerInteraction : MonoBehaviour
         if (codeInputField.text == correctCode)
         {
             feedbackText.text = "Access Granted";
-            // Hide the current interaction window
             interactionWindow.SetActive(false);
-         
 
-            // Determine which panel to show based on the time
             ShowAppropriatePanel();
         }
         else
@@ -134,7 +131,7 @@ public class ComputerInteraction : MonoBehaviour
     {
         if (timeManager != null)
         {
-            int currentHour = timeManager.GetTimeGameHours();  // Get the current hour
+            int currentHour = timeManager.GetTimeGameHours();
             
             if (IsDayTime(currentHour))
             {
@@ -145,13 +142,17 @@ public class ComputerInteraction : MonoBehaviour
             {
                 dayPanel.SetActive(false);
                 nightPanel.SetActive(true);
+
+                if (itemCreated)
+                {
+                    nightCreateButton.interactable = false;
+                }
             }
         }
     }
 
     private bool IsDayTime(int currentHour)
     {
-        // Define day time range (e.g., 6:00 AM to 6:00 PM)
         return currentHour >= 6 && currentHour < 18;
     }
 
@@ -169,14 +170,19 @@ public class ComputerInteraction : MonoBehaviour
             return;
         }
 
-        GameObject newItem = Instantiate(itemPrefab, dropLocation.position, Quaternion.identity);
-        if (newItem == null)
+        if (!itemCreated) 
         {
-            Debug.LogError("Failed to instantiate the item.");
-        }
-        else
-        {
-            Debug.Log("Item created successfully at " + dropLocation.position);
+            GameObject newItem = Instantiate(itemPrefab, dropLocation.position, Quaternion.identity);
+            if (newItem == null)
+            {
+                Debug.LogError("Failed to instantiate the item.");
+            }
+            else
+            {
+                Debug.Log("Item created successfully at " + dropLocation.position);
+                itemCreated = true;
+                nightCreateButton.interactable = false;
+            }
         }
     }
 }

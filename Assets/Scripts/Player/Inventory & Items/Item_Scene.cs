@@ -7,8 +7,8 @@ public class Item_Scene : MonoBehaviour
 {
     public Inventory.ItemType itemType;
     Inventory.Item item;
-    public NPCConversation pickUpDialogue;
-    public Inventory inventory;
+    private NPCConversation pickUpDialogue;
+    private Inventory inventory;
 
     private void Awake()
     {
