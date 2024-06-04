@@ -7,8 +7,8 @@ public class Item_Scene : MonoBehaviour
 {
     public Inventory.ItemType itemType;
     Inventory.Item item;
-    NPCConversation pickUpDialogue;
-    Inventory inventory;
+    public NPCConversation pickUpDialogue;
+    public Inventory inventory;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class Item_Scene : MonoBehaviour
         {
             item = inventory.itemsDictionary[itemType];
             GetComponent<SpriteRenderer>().sprite = item.icon;
-            Debug.Log("Item of type " + itemType + " initialized successfully.");
+            //Debug.Log("Item of type " + itemType + " initialized successfully.");
         }
         else
         {

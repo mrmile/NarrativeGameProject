@@ -26,7 +26,7 @@ public class EventsInfoPopup : MonoBehaviour
             InformationCanvas.SetActive(true);
             UI_eventsInfoVariables.alreadyChangedState = true;
 
-            Debug.Log("EVENT POPUP INFO - ON");
+            //Debug.Log("EVENT POPUP INFO - ON");
         }
 
         if (UI_eventsInfoVariables.anEventIsActive == false && UI_eventsInfoVariables.alreadyChangedState == false)
@@ -34,7 +34,7 @@ public class EventsInfoPopup : MonoBehaviour
             InformationCanvas.SetActive(false);
             UI_eventsInfoVariables.alreadyChangedState = true;
 
-            Debug.Log("EVENT POPUP INFO - OFF");
+            //Debug.Log("EVENT POPUP INFO - OFF");
         }
     }
 }

@@ -40,14 +40,19 @@ public class Char_Inventory : MonoBehaviour
 
                 if (itemScene != null)
                 {
+                    collidingItems.RemoveAt(i);
                     Inventory.Item item = itemScene.Get();
                     if (item != null)
                     {
                         items.Add(item);
                         InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
-                        inventoryUI.AddItemToUI(item.icon, item);
+                        if (inventoryUI != null)
+                            inventoryUI.AddItemToUI(item.icon, item);
+                        else
+                            Debug.Log("Couldn't find InventoryUI");
+
                         HidePickupCanvas(go);
-                        collidingItems.RemoveAt(i); 
+                       
                     }
                     break;
                 }

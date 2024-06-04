@@ -40,9 +40,16 @@ public class InventoryUI : MonoBehaviour
                 slot.preserveAspect = true;
                 itemSlotDictionary[slot] = item;
 
-                Button button = slot.GetComponent<Button>();
-                button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => ShowItemDescription(item));
+                Debug.Log(slot.gameObject);
+                Button button = slot.gameObject.GetComponent<Button>();
+                if (button != null)
+                {
+                    button.onClick.RemoveAllListeners();
+                    button.onClick.AddListener(() => ShowItemDescription(item));
+                }
+                else
+                    Debug.Log("button not found");
+                
                 break;
             }
         }

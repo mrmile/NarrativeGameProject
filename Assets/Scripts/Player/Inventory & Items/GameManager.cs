@@ -43,6 +43,6 @@ public class GameManager : MonoBehaviour
                 hasMaletin = value;
                 break;
         }
-        Debug.Log("Item " + itemType + " set to: " + value);
+        //Debug.Log("Item " + itemType + " set to: " + value);
     }
 }

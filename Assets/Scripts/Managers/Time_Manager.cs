@@ -135,8 +135,8 @@ public class Time_Manager : MonoBehaviour
 
         TimeManagerVariables.classConstructed = true;
 
-        Debug.Log("StartDay - Event SELECTION: " + mapEventsManager_.eventID);
-        Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
+        //Debug.Log("StartDay - Event SELECTION: " + mapEventsManager_.eventID);
+        //Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
     }
 
     public void EndDay()

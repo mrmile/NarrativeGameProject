@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
             if (!itemsDictionary.ContainsKey(item.type))
             {
                 itemsDictionary.Add(item.type, item);
-                Debug.Log("Added item of type " + item.type + " to itemsDictionary.");
+                //Debug.Log("Added item of type " + item.type + " to itemsDictionary.");
             }
         }
 
