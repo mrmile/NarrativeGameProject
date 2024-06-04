@@ -10,6 +10,9 @@ public class Player_Movement : MonoBehaviour
     Rigidbody2D rb;
     Player_Animations player_animations;
     WalkDirection walkDirection;
+
+    [SerializeField] GameObject conversation;
+
     void Start()
     {
         player_animations = GetComponent<Player_Animations>();
@@ -18,6 +21,14 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
+        if (conversation != null)
+            if (conversation.activeSelf) canMove = false;
+            else canMove = true;
+
+
+
+
+
         if (!canMove) return;
         walkDirection = WalkDirection.DEFAULT;
         if (Input.GetKey(KeyCode.W))

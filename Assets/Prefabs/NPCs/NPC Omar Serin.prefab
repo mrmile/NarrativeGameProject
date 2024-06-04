@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7483846516142390394}
   - component: {fileID: 7483846516142390375}
   - component: {fileID: 2714004201352380332}
+  - component: {fileID: 2952021938723871032}
   m_Layer: 0
   m_Name: NPC Omar Serin
   m_TagString: Untagged
@@ -125,3 +126,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &2952021938723871032
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483846516142390395}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15999998
