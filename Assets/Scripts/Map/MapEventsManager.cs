@@ -6,17 +6,6 @@ using UnityEngine;
 
 public class MapEventsManager : MonoBehaviour
 {
-    public enum EventID
-    {
-        NONE = 0,
-        LIGHTS_OFF,
-        DOORS_CLOSE,
-        AIR_FAIL,
-        COMUNICATIONS_INTERFERENCES,
-        REACTOR_FAIL,
-        FOUNDATIONS_COMPROMISED
-    }
-    public EventID eventID;
 
     public int currentMapLevel = 0;
 
@@ -186,7 +175,7 @@ public class MapEventsManager : MonoBehaviour
         EventManagerVariables.reactorFailEventActive == true)
         {
             ReactorFixed();
-            Debug.Log("AIR BACK ON");
+            Debug.Log("REACTOR FIXED");
             audioSource.Stop();
         }
 
@@ -195,7 +184,7 @@ public class MapEventsManager : MonoBehaviour
         EventManagerVariables.comunicationsFailEventActive == true)
         {
             ComunicationsFixed();
-            Debug.Log("LIGHTS BACK ON");
+            Debug.Log("COMUNICATIONS FIXED");
         }
 
         if (EventManagerVariables.foundationsRepaired_1 == true &&

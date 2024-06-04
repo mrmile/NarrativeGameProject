@@ -62,7 +62,7 @@ public class ReactorSwitchBehavior : MonoBehaviour
                     reactorBroken.SetActive(false);
 
                     EventManagerVariables.reactorRepaired = true;
-                    Debug.Log("AIR SWITCH 1 ON");
+                    Debug.Log("REACTOR SWITCH 1 ON");
                 }
             }
 

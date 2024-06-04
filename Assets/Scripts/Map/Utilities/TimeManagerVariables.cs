@@ -12,8 +12,12 @@ public static class TimeManagerVariables
 
     //---------------Map Events---------------
     public static int randomGameHour = 25;
+    public static int randomGameHour2 = 25;
     public static bool dayEventHapened = false;
+    public static bool dayEventHapened2 = false;
     public static int randomEvent = 0;
+    public static int randomEvent2 = 0;
+    public static int eventAmount = 1;
 
     public static bool classConstructed = false;
     //----------------------------------------

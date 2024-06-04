@@ -14,11 +14,13 @@ public class Time_Manager : MonoBehaviour
     MapEventsManager mapEventsManager_;
 
     public bool EventsOnFirstDay = true;
+    public int multipleEvents = 2; //only accepts 1 or 2
     public bool noEventProbability = false;
     
     void Start()
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
+        TimeManagerVariables.eventAmount = multipleEvents;
 
         if (EventsOnFirstDay == true && TimeManagerVariables.classConstructed == false) 
         {
@@ -41,6 +43,11 @@ public class Time_Manager : MonoBehaviour
             SetGameTime(0, 0); // Set to night (e.g., 12 AM)
             Debug.Log("Set to Night Time");
         }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            TimeManagerVariables.gameHour++;
+            Debug.Log("Advance 1 hour");
+        }
     }
 
     void UpdateTimeValues()
@@ -54,56 +61,8 @@ public class Time_Manager : MonoBehaviour
             secondsSinceLastStep = 0;            
         }
 
-        if(TimeManagerVariables.gameHour == TimeManagerVariables.randomGameHour && TimeManagerVariables.dayEventHapened == false)
-        {
-            if(mapEventsManager_.eventID == EventID.NONE)
-            {
-                TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("NO EVENT SELECTED");
-            }
-            else if(mapEventsManager_.eventID == EventID.LIGHTS_OFF)
-            {
-                TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("LIGHTS OFF EVENT");
-
-                mapEventsManager_.LightsOffEvent();
-            }
-            else if (mapEventsManager_.eventID == EventID.DOORS_CLOSE)
-            {
-                TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("DOORS CLOSE EVENT");
-
-                mapEventsManager_.DoorsShutEvent();
-            }
-            else if (mapEventsManager_.eventID == EventID.AIR_FAIL)
-            {
-                TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("AIR FAIL EVENT");
-
-                mapEventsManager_.AirFailEvent();
-            }
-            else if (mapEventsManager_.eventID == EventID.COMUNICATIONS_INTERFERENCES)
-            {
-                TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("COMUNICATIONS FAIL EVENT");
-
-                mapEventsManager_.ComunicationsFailEvent();
-            }
-            else if (mapEventsManager_.eventID == EventID.REACTOR_FAIL)
-            {
-                TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("REACTOR FAIL EVENT");
-
-                mapEventsManager_.ReactorFailEvent();
-            }
-            else if (mapEventsManager_.eventID == EventID.FOUNDATIONS_COMPROMISED)
-            {
-                TimeManagerVariables.dayEventHapened = true;
-                Debug.Log("FOUNDATIONS COMPROMISED EVENT");
-
-                mapEventsManager_.FoundationsCompromised();
-            }
-        }
+        RunDayEvent(1);
+        if (TimeManagerVariables.eventAmount == 2) RunDayEvent(2);
 
         if (TimeManagerVariables.gameMinute >= 60)
         {
@@ -119,24 +78,171 @@ public class Time_Manager : MonoBehaviour
 
     public void StartDay()
     {
-        TimeManagerVariables.randomGameHour = Random.Range(5, 21);
         TimeManagerVariables.dayEventHapened = false;
+        TimeManagerVariables.dayEventHapened2 = false;
 
-        if(noEventProbability == true)
+        if (TimeManagerVariables.eventAmount == 1)
         {
-            TimeManagerVariables.randomEvent = Random.Range(0, 7);
+            TimeManagerVariables.randomGameHour = Random.Range(5, 21);
         }
-        else if(noEventProbability == false)
+        else if (TimeManagerVariables.eventAmount == 2)
         {
-            TimeManagerVariables.randomEvent = Random.Range(1, 7);
+            TimeManagerVariables.randomGameHour = Random.Range(5, 12);
+            TimeManagerVariables.randomGameHour2 = Random.Range(15, 21);
         }
 
-        mapEventsManager_.eventID = (EventID)TimeManagerVariables.randomEvent;
+
+        if (TimeManagerVariables.eventAmount == 1)
+        {
+            if (noEventProbability == true)
+            {
+                TimeManagerVariables.randomEvent = Random.Range(0, 7);
+            }
+            else if (noEventProbability == false)
+            {
+                TimeManagerVariables.randomEvent = Random.Range(1, 7);
+            }
+            EventsEnum.eventID = (EventsEnum.EventID)TimeManagerVariables.randomEvent;
+        }
+        else if (TimeManagerVariables.eventAmount == 2)
+        {
+            if (noEventProbability == true)
+            {
+                TimeManagerVariables.randomEvent = Random.Range(0, 7);
+                TimeManagerVariables.randomEvent2 = Random.Range(0, 7);
+            }
+            else if (noEventProbability == false)
+            {
+                TimeManagerVariables.randomEvent = Random.Range(1, 7);
+                TimeManagerVariables.randomEvent2 = Random.Range(1, 7);
+            }
+            EventsEnum.eventID = (EventsEnum.EventID)TimeManagerVariables.randomEvent;
+            EventsEnum.eventID2 = (EventsEnum.EventID)TimeManagerVariables.randomEvent2;
+        }
+        
 
         TimeManagerVariables.classConstructed = true;
 
-        //Debug.Log("StartDay - Event SELECTION: " + mapEventsManager_.eventID);
-        //Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
+        Debug.Log("StartDay - Event SELECTION: " + EventsEnum.eventID);
+        Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
+        if(TimeManagerVariables.eventAmount == 2)
+        {
+            Debug.Log("StartDay - Event SELECTION 2: " + EventsEnum.eventID2);
+            Debug.Log("StartDay - Event TIME 2: " + TimeManagerVariables.randomGameHour2);
+        }
+    }
+
+    public void RunDayEvent(int dayEvent)
+    {
+        if(dayEvent == 1)
+        {
+            if ((TimeManagerVariables.gameHour == TimeManagerVariables.randomGameHour && TimeManagerVariables.dayEventHapened == false))
+            {
+                if ((EventsEnum.eventID == EventsEnum.EventID.NONE && TimeManagerVariables.dayEventHapened == false))
+                {
+                    TimeManagerVariables.dayEventHapened = true;
+                    Debug.Log("NO EVENT SELECTED");
+                }
+                else if ((EventsEnum.eventID == EventsEnum.EventID.LIGHTS_OFF && TimeManagerVariables.dayEventHapened == false))
+                {
+                    TimeManagerVariables.dayEventHapened = true;
+                    Debug.Log("LIGHTS OFF EVENT");
+
+                    mapEventsManager_.LightsOffEvent();
+                }
+                else if ((EventsEnum.eventID == EventsEnum.EventID.DOORS_CLOSE && TimeManagerVariables.dayEventHapened == false))
+                {
+                    TimeManagerVariables.dayEventHapened = true;
+                    Debug.Log("DOORS CLOSE EVENT");
+
+                    mapEventsManager_.DoorsShutEvent();
+                }
+                else if ((EventsEnum.eventID == EventsEnum.EventID.AIR_FAIL && TimeManagerVariables.dayEventHapened == false))
+                {
+                    TimeManagerVariables.dayEventHapened = true;
+                    Debug.Log("AIR FAIL EVENT");
+
+                    mapEventsManager_.AirFailEvent();
+                }
+                else if ((EventsEnum.eventID == EventsEnum.EventID.COMUNICATIONS_INTERFERENCES && TimeManagerVariables.dayEventHapened == false))
+                {
+                    TimeManagerVariables.dayEventHapened = true;
+                    Debug.Log("COMUNICATIONS FAIL EVENT");
+
+                    mapEventsManager_.ComunicationsFailEvent();
+                }
+                else if ((EventsEnum.eventID == EventsEnum.EventID.REACTOR_FAIL && TimeManagerVariables.dayEventHapened == false))
+                {
+                    TimeManagerVariables.dayEventHapened = true;
+                    Debug.Log("REACTOR FAIL EVENT");
+
+                    mapEventsManager_.ReactorFailEvent();
+                }
+                else if ((EventsEnum.eventID == EventsEnum.EventID.FOUNDATIONS_COMPROMISED && TimeManagerVariables.dayEventHapened == false))
+                {
+                    TimeManagerVariables.dayEventHapened = true;
+                    Debug.Log("FOUNDATIONS COMPROMISED EVENT");
+
+                    mapEventsManager_.FoundationsCompromised();
+                }
+                //Debug.Log("EVENT DAY HAPPENED = " + TimeManagerVariables.dayEventHapened);
+            }
+        }
+
+        if(dayEvent == 2)
+        {
+            if ((TimeManagerVariables.gameHour == TimeManagerVariables.randomGameHour2 && TimeManagerVariables.dayEventHapened2 == false))
+            {
+                if ((EventsEnum.eventID2 == EventsEnum.EventID.NONE && TimeManagerVariables.dayEventHapened2 == false))
+                {
+                    TimeManagerVariables.dayEventHapened2 = true;
+                    Debug.Log("NO EVENT SELECTED");
+                }
+                else if ((EventsEnum.eventID2 == EventsEnum.EventID.LIGHTS_OFF && TimeManagerVariables.dayEventHapened2 == false))
+                {
+                    TimeManagerVariables.dayEventHapened2 = true;
+                    Debug.Log("LIGHTS OFF EVENT");
+
+                    mapEventsManager_.LightsOffEvent();
+                }
+                else if ((EventsEnum.eventID2 == EventsEnum.EventID.DOORS_CLOSE && TimeManagerVariables.dayEventHapened2 == false))
+                {
+                    TimeManagerVariables.dayEventHapened2 = true;
+                    Debug.Log("DOORS CLOSE EVENT");
+
+                    mapEventsManager_.DoorsShutEvent();
+                }
+                else if ((EventsEnum.eventID2 == EventsEnum.EventID.AIR_FAIL && TimeManagerVariables.dayEventHapened2 == false))
+                {
+                    TimeManagerVariables.dayEventHapened2 = true;
+                    Debug.Log("AIR FAIL EVENT");
+
+                    mapEventsManager_.AirFailEvent();
+                }
+                else if ((EventsEnum.eventID2 == EventsEnum.EventID.COMUNICATIONS_INTERFERENCES && TimeManagerVariables.dayEventHapened2 == false))
+                {
+                    TimeManagerVariables.dayEventHapened2 = true;
+                    Debug.Log("COMUNICATIONS FAIL EVENT");
+
+                    mapEventsManager_.ComunicationsFailEvent();
+                }
+                else if ((EventsEnum.eventID2 == EventsEnum.EventID.REACTOR_FAIL && TimeManagerVariables.dayEventHapened2 == false))
+                {
+                    TimeManagerVariables.dayEventHapened2 = true;
+                    Debug.Log("REACTOR FAIL EVENT");
+
+                    mapEventsManager_.ReactorFailEvent();
+                }
+                else if ((EventsEnum.eventID2 == EventsEnum.EventID.FOUNDATIONS_COMPROMISED && TimeManagerVariables.dayEventHapened2 == false))
+                {
+                    TimeManagerVariables.dayEventHapened2 = true;
+                    Debug.Log("FOUNDATIONS COMPROMISED EVENT");
+
+                    mapEventsManager_.FoundationsCompromised();
+                }
+                //Debug.Log("EVENT DAY HAPPENED = " + TimeManagerVariables.dayEventHapened);
+            }
+        }
     }
 
     public void EndDay()
