@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inventory
   - LightSwitch
+  - NPC
   layers:
   - Default
   - TransparentFX

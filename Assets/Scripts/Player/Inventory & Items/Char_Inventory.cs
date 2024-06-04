@@ -3,12 +3,24 @@ using UnityEngine;
 
 public class Char_Inventory : MonoBehaviour
 {
-    [SerializeField] List<Inventory.Item> items;
+    [SerializeField] public List<Inventory.Item> items;
     [SerializeField] List<GameObject> collidingItems;
     [SerializeField] GameObject pickupCanvasPrefab;
     [SerializeField] GameObject flashlightObject;  // Reference to the GameObject that emits light
     private Dictionary<GameObject, GameObject> itemToCanvasMap = new Dictionary<GameObject, GameObject>();
 
+
+    public bool CheckItem(Inventory.ItemType type)
+    {
+        foreach (Inventory.Item item in items)
+        {
+            if (item.type == type)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Item_Scene item = collision.GetComponent<Item_Scene>();

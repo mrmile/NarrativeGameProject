@@ -14,7 +14,7 @@ public class NPC_Movement : MonoBehaviour
 
     [SerializeField] Animator animator;
 
-    bool isMoving;
+    public bool isMoving;
     int index;
 
     Transform targetDestination;
