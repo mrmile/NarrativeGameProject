@@ -7,6 +7,7 @@ public class AmbienceAudioPlayer : MonoBehaviour
     public AudioClip Level_Pmin2_ambience;
     public AudioClip Level_Pmin1_ambience;
     public AudioClip Level_P0_ambience;
+    public AudioClip Level_P1_ambience;
     public AudioClip lightsOffAmbience;
     AudioSource audioSource;
 
@@ -58,8 +59,8 @@ public class AmbienceAudioPlayer : MonoBehaviour
             else if (mapEventsManager_.currentMapLevel == 1)
             {
                 //nothing for now
-                //audioSource.clip = Level_P1_ambience;
-                //audioSource.Play();
+                audioSource.clip = Level_P1_ambience;
+                audioSource.Play();
             }
 
             ambiencePlaying = true;
