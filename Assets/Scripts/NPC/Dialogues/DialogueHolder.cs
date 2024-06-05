@@ -13,7 +13,7 @@ public struct NPC_ConversationInfo
 public class NPC_UniqueDialogueHolder : MonoBehaviour // specific to each npc to inherit from.
 {
     [SerializeField] protected NPCConversation nullConversation;
-
+    protected bool firstTalked = false;
     public virtual NPC_ConversationInfo GetConversation() // sould be overrided to return specific conversations with specific conditions for each npc
     {
         NPC_ConversationInfo ret = new NPC_ConversationInfo();
@@ -80,14 +80,15 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
             dialogueActive = false;
         }
 
-        if (dialogueActive)
-        {
-            movement.isMoving = false;
-        }
-        else if (wasMoving)
-        {
-            movement.isMoving = true;
-            wasMoving = false;
-        }
+        if (movement != null)
+            if (dialogueActive)
+            {
+                movement.isMoving = false;
+            }
+            else if (wasMoving)
+            {
+                movement.isMoving = true;
+                wasMoving = false;
+            }
     }
 }

@@ -4,19 +4,13 @@ using UnityEngine;
 using DialogueEditor;
 
 
-public class Dial_YufengNu : NPC_UniqueDialogueHolder
+public class Dial_Iris : NPC_UniqueDialogueHolder
 {
     GameObject player;
     Char_Inventory playerInventory;
 
-    [SerializeField] NPCConversation FirstConversation;
+    [SerializeField] NPCConversation startGameConversation;
 
-    [SerializeField] NPCConversation dialogue1;
-    [SerializeField] NPCConversation dialogue2;
-
-    int rand;
-
-    
     private void Awake()
     {
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
@@ -24,17 +18,14 @@ public class Dial_YufengNu : NPC_UniqueDialogueHolder
         playerInventory = player.GetComponent<Char_Inventory>();
     }
 
+
     public override NPC_ConversationInfo GetConversation()
     {
         NPC_ConversationInfo ret = new NPC_ConversationInfo();
 
         ret.sprite = GetComponent<SpriteRenderer>().sprite;
-        ret.title = "Yufeng Nu";
+        ret.title = "Iris";
 
-        if (!firstTalked)
-            ret.conversation = FirstConversation;
-
-       
 
         return ret;
     }
@@ -42,7 +33,7 @@ public class Dial_YufengNu : NPC_UniqueDialogueHolder
     // Start is called before the first frame update
     void Start()
     {
-        
+        ConversationManager.Instance.StartConversation(startGameConversation);
     }
 
     // Update is called once per frame

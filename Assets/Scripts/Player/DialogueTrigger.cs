@@ -2,6 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+struct PlayerDialogueData
+{
+    public bool talkedToYufeng;
+    public bool talkedToViktor;
+    public bool talkedToVera;
+    public bool talkedToTino;
+    public bool talkedToOmar;
+    public bool talkedToBruce;
+
+
+}
+
+
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] List<GameObject> collidingNpcs;
