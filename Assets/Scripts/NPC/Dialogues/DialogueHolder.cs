@@ -53,20 +53,18 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
 {
 
     [SerializeField] bool dialogueActive;
-    [SerializeField] Sprite sprite;
-    [SerializeField] NPC_Movement movement;
+
+
     [SerializeField] NPC_UniqueDialogueHolder uniqueDialogueHolder;
     [SerializeField] NPCConversation nullConversation;
-
-    bool wasMoving = false;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        movement = GetComponent<NPC_Movement>();
+
         uniqueDialogueHolder = GetComponent<NPC_UniqueDialogueHolder>();
-        sprite = GetComponent<SpriteRenderer>().sprite;
+
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
     }
 
@@ -86,14 +84,13 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
             ConversationManager.Instance.StartConversation(conversationToShow.conversation);
             ConversationManager.Instance.ReplaceIcon(conversationToShow.sprite);
             ConversationManager.Instance.OverrideName(conversationToShow.title);
+
         }
         else
         {
             Debug.LogError("ConversationManager instance is null.");
         }
 
-        if (movement.isMoving) wasMoving = true;
-        else wasMoving = false;
     }
 
     // Update is called once per frame
