@@ -10,6 +10,8 @@ public class DoorsCloseBehavior : MonoBehaviour
     public AudioClip doorsOpenSound;
     AudioSource audioSource;
 
+    public float doorsShutEventDurationSet = 60;
+
     MapEventsManager mapEventsManager_;
 
     Time_Manager time_Manager_;
@@ -30,6 +32,8 @@ public class DoorsCloseBehavior : MonoBehaviour
 
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         inventoryUI = FindObjectOfType<InventoryUI>();
+
+        EventManagerVariables.doorsShutEventDuration = doorsShutEventDurationSet;
     }
 
     void Update()

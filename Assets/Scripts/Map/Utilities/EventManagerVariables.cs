@@ -11,7 +11,7 @@ public static class EventManagerVariables
 
     public static int doorsShutEventPhase = 0;
     public static bool shutDoorGroup = false;
-    public static float doorsShutEventDuration = 5;
+    public static float doorsShutEventDuration = 60;
 
     public static bool airFailEventActive = false;
     public static bool airSwitchActive_1 = true;
