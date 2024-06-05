@@ -5,6 +5,7 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
+    public GameObject notePrefab;
     public enum ItemType
     {
         NoItem, Papers, Cinturon, Cura, Key, Pendiente, TarjetaAcceso, ClaveAcceso, TrajeOperaciones, Maletin, Linterna

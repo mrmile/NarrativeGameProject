@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Char_Inventory : MonoBehaviour
 {
@@ -9,7 +10,29 @@ public class Char_Inventory : MonoBehaviour
     [SerializeField] GameObject pickupCanvasPrefab;
     [SerializeField] GameObject flashlightObject;  // Reference to the GameObject that emits light
     private Dictionary<GameObject, GameObject> itemToCanvasMap = new Dictionary<GameObject, GameObject>();
+    [SerializeField] GameObject noteHolder;
+    [SerializeField] Inventory inventory;
 
+    private void Awake()
+    {
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+    }
+    public void AddNote(Inventory.Note note)
+    {
+        noteHolder = GameObject.Find("NoteHolder");
+        if (noteHolder == null)
+        {
+            Debug.LogError("NoteHolder not found.");
+            return;
+        }
+
+        GameObject n = Instantiate(inventory.notePrefab);
+        n.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = note.identifier;
+        n.transform.GetChild(1).GetComponent<TextMeshProUGUI >().text = note.content;
+
+        n.transform.parent = noteHolder.transform;
+        n.transform.localScale = new Vector3(1, 1, 1);
+    }
 
     public bool CheckItem(Inventory.ItemType type)
     {
@@ -44,6 +67,17 @@ public class Char_Inventory : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Inventory.Note note = new Inventory.Note();
+            note.identifier = "Alpaca";
+            note.content = "Alpaca content";
+
+            AddNote(note);
+        }
+
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             for (int i = collidingItems.Count - 1; i >= 0; i--)
