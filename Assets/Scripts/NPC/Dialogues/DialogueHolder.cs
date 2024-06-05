@@ -23,6 +23,8 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
     [SerializeField] NPC_UniqueDialogueHolder uniqueDialogueHolder;
     [SerializeField] NPCConversation nullConversation;
 
+    bool wasMoving = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,15 +56,27 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
         {
             Debug.LogError("ConversationManager instance is null.");
         }
-
+        if (movement.isMoving) wasMoving = true;
+        else wasMoving = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (!ConversationManager.Instance.IsConversationActive && dialogueActive)
+        {
+            dialogueActive = false;
+        }
+
         if (dialogueActive)
         {
             movement.isMoving = false;
+        }
+        else if (wasMoving)
+        {
+            movement.isMoving = true;
+            wasMoving = false;
         }
     }
 }

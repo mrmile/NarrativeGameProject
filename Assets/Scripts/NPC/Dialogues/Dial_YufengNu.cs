@@ -12,6 +12,8 @@ public class Dial_YufengNu : NPC_UniqueDialogueHolder
     [SerializeField] NPCConversation defaultConversation;
     [SerializeField] NPCConversation dialogue1;
     [SerializeField] NPCConversation dialogue2;
+
+    int rand;
     private void Awake()
     {
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
@@ -21,9 +23,10 @@ public class Dial_YufengNu : NPC_UniqueDialogueHolder
 
     public override NPCConversation GetConversation()
     {
-
-        if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) return dialogue1;
-        if (playerInventory.CheckItem(Inventory.ItemType.Papers)) return dialogue2;
+        rand = Random.Range(1, 3);
+        //if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) return dialogue1;
+        if (rand == 1) return dialogue1;
+        if (rand == 2) return dialogue2;
 
         return defaultConversation;
     }
