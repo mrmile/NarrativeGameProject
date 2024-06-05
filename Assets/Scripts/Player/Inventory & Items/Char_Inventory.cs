@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Char_Inventory : MonoBehaviour
 {
+    [SerializeField] public List<Inventory.Note> notes;
     [SerializeField] public List<Inventory.Item> items;
     [SerializeField] List<GameObject> collidingItems;
     [SerializeField] GameObject pickupCanvasPrefab;

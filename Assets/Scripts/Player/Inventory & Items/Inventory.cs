@@ -21,6 +21,13 @@ public class Inventory : MonoBehaviour
         public bool isEquipped;
     }
 
+    [Serializable]
+    public class Note
+    {
+        public string identifier;
+        public string content;
+    }
+
     [SerializeField]
     Sprite defaultSprite;
 

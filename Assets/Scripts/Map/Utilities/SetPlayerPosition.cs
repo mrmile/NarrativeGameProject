@@ -13,7 +13,6 @@ public class SetPlayerPosition : MonoBehaviour
 
     void Start()
     {
-        print(player);
         player.transform.position = PlayerPosition.newPosition;
     }
 }

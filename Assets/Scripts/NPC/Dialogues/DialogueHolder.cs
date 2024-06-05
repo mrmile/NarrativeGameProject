@@ -48,7 +48,6 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
                 conversationToShow = nullConversation;
                 Debug.LogError("No Conversation was found.");
             }
-            print(conversationToShow);
             ConversationManager.Instance.StartConversation(conversationToShow);
             ConversationManager.Instance.ReplaceIcon(sprite);
         }
@@ -56,6 +55,7 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
         {
             Debug.LogError("ConversationManager instance is null.");
         }
+
         if (movement.isMoving) wasMoving = true;
         else wasMoving = false;
     }
