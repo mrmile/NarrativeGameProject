@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7483846516142390393}
+  - component: {fileID: 8595642556190100366}
+  - component: {fileID: 6496189176646151198}
   - component: {fileID: 7483846516142390394}
   - component: {fileID: 7483846516142390375}
   - component: {fileID: 2714004201352380332}
@@ -35,6 +37,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8595642556190100366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483846516142390395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f320095911776469761502236a20ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueActive: 0
+  sprite: {fileID: 0}
+  movement: {fileID: 0}
+  uniqueDialogueHolder: {fileID: 0}
+--- !u!114 &6496189176646151198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483846516142390395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cdc5555b83a61f44803f7011c163d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nullConversation: {fileID: 0}
+  defaultConversation: {fileID: 0}
+  dialogue1: {fileID: 0}
+  dialogue2: {fileID: 0}
 --- !u!212 &7483846516142390394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,6 +140,7 @@ MonoBehaviour:
   lunchLocation: {fileID: 0}
   sleepLocation: {fileID: 0}
   animator: {fileID: 0}
+  isMoving: 0
 --- !u!95 &2714004201352380332
 Animator:
   serializedVersion: 4

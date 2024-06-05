@@ -16,11 +16,12 @@ public class NPC_UniqueDialogueHolder : MonoBehaviour // specific to each npc to
 
 public class DialogueHolder : MonoBehaviour // for every npc, it asks for conversations from an npc
 {
-    [SerializeField] string name;
+
     [SerializeField] bool dialogueActive;
     [SerializeField] Sprite sprite;
     [SerializeField] NPC_Movement movement;
     [SerializeField] NPC_UniqueDialogueHolder uniqueDialogueHolder;
+    [SerializeField] NPCConversation nullConversation;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
         movement = GetComponent<NPC_Movement>();
         uniqueDialogueHolder = GetComponent<NPC_UniqueDialogueHolder>();
         sprite = GetComponent<SpriteRenderer>().sprite;
+        nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
     }
 
     public void StartDialogue()
@@ -39,13 +41,14 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
         {
 
             NPCConversation conversationToShow = uniqueDialogueHolder.GetConversation();
-            if (conversationToShow != null)
+            if (conversationToShow == null)
             {
-                print(sprite);
-                ConversationManager.Instance.ReplaceIcon(sprite);
-                ConversationManager.Instance.StartConversation(conversationToShow);
-
+                conversationToShow = nullConversation;
+                Debug.LogError("No Conversation was found.");
             }
+            print(conversationToShow);
+            ConversationManager.Instance.StartConversation(conversationToShow);
+            ConversationManager.Instance.ReplaceIcon(sprite);
         }
         else
         {

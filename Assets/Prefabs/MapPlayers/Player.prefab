@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4b5b05c0eb99946b8a73fd66f1c518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collidingNPCs: []
+  collidingNpcs: []
 --- !u!114 &5080417460773678620
 MonoBehaviour:
   m_ObjectHideFlags: 0
