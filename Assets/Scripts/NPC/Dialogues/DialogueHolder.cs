@@ -80,15 +80,15 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
             dialogueActive = false;
         }
 
-        if (movement != null)
-            if (dialogueActive)
-            {
-                movement.isMoving = false;
-            }
-            else if (wasMoving)
-            {
-                movement.isMoving = true;
-                wasMoving = false;
-            }
+        //if (movement != null)
+        //    if (dialogueActive)
+        //    {
+        //        movement.isMoving = false;
+        //    }
+        //    else if (wasMoving)
+        //    {
+        //        movement.isMoving = true;
+        //        wasMoving = false;
+        //    }
     }
 }

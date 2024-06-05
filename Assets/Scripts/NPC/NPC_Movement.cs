@@ -15,23 +15,45 @@ public class NPC_Movement : MonoBehaviour
     [SerializeField] Animator animator;
 
     public bool isMoving;
+    bool wasMoving = false;
     int index;
 
     Transform targetDestination;
 
     List<Vector3> path;
-   
+
+    GameObject dialogPanel;
+
     void Start()
     {
         animator.SetBool("isIdle", true);
         animator.SetFloat("X", 0.0f);
         animator.SetFloat("Y", 0.0f);
+        dialogPanel = GameObject.FindGameObjectWithTag("DialogPanel");
 
     }
 
-    
+
     void Update()
     {
+
+        if (dialogPanel.activeSelf)
+        {
+            if (isMoving)
+            {
+                wasMoving = true;
+                isMoving = false;
+            }
+
+        }
+        else if (wasMoving)
+        {
+            isMoving = true;
+            wasMoving = false;
+        }
+            
+
+
         if (isMoving)
         {
             CheckNextStep();

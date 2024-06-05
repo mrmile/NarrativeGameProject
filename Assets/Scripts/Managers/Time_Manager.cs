@@ -16,16 +16,27 @@ public class Time_Manager : MonoBehaviour
     public bool EventsOnFirstDay = true;
     public int multipleEvents = 2; //only accepts 1 or 2
     public bool noEventProbability = false;
+
+    GameObject dialogPanel;
     
     void Start()
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
+        dialogPanel = GameObject.FindGameObjectWithTag("DialogPanel");
         TimeManagerVariables.eventAmount = multipleEvents;
 
         if (EventsOnFirstDay == true && TimeManagerVariables.classConstructed == false) 
         {
             StartDay();
         }
+    }
+
+    private void Update()
+    {
+        if (dialogPanel.activeSelf)
+            TimeManagerVariables.isTimePaused = true;
+        else
+            TimeManagerVariables.isTimePaused = false;
     }
 
     void FixedUpdate()
@@ -52,7 +63,9 @@ public class Time_Manager : MonoBehaviour
 
     void UpdateTimeValues()
     {
+        
         secondsSinceLastStep += Time.deltaTime;
+
         if(secondsSinceLastStep >= secondsPerTimeUnit)
         {
             TimeManagerVariables.currentTimeUnits++;
