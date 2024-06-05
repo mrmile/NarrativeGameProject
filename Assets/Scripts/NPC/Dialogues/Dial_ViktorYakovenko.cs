@@ -7,11 +7,11 @@ using DialogueEditor;
 public class Dial_ViktorYakovenko : NPC_UniqueDialogueHolder
 {
     GameObject player;
-    Char_Inventory playerInventory;
+
 
     [SerializeField] NPCConversation defaultConversation;
-    [SerializeField] NPCConversation dialogue1;
-    [SerializeField] NPCConversation dialogue2;
+    [SerializeField] NPCConversation basic1;
+
     private void Awake()
     {
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
@@ -26,9 +26,6 @@ public class Dial_ViktorYakovenko : NPC_UniqueDialogueHolder
         ret.sprite = GetComponent<SpriteRenderer>().sprite;
         ret.title = "Viktor Yakovenko";
 
-        //if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) return dialogue1;
-        if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) ret.conversation = dialogue1;
-        if (playerInventory.CheckItem(Inventory.ItemType.Papers)) ret.conversation = dialogue2;
 
         return ret;
     }

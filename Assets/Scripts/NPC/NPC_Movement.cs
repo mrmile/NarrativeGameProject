@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DialogueEditor;
 public class NPC_Movement : MonoBehaviour
 {
     [SerializeField] float speed;
@@ -29,7 +29,9 @@ public class NPC_Movement : MonoBehaviour
         animator.SetBool("isIdle", true);
         animator.SetFloat("X", 0.0f);
         animator.SetFloat("Y", 0.0f);
-        dialogPanel = GameObject.FindGameObjectWithTag("DialogPanel");
+        dialogPanel = ConversationManager.Instance.DialoguePanel.gameObject;
+
+
 
     }
 

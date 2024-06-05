@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static MapEventsManager;
+using DialogueEditor;
 
 public class Time_Manager : MonoBehaviour
 {
@@ -17,12 +18,14 @@ public class Time_Manager : MonoBehaviour
     public int multipleEvents = 2; //only accepts 1 or 2
     public bool noEventProbability = false;
 
-    GameObject dialogPanel;
+    [SerializeField] GameObject dialogPanel;
     
     void Start()
     {
         mapEventsManager_ = FindObjectOfType<MapEventsManager>();
-        dialogPanel = GameObject.FindGameObjectWithTag("DialogPanel");
+        dialogPanel = ConversationManager.Instance.DialoguePanel.gameObject;
+
+
         TimeManagerVariables.eventAmount = multipleEvents;
 
         if (EventsOnFirstDay == true && TimeManagerVariables.classConstructed == false) 
@@ -136,12 +139,12 @@ public class Time_Manager : MonoBehaviour
 
         TimeManagerVariables.classConstructed = true;
 
-        Debug.Log("StartDay - Event SELECTION: " + EventsEnum.eventID);
-        Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
+        //Debug.Log("StartDay - Event SELECTION: " + EventsEnum.eventID);
+        //Debug.Log("StartDay - Event TIME: " + TimeManagerVariables.randomGameHour);
         if(TimeManagerVariables.eventAmount == 2)
         {
-            Debug.Log("StartDay - Event SELECTION 2: " + EventsEnum.eventID2);
-            Debug.Log("StartDay - Event TIME 2: " + TimeManagerVariables.randomGameHour2);
+            //Debug.Log("StartDay - Event SELECTION 2: " + EventsEnum.eventID2);
+            //Debug.Log("StartDay - Event TIME 2: " + TimeManagerVariables.randomGameHour2);
         }
     }
 
@@ -154,12 +157,12 @@ public class Time_Manager : MonoBehaviour
                 if ((EventsEnum.eventID == EventsEnum.EventID.NONE && TimeManagerVariables.dayEventHapened == false))
                 {
                     TimeManagerVariables.dayEventHapened = true;
-                    Debug.Log("NO EVENT SELECTED");
+                    //Debug.Log("NO EVENT SELECTED");
                 }
                 else if ((EventsEnum.eventID == EventsEnum.EventID.LIGHTS_OFF && TimeManagerVariables.dayEventHapened == false))
                 {
                     TimeManagerVariables.dayEventHapened = true;
-                    Debug.Log("LIGHTS OFF EVENT");
+                    //Debug.Log("LIGHTS OFF EVENT");
 
                     mapEventsManager_.LightsOffEvent();
                 }

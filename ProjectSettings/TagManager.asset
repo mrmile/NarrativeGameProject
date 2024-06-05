@@ -8,6 +8,7 @@ TagManager:
   - LightSwitch
   - NPC
   - DialogPanel
+  - PanelDialogue
   layers:
   - Default
   - TransparentFX

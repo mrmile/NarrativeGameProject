@@ -7,7 +7,7 @@ using DialogueEditor;
 public class Dial_BruceMiller : NPC_UniqueDialogueHolder
 {
     GameObject player;
-    Char_Inventory playerInventory;
+
 
     [SerializeField] NPCConversation defaultConversation;
     [SerializeField] NPCConversation dialogue1;
