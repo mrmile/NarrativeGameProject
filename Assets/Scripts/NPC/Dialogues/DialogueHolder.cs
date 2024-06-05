@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using DialogueEditor;
 
-
+public struct NPC_ConversationInfo
+{
+    public string title;
+    public Sprite sprite;
+    public string content;
+    public NPCConversation conversation;
+}
 public class NPC_UniqueDialogueHolder : MonoBehaviour // specific to each npc to inherit from.
 {
     [SerializeField] protected NPCConversation nullConversation;
 
-    public virtual NPCConversation GetConversation() // sould be overrided to return specific conversations with specific conditions for each npc
+    public virtual NPC_ConversationInfo GetConversation() // sould be overrided to return specific conversations with specific conditions for each npc
     {
-        return nullConversation;
+        NPC_ConversationInfo ret = new NPC_ConversationInfo();
+        ret.title = "Null";
+        ret.content = "Conversation't";
+        ret.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        return ret;
     }
 }
 
@@ -42,14 +52,15 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
         if (ConversationManager.Instance != null)
         {
 
-            NPCConversation conversationToShow = uniqueDialogueHolder.GetConversation();
-            if (conversationToShow == null)
+            NPC_ConversationInfo conversationToShow = uniqueDialogueHolder.GetConversation();
+            if (conversationToShow.conversation == null)
             {
-                conversationToShow = nullConversation;
+                conversationToShow.conversation = nullConversation;
                 Debug.LogError("No Conversation was found.");
             }
-            ConversationManager.Instance.StartConversation(conversationToShow);
-            ConversationManager.Instance.ReplaceIcon(sprite);
+            ConversationManager.Instance.StartConversation(conversationToShow.conversation);
+            ConversationManager.Instance.ReplaceIcon(conversationToShow.sprite);
+            ConversationManager.Instance.OverrideName(conversationToShow.title);
         }
         else
         {

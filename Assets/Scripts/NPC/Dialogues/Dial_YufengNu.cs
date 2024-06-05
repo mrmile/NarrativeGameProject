@@ -21,14 +21,19 @@ public class Dial_YufengNu : NPC_UniqueDialogueHolder
         playerInventory = player.GetComponent<Char_Inventory>();
     }
 
-    public override NPCConversation GetConversation()
+    public override NPC_ConversationInfo GetConversation()
     {
+        NPC_ConversationInfo ret = new NPC_ConversationInfo();
+
+        ret.sprite = GetComponent<SpriteRenderer>().sprite;
+        ret.title = "Yufeng Nu";
+
         rand = Random.Range(1, 3);
         //if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) return dialogue1;
-        if (rand == 1) return dialogue1;
-        if (rand == 2) return dialogue2;
+        if (rand == 1) ret.conversation = dialogue1;
+        if (rand == 2) ret.conversation = dialogue2;
 
-        return defaultConversation;
+        return ret;
     }
 
     // Start is called before the first frame update

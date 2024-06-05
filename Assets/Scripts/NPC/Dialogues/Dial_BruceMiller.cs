@@ -19,13 +19,18 @@ public class Dial_BruceMiller : NPC_UniqueDialogueHolder
         playerInventory = player.GetComponent<Char_Inventory>();
     }
 
-    public override NPCConversation GetConversation()
+    public override NPC_ConversationInfo GetConversation()
     {
+        NPC_ConversationInfo ret = new NPC_ConversationInfo();
 
-        if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) return dialogue1;
-        if (playerInventory.CheckItem(Inventory.ItemType.Papers)) return dialogue2;
+        ret.sprite = GetComponent<SpriteRenderer>().sprite;
+        ret.title = "Bruce Miller";
 
-        return defaultConversation;
+        //if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) return dialogue1;
+        if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) ret.conversation = dialogue1;
+        if (playerInventory.CheckItem(Inventory.ItemType.Papers)) ret.conversation = dialogue2;
+
+        return ret;
     }
 
     // Start is called before the first frame update
