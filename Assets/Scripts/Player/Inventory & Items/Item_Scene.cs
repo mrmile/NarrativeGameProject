@@ -12,6 +12,15 @@ public class Item_Scene : MonoBehaviour
 
     private void Awake()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            if (player.GetComponent<Char_Inventory>().CheckItem(itemType))
+                Destroy(gameObject);
+        }
+
+
+
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         if (inventory == null)
         {
