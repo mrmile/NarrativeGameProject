@@ -8,11 +8,23 @@ public class Dial_Iris : NPC_UniqueDialogueHolder
 {
     GameObject player;
 
-
+    [SerializeField] bool startConversationActive;
+    [SerializeField] bool startConversationCompleted = false;
     [SerializeField] NPCConversation startGameConversation;
+    [SerializeField] NPCConversation debugStartConversation;
 
     private void Awake()
     {
+        GameObject iris = GameObject.Find("Iris");
+
+        if (iris != null && iris != gameObject)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerInventory = player.GetComponent<Char_Inventory>();
@@ -33,7 +45,13 @@ public class Dial_Iris : NPC_UniqueDialogueHolder
     // Start is called before the first frame update
     void Start()
     {
-        ConversationManager.Instance.StartConversation(startGameConversation);
+        if (!startConversationCompleted)
+            if (startConversationActive)
+                ConversationManager.Instance.StartConversation(startGameConversation);
+            else
+                ConversationManager.Instance.StartConversation(debugStartConversation);
+
+        startConversationCompleted = true;
     }
 
     // Update is called once per frame
