@@ -1012,9 +1012,9 @@ MonoBehaviour:
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 270911842}
+      - m_Target: {fileID: 1955271607}
         m_TargetAssemblyTypeName: DialogueSceneTransition, Assembly-CSharp
-        m_MethodName: OnDialogueComplete
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1321,9 +1321,9 @@ MonoBehaviour:
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 270911842}
+      - m_Target: {fileID: 1955271607}
         m_TargetAssemblyTypeName: DialogueSceneTransition, Assembly-CSharp
-        m_MethodName: OnDialogueComplete
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
