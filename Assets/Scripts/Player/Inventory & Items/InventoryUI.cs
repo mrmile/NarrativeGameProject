@@ -27,6 +27,8 @@ public class InventoryUI : MonoBehaviour
 
         equipButton.gameObject.SetActive(false);
         equipButton.onClick.AddListener(OnEquipButtonClick);
+
+        LoadItemsToUI();  // Load items when the scene starts
     }
 
     public void AddItemToUI(Sprite itemIcon, Inventory.Item item)
@@ -48,8 +50,10 @@ public class InventoryUI : MonoBehaviour
                     button.onClick.AddListener(() => ShowItemDescription(item));
                 }
                 else
+                {
                     Debug.Log("button not found");
-                
+                }
+
                 break;
             }
         }
@@ -110,6 +114,14 @@ public class InventoryUI : MonoBehaviour
         if (charInventory != null && selectedItem != null)
         {
             charInventory.EquipItem(selectedItem);
+        }
+    }
+
+    private void LoadItemsToUI()
+    {
+        foreach (var item in Inventory.Instance.pickedUpItems)
+        {
+            AddItemToUI(item.icon, item);
         }
     }
 }

@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance { get; private set; }
     public GameObject notePrefab;
     public enum ItemType
     {
@@ -33,47 +33,39 @@ public class Inventory : MonoBehaviour
     Sprite defaultSprite;
 
     [SerializeField]
-    List<Item> allItems;
+    public List<Item> allItems;
 
     [SerializeField]
-    public Dictionary<ItemType, Item> itemsDictionary = new Dictionary<ItemType, Item>();
+    public List<Item> pickedUpItems = new List<Item>();
 
     private void Awake()
     {
-        Inventory inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
-
-        if (inventory != null && inventory != this)
+        if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
 
-        DontDestroyOnLoad(this.gameObject);
+        Debug.Log("Inventory initialized with " + pickedUpItems.Count + " items.");
+    }
 
-        foreach (Item item in allItems)
+    public void AddItem(Item item)
+    {
+        if (!pickedUpItems.Contains(item))
         {
-            if (item.icon == null) item.icon = defaultSprite;
-
-            if (!itemsDictionary.ContainsKey(item.type))
-            {
-                itemsDictionary.Add(item.type, item);
-                //Debug.Log("Added item of type " + item.type + " to itemsDictionary.");
-            }
+            pickedUpItems.Add(item);
         }
-
-        Debug.Log("Inventory initialized with " + itemsDictionary.Count + " items.");
     }
 
     public bool HasTarjetaAcceso()
     {
-        return itemsDictionary.ContainsKey(ItemType.TarjetaAcceso);
+        return pickedUpItems.Exists(item => item.type == ItemType.TarjetaAcceso);
     }
 
     public void UseTarjetaAcceso()
     {
-        if (HasTarjetaAcceso())
-        {
-            itemsDictionary.Remove(ItemType.TarjetaAcceso);
-        }
+        pickedUpItems.RemoveAll(item => item.type == ItemType.TarjetaAcceso);
     }
 }

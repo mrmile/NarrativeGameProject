@@ -11,12 +11,15 @@ public class Char_Inventory : MonoBehaviour
     [SerializeField] GameObject flashlightObject;  // Reference to the GameObject that emits light
     private Dictionary<GameObject, GameObject> itemToCanvasMap = new Dictionary<GameObject, GameObject>();
     [SerializeField] GameObject noteHolder;
-    [SerializeField] Inventory inventory;
 
     private void Awake()
     {
-        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        if (Inventory.Instance != null)
+        {
+            items = new List<Inventory.Item>(Inventory.Instance.pickedUpItems);
+        }
     }
+
     public void AddNote(Inventory.Note note)
     {
         noteHolder = GameObject.Find("NoteHolder");
@@ -26,9 +29,9 @@ public class Char_Inventory : MonoBehaviour
             return;
         }
 
-        GameObject n = Instantiate(inventory.notePrefab);
+        GameObject n = Instantiate(Inventory.Instance.notePrefab);
         n.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = note.identifier;
-        n.transform.GetChild(1).GetComponent<TextMeshProUGUI >().text = note.content;
+        n.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = note.content;
 
         n.transform.parent = noteHolder.transform;
         n.transform.localScale = new Vector3(1, 1, 1);
@@ -45,6 +48,7 @@ public class Char_Inventory : MonoBehaviour
         }
         return false;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Item_Scene item = collision.GetComponent<Item_Scene>();
@@ -67,7 +71,6 @@ public class Char_Inventory : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Inventory.Note note = new Inventory.Note();
@@ -76,7 +79,6 @@ public class Char_Inventory : MonoBehaviour
 
             AddNote(note);
         }
-
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -106,7 +108,7 @@ public class Char_Inventory : MonoBehaviour
         }
 
         // Check for equip action
-        if (Input.GetKeyDown(KeyCode.Q))  // Assuming 'Q' is the equip key
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             foreach (var item in items)
             {

@@ -19,8 +19,6 @@ public class Item_Scene : MonoBehaviour
                 Destroy(gameObject);
         }
 
-
-
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         if (inventory == null)
         {
@@ -36,15 +34,21 @@ public class Item_Scene : MonoBehaviour
 
     private void Start()
     {
-        if (inventory != null && inventory.itemsDictionary.ContainsKey(itemType))
+        if (inventory != null)
         {
-            item = inventory.itemsDictionary[itemType];
-            GetComponent<SpriteRenderer>().sprite = item.icon;
-            //Debug.Log("Item of type " + itemType + " initialized successfully.");
+            item = inventory.allItems.Find(i => i.type == itemType);
+            if (item != null)
+            {
+                GetComponent<SpriteRenderer>().sprite = item.icon;
+            }
+            else
+            {
+                Debug.LogError("Item of type " + itemType + " not found in inventory.");
+            }
         }
         else
         {
-            Debug.LogError("Item of type " + itemType + " not found in inventory or inventory is null.");
+            Debug.LogError("Inventory is null.");
         }
     }
 
@@ -79,6 +83,15 @@ public class Item_Scene : MonoBehaviour
         else
         {
             Debug.LogError("GameManager instance is null.");
+        }
+
+        if (Inventory.Instance != null)
+        {
+            Inventory.Instance.AddItem(item);
+        }
+        else
+        {
+            Debug.LogError("Inventory instance is null.");
         }
 
         Destroy(gameObject);
