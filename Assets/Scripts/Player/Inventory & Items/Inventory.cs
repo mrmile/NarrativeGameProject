@@ -55,7 +55,7 @@ public class Inventory : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        Debug.Log("Inventory initialized with " + pickedUpItems.Count + " items.");
+        //Debug.Log("Inventory initialized with " + pickedUpItems.Count + " items.");
     }
 
     public void AddItem(Item item)

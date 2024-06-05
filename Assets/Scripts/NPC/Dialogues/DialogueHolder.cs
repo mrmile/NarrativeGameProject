@@ -13,7 +13,10 @@ public struct NPC_ConversationInfo
 public class NPC_UniqueDialogueHolder : MonoBehaviour // specific to each npc to inherit from.
 {
     [SerializeField] protected NPCConversation nullConversation;
+    [SerializeField] List<Inventory.Note> notesToGive;
     protected bool firstTalked = false;
+
+    [SerializeField] protected Char_Inventory playerInventory;
     public virtual NPC_ConversationInfo GetConversation() // sould be overrided to return specific conversations with specific conditions for each npc
     {
         NPC_ConversationInfo ret = new NPC_ConversationInfo();
@@ -22,6 +25,28 @@ public class NPC_UniqueDialogueHolder : MonoBehaviour // specific to each npc to
         ret.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         return ret;
     }
+
+
+    public void GiveNote(string identifier)
+    {
+        if (!playerInventory.CheckNotes(identifier))
+        {
+            Inventory.Note noteToGive = GetNote(identifier);
+            if (noteToGive != null)
+                playerInventory.notes.Add(noteToGive);
+        }
+    }
+
+    public Inventory.Note GetNote(string identifier)
+    {
+        foreach (Inventory.Note id in notesToGive)
+        {
+            if (id.identifier == identifier)
+                return id;
+        }
+        return null;
+    }
+
 }
 
 public class DialogueHolder : MonoBehaviour // for every npc, it asks for conversations from an npc

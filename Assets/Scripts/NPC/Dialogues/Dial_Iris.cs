@@ -7,7 +7,7 @@ using DialogueEditor;
 public class Dial_Iris : NPC_UniqueDialogueHolder
 {
     GameObject player;
-    Char_Inventory playerInventory;
+
 
     [SerializeField] NPCConversation startGameConversation;
 

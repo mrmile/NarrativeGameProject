@@ -7,7 +7,7 @@ using DialogueEditor;
 public class Dial_YufengNu : NPC_UniqueDialogueHolder
 {
     GameObject player;
-    Char_Inventory playerInventory;
+
 
     [SerializeField] NPCConversation FirstConversation;
 
