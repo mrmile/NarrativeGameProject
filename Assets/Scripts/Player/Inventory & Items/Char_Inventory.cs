@@ -11,13 +11,49 @@ public class Char_Inventory : MonoBehaviour
     [SerializeField] GameObject flashlightObject;  // Reference to the GameObject that emits light
     private Dictionary<GameObject, GameObject> itemToCanvasMap = new Dictionary<GameObject, GameObject>();
     [SerializeField] GameObject noteHolder;
+    [SerializeField] Inventory inventory;
 
     private void Awake()
     {
-        if (Inventory.Instance != null)
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+    }
+
+
+    public bool CheckNotes(string identifier)
+    {
+        foreach (Inventory.Note id in notes)
         {
-            items = new List<Inventory.Item>(Inventory.Instance.pickedUpItems);
+            if (id.identifier == identifier)
+                return true;
         }
+        return false;
+    }
+
+    public void AddNote(string identifier, string content)
+    {
+        noteHolder = GameObject.Find("NoteHolder");
+        if (noteHolder == null)
+        {
+            Debug.LogError("NoteHolder not found.");
+            return;
+        }
+
+        
+        foreach (Inventory.Note  n in notes) // check if there is already a note with that identifier
+        {
+            if (n.identifier == identifier)
+                return;
+        }
+
+        Inventory.Note note = new Inventory.Note(identifier, content);
+        notes.Add(note);
+
+        //GameObject n = Instantiate(inventory.notePrefab);
+        //n.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = note.identifier;
+        //n.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = note.content;
+
+        //n.transform.parent = noteHolder.transform;
+        //n.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void AddNote(Inventory.Note note)
@@ -29,12 +65,22 @@ public class Char_Inventory : MonoBehaviour
             return;
         }
 
-        GameObject n = Instantiate(Inventory.Instance.notePrefab);
-        n.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = note.identifier;
-        n.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = note.content;
 
-        n.transform.parent = noteHolder.transform;
-        n.transform.localScale = new Vector3(1, 1, 1);
+        foreach (Inventory.Note n in notes) // check if there is already a note with that identifier
+        {
+            if (n.identifier == note.identifier)
+                return;
+        }
+
+        
+        notes.Add(note);
+
+        //GameObject n = Instantiate(inventory.notePrefab);
+        //n.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = note.identifier;
+        //n.transform.GetChild(1).GetComponent<TextMeshProUGUI >().text = note.content;
+
+        //n.transform.parent = noteHolder.transform;
+        //n.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public bool CheckItem(Inventory.ItemType type)
@@ -71,14 +117,6 @@ public class Char_Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Inventory.Note note = new Inventory.Note();
-            note.identifier = "Alpaca";
-            note.content = "Alpaca content";
-
-            AddNote(note);
-        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {

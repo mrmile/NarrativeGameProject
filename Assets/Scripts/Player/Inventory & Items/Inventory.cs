@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[Serializable]
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
@@ -27,6 +28,12 @@ public class Inventory : MonoBehaviour
     {
         public string identifier;
         public string content;
+
+        public Note(string identifier, string content)
+        {
+            this.identifier = identifier;
+            this.content = content;
+        }
     }
 
     [SerializeField]
