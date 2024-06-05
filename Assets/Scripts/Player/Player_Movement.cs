@@ -13,6 +13,18 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] GameObject conversation;
 
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null && player != gameObject) 
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+
+
     void Start()
     {
         player_animations = GetComponent<Player_Animations>();
