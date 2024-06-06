@@ -4,20 +4,24 @@ using DialogueEditor;
 public class StartDialogueOnLoad : MonoBehaviour
 {
     public NPCConversation introDialogue;
+    Char_Inventory player;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Char_Inventory>();
         if (introDialogue != null)
         {
             ConversationManager.Instance.StartConversation(introDialogue);
         }
 
-        //Debug.Log("Has Item 1: " + GameManager.Instance.hasItem1);
-        ConversationManager.Instance.SetBool("hasPapeles", GameManager.Instance.hasPapeles);
-        ConversationManager.Instance.SetBool("hasCinturon", GameManager.Instance.hasCinturon);
-        ConversationManager.Instance.SetBool("hasCura", GameManager.Instance.hasCura);
-        ConversationManager.Instance.SetBool("hasPendiente", GameManager.Instance.hasPendiente);
-        ConversationManager.Instance.SetBool("hasMaletin", GameManager.Instance.hasMaletin);
+        Debug.Log("Has Item 1: " + player.CheckNotes("Lost Belt"));
+        ConversationManager.Instance.SetBool("ViktorLetters", player.CheckNotes("Viktor's Letters"));
+        ConversationManager.Instance.SetBool("antiRadiation", player.CheckNotes("Anti-Radiation Chemical"));
+        ConversationManager.Instance.SetBool("BruceBelt", player.CheckNotes("Bruce's Belt"));
+        ConversationManager.Instance.SetBool("lostBelt", player.CheckNotes("Lost Belt"));
+        ConversationManager.Instance.SetBool("VerasEarring", player.CheckNotes("Vera's earring"));
+        ConversationManager.Instance.SetBool("TinosGossip", player.CheckNotes("Tino's Gossip: Bruce"));
+
     }
 
     public void StartDialogue()

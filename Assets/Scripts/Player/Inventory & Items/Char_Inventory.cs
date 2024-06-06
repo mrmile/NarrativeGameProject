@@ -24,7 +24,11 @@ public class Char_Inventory : MonoBehaviour
         foreach (Inventory.Note id in notes)
         {
             if (id.identifier == identifier)
+            {
+                Debug.Log(identifier + "FOUND");
                 return true;
+
+            }
         }
         return false;
     }
