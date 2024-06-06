@@ -11,6 +11,7 @@ public class Dial_BruceMiller : NPC_UniqueDialogueHolder
 
     [SerializeField] NPCConversation FirstConversation;
     [SerializeField] NPCConversation basic1;
+    [SerializeField] NPCConversation help;
 
 
     private void Awake()
@@ -35,6 +36,9 @@ public class Dial_BruceMiller : NPC_UniqueDialogueHolder
             ret.conversation = FirstConversation;
             playerInteractions.firstBruce = true;
         }
+
+        if (playerInteractions.firstIris) 
+            ret.conversation = help;
 
         return ret;
     }

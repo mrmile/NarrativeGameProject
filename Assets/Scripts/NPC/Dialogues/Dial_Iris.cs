@@ -13,6 +13,8 @@ public class Dial_Iris : NPC_UniqueDialogueHolder
     [SerializeField] bool startConversationCompleted = false;
     [SerializeField] NPCConversation startGameConversation;
     [SerializeField] NPCConversation debugStartConversation;
+    [SerializeField] NPCConversation talk;
+    [SerializeField] GameObject irisMenu;
 
     private void Awake()
     {
@@ -31,6 +33,12 @@ public class Dial_Iris : NPC_UniqueDialogueHolder
         playerInventory = playerInteractions.gameObject.GetComponent<Char_Inventory>();
     }
 
+    public void Talk()
+    {
+        irisMenu.SetActive(false);
+        playerInteractions.firstIris = true;
+        ConversationManager.Instance.StartConversation(talk);
+    }
 
     public override NPC_ConversationInfo GetConversation()
     {

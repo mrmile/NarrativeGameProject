@@ -21,6 +21,7 @@ public class StartDialogueOnLoad : MonoBehaviour
         ConversationManager.Instance.SetBool("lostBelt", player.CheckNotes("Lost Belt"));
         ConversationManager.Instance.SetBool("VerasEarring", player.CheckNotes("Vera's earring"));
         ConversationManager.Instance.SetBool("TinosGossip", player.CheckNotes("Tino's Gossip: Bruce"));
+        ConversationManager.Instance.SetBool("lostChemical", player.CheckNotes("Lost Chemical"));
 
     }
 

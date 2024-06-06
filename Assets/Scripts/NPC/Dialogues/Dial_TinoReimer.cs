@@ -11,6 +11,7 @@ public class Dial_TinoReimer : NPC_UniqueDialogueHolder
 
     [SerializeField] NPCConversation FirstConversation;
     [SerializeField] NPCConversation basic1;
+    [SerializeField] NPCConversation maletin;
 
     private void Awake()
     {
@@ -34,6 +35,10 @@ public class Dial_TinoReimer : NPC_UniqueDialogueHolder
             ret.conversation = FirstConversation;
             playerInteractions.firstTino = true;
         }
+
+        if (playerInteractions.hasMaletin)
+            ret.conversation = maletin;
+
 
         return ret;
     }

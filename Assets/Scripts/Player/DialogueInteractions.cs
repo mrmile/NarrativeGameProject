@@ -11,5 +11,8 @@ public class DialogueInteractions : MonoBehaviour
     public bool firstOmar;
     public bool firstBruce;
 
+    public bool hasMaletin;
+    public bool firstIris;
+
 
 }

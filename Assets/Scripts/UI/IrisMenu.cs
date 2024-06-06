@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DialogueEditor;
 
 public class IrisMenu : MonoBehaviour
 {

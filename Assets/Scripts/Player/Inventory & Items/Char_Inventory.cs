@@ -25,7 +25,7 @@ public class Char_Inventory : MonoBehaviour
         {
             if (id.identifier == identifier)
             {
-                Debug.Log(identifier + "FOUND");
+                //Debug.Log(identifier + " FOUND");
                 return true;
 
             }
@@ -35,12 +35,12 @@ public class Char_Inventory : MonoBehaviour
 
     public void AddNote(string identifier, string content)
     {
-        noteHolder = GameObject.Find("NoteHolder");
-        if (noteHolder == null)
-        {
-            Debug.LogError("NoteHolder not found.");
-            return;
-        }
+        //noteHolder = GameObject.Find("NoteHolder");
+        //if (noteHolder == null)
+        //{
+        //    Debug.LogError("NoteHolder not found.");
+        //    return;
+        //}
 
         
         foreach (Inventory.Note  n in notes) // check if there is already a note with that identifier
@@ -62,12 +62,12 @@ public class Char_Inventory : MonoBehaviour
 
     public void AddNote(Inventory.Note note)
     {
-        noteHolder = GameObject.Find("NoteHolder");
-        if (noteHolder == null)
-        {
-            Debug.LogError("NoteHolder not found.");
-            return;
-        }
+        //noteHolder = GameObject.Find("NoteHolder");
+        //if (noteHolder == null)
+        //{
+        //    Debug.LogError("NoteHolder not found.");
+        //    return;
+        //}
 
 
         foreach (Inventory.Note n in notes) // check if there is already a note with that identifier

@@ -94,7 +94,45 @@ public class Item_Scene : MonoBehaviour
             Debug.LogError("Inventory instance is null.");
         }
 
+        Char_Inventory player = GameObject.FindGameObjectWithTag("Player").GetComponent<Char_Inventory>();
+        DialogueInteractions interactions = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueInteractions>();
+        switch (itemType)
+        {
+            case Inventory.ItemType.NoItem:
+                break;
+            case Inventory.ItemType.Papers:
+                player.AddNote("Viktor's Letters", "These Letters seem to describe something called 'The Resistance'. They don't speak well about Bruce Miller.");
+
+                break;
+            case Inventory.ItemType.Cinturon:
+                player.AddNote("Bruce's Belt", "This belt belongs to Bruce Miller. Is such a strange location to lose it...");
+                break;
+            case Inventory.ItemType.Cura:
+                player.AddNote("Anti - Radiation Chemical", "The code seems to belong to a Chemical that increases resistance to Radiation.");
+                break;
+            case Inventory.ItemType.Key:
+                break;
+            case Inventory.ItemType.Pendiente:
+                player.AddNote("Vera's earring", "Vera lost an earring in the Reactor. However, only Viktor and you have access to it.");
+                break;
+            case Inventory.ItemType.TarjetaAcceso:
+                break;
+            case Inventory.ItemType.ClaveAcceso:
+                break;
+            case Inventory.ItemType.TrajeOperaciones:
+                break;
+            case Inventory.ItemType.Maletin:
+                interactions.hasMaletin = true;
+                break;
+            case Inventory.ItemType.Linterna:
+                break;
+            default:
+                break;
+        }
+
         Destroy(gameObject);
         return item;
     }
 }
+
+  
