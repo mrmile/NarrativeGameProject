@@ -26,7 +26,7 @@ public class Dial_Iris : NPC_UniqueDialogueHolder
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
         playerInteractions = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueInteractions>();
