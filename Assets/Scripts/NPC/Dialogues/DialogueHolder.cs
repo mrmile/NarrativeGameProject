@@ -82,8 +82,8 @@ public class DialogueHolder : MonoBehaviour // for every npc, it asks for conver
                 Debug.LogError("No Conversation was found.");
             }
             ConversationManager.Instance.StartConversation(conversationToShow.conversation);
-            ConversationManager.Instance.ReplaceIcon(conversationToShow.sprite);
-            ConversationManager.Instance.OverrideName(conversationToShow.title);
+            //ConversationManager.Instance.ReplaceIcon(conversationToShow.sprite);
+            //ConversationManager.Instance.OverrideName(conversationToShow.title);
 
         }
         else

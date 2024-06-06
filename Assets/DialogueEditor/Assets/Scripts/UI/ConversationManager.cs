@@ -377,7 +377,7 @@ namespace DialogueEditor
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    m_scrollIndex = DialogueText.maxVisibleCharacters;
+                    m_scrollIndex = DialogueText.maxVisibleCharacters -1;
                 }
 
                 // Finished?

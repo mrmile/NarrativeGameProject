@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DialogueEditor;
 
 
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] List<GameObject> collidingNpcs;
+
+    GameObject dialoguePanel;
     // Start is called before the first frame update
     void Start()
     {
-        
+        dialoguePanel = ConversationManager.Instance.DialoguePanel.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.E) && !dialoguePanel.activeSelf)
         {
             if (collidingNpcs.Count > 0)
             {

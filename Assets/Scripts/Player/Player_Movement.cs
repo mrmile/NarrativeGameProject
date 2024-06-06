@@ -39,10 +39,14 @@ public class Player_Movement : MonoBehaviour
 
 
 
-
-
-        if (!canMove) return;
         walkDirection = WalkDirection.DEFAULT;
+
+        if (!canMove)
+        {
+            player_animations.IdleAnimation();
+            return;
+        }
+        
         if (Input.GetKey(KeyCode.W))
         {
             walkDirection = WalkDirection.UP;
@@ -70,6 +74,7 @@ public class Player_Movement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Move(Vector2.zero);
         if (!canMove) return;
         if(Input.GetKey(KeyCode.W))
         {

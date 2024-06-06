@@ -6,17 +6,17 @@ using DialogueEditor;
 
 public class Dial_ViktorYakovenko : NPC_UniqueDialogueHolder
 {
-    GameObject player;
+    DialogueInteractions playerInteractions;
 
 
-    [SerializeField] NPCConversation defaultConversation;
+    [SerializeField] NPCConversation FirstConversation;
     [SerializeField] NPCConversation basic1;
 
     private void Awake()
     {
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerInventory = player.GetComponent<Char_Inventory>();
+        playerInteractions = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueInteractions>();
+        playerInventory = playerInteractions.gameObject.GetComponent<Char_Inventory>();
     }
 
     public override NPC_ConversationInfo GetConversation()
@@ -26,6 +26,14 @@ public class Dial_ViktorYakovenko : NPC_UniqueDialogueHolder
         ret.sprite = GetComponent<SpriteRenderer>().sprite;
         ret.title = "Viktor Yakovenko";
 
+        ret.conversation = basic1;
+
+
+        if (!playerInteractions.firstViktor)
+        {
+            ret.conversation = FirstConversation;
+            playerInteractions.firstViktor = true;
+        }
 
         return ret;
     }

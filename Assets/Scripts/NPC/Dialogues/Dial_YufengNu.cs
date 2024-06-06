@@ -6,7 +6,8 @@ using DialogueEditor;
 
 public class Dial_YufengNu : NPC_UniqueDialogueHolder
 {
-    GameObject player;
+    DialogueInteractions playerInteractions;
+
 
 
     [SerializeField] NPCConversation FirstConversation;
@@ -20,8 +21,8 @@ public class Dial_YufengNu : NPC_UniqueDialogueHolder
     private void Awake()
     {
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerInventory = player.GetComponent<Char_Inventory>();
+        playerInteractions = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueInteractions>();
+        playerInventory = playerInteractions.gameObject.GetComponent<Char_Inventory>();
     }
 
     public override NPC_ConversationInfo GetConversation()
@@ -31,10 +32,16 @@ public class Dial_YufengNu : NPC_UniqueDialogueHolder
         ret.sprite = GetComponent<SpriteRenderer>().sprite;
         ret.title = "Yufeng Nu";
 
-        if (!firstTalked)
-            ret.conversation = FirstConversation;
 
-       
+        rand = Random.Range(0, 2);
+        ret.conversation = (rand == 1) ? dialogue1 : dialogue2;
+
+        if (!playerInteractions.firstYufeng)
+        {
+            ret.conversation = FirstConversation;
+            playerInteractions.firstYufeng = true;
+        }
+
 
         return ret;
     }

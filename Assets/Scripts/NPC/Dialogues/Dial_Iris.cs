@@ -6,7 +6,8 @@ using DialogueEditor;
 
 public class Dial_Iris : NPC_UniqueDialogueHolder
 {
-    GameObject player;
+    DialogueInteractions playerInteractions;
+
 
     [SerializeField] bool startConversationActive;
     [SerializeField] bool startConversationCompleted = false;
@@ -26,8 +27,8 @@ public class Dial_Iris : NPC_UniqueDialogueHolder
         DontDestroyOnLoad(gameObject);
 
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerInventory = player.GetComponent<Char_Inventory>();
+        playerInteractions = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueInteractions>();
+        playerInventory = playerInteractions.gameObject.GetComponent<Char_Inventory>();
     }
 
 

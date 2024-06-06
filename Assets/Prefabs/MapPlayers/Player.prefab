@@ -855,6 +855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5080417460773678623}
+  - component: {fileID: 3060726553491607467}
   - component: {fileID: 1570165755817130385}
   - component: {fileID: 5080417460773678620}
   - component: {fileID: 5080417460773678621}
@@ -893,6 +894,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3060726553491607467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5080417460773678599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e1a885a65dbff48bcec41cf706014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstYufeng: 0
+  firstViktor: 0
+  firstVera: 0
+  firstTino: 0
+  firstOmar: 0
+  firstBruce: 0
 --- !u!114 &1570165755817130385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,10 +952,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49df080a33092534881fc062903ddc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notes: []
   items: []
   collidingItems: []
   pickupCanvasPrefab: {fileID: 0}
   flashlightObject: {fileID: 5080417459945875717}
+  noteHolder: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &5080417460773678618
 MonoBehaviour:
   m_ObjectHideFlags: 0

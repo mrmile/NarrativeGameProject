@@ -6,17 +6,18 @@ using DialogueEditor;
 
 public class Dial_BruceMiller : NPC_UniqueDialogueHolder
 {
-    GameObject player;
+    DialogueInteractions playerInteractions;
 
 
-    [SerializeField] NPCConversation defaultConversation;
-    [SerializeField] NPCConversation dialogue1;
-    [SerializeField] NPCConversation dialogue2;
+    [SerializeField] NPCConversation FirstConversation;
+    [SerializeField] NPCConversation basic1;
+
+
     private void Awake()
     {
         nullConversation = GameObject.Find("NullConversation").GetComponent<NPCConversation>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerInventory = player.GetComponent<Char_Inventory>();
+        playerInteractions = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogueInteractions>();
+        playerInventory = playerInteractions.gameObject.GetComponent<Char_Inventory>();
     }
 
     public override NPC_ConversationInfo GetConversation()
@@ -26,9 +27,14 @@ public class Dial_BruceMiller : NPC_UniqueDialogueHolder
         ret.sprite = GetComponent<SpriteRenderer>().sprite;
         ret.title = "Bruce Miller";
 
-        //if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) return dialogue1;
-        if (playerInventory.CheckItem(Inventory.ItemType.Maletin)) ret.conversation = dialogue1;
-        if (playerInventory.CheckItem(Inventory.ItemType.Papers)) ret.conversation = dialogue2;
+        ret.conversation = basic1;
+
+
+        if (!playerInteractions.firstBruce)
+        {
+            ret.conversation = FirstConversation;
+            playerInteractions.firstBruce = true;
+        }
 
         return ret;
     }
