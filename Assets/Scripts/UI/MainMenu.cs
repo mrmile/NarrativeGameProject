@@ -41,6 +41,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+    public void ShowCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 
     public void ExitGame()
     {
