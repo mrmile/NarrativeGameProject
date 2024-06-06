@@ -75,12 +75,7 @@ public class Char_Inventory : MonoBehaviour
         
         notes.Add(note);
 
-        //GameObject n = Instantiate(inventory.notePrefab);
-        //n.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = note.identifier;
-        //n.transform.GetChild(1).GetComponent<TextMeshProUGUI >().text = note.content;
-
-        //n.transform.parent = noteHolder.transform;
-        //n.transform.localScale = new Vector3(1, 1, 1);
+        
     }
 
     public bool CheckItem(Inventory.ItemType type)
@@ -146,17 +141,17 @@ public class Char_Inventory : MonoBehaviour
         }
 
         // Check for equip action
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            foreach (var item in items)
-            {
-                if (item.type == Inventory.ItemType.Linterna)
-                {
-                    EquipItem(item);
-                    break;
-                }
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    foreach (var item in items)
+        //    {
+        //        if (item.type == Inventory.ItemType.Linterna)
+        //        {
+        //            EquipItem(item);
+        //            break;
+        //        }
+        //    }
+        //}
     }
 
     public void EquipItem(Inventory.Item item)

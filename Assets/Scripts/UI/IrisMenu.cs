@@ -17,6 +17,10 @@ public class IrisMenu : MonoBehaviour
         if (notesPanel != null)
         {
             notesPanel.SetActive(!notesPanel.activeSelf); // Toggle the active state of the panel
+
+            if (notesPanel.activeSelf)
+                notesPanel.GetComponent<CheckNotes>().FillNoteJournal();
+
         }
         else
         {
